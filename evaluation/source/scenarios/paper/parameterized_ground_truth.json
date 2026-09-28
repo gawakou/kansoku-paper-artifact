@@ -1,0 +1,786 @@
+{
+  "instances": {
+    "firewall-deny-v01": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-deny"
+    },
+    "firewall-deny-v02": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-deny"
+    },
+    "firewall-deny-v03": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-deny"
+    },
+    "firewall-deny-v04": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-deny"
+    },
+    "firewall-deny-v05": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-deny"
+    },
+    "firewall-port-range-deny-v01": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-port-range-deny"
+    },
+    "firewall-port-range-deny-v02": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-port-range-deny"
+    },
+    "firewall-port-range-deny-v03": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-port-range-deny"
+    },
+    "firewall-port-range-deny-v04": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-port-range-deny"
+    },
+    "firewall-port-range-deny-v05": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-port-range-deny"
+    },
+    "firewall-rule-order-v01": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-rule-order"
+    },
+    "firewall-rule-order-v02": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-rule-order"
+    },
+    "firewall-rule-order-v03": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-rule-order"
+    },
+    "firewall-rule-order-v04": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-rule-order"
+    },
+    "firewall-rule-order-v05": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-rule-order"
+    },
+    "firewall-subnet-deny-v01": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-subnet-deny"
+    },
+    "firewall-subnet-deny-v02": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-subnet-deny"
+    },
+    "firewall-subnet-deny-v03": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-subnet-deny"
+    },
+    "firewall-subnet-deny-v04": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-subnet-deny"
+    },
+    "firewall-subnet-deny-v05": {
+      "boundary": false,
+      "expected_affected_device": "fw1",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "expected_element_type": "POLICY_RULE",
+      "expected_fault_domain": "FIREWALL",
+      "expected_verdict": "DENY",
+      "family": "FIREWALL",
+      "prototype_id": "firewall-subnet-deny"
+    },
+    "normal-v01": {
+      "boundary": false,
+      "expected_affected_device": "",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "none"
+      },
+      "expected_element_type": "NONE",
+      "expected_fault_domain": "NONE",
+      "expected_verdict": "ALLOW",
+      "family": "CONTROL",
+      "prototype_id": "normal"
+    },
+    "normal-v02": {
+      "boundary": false,
+      "expected_affected_device": "",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "none"
+      },
+      "expected_element_type": "NONE",
+      "expected_fault_domain": "NONE",
+      "expected_verdict": "ALLOW",
+      "family": "CONTROL",
+      "prototype_id": "normal"
+    },
+    "normal-v03": {
+      "boundary": false,
+      "expected_affected_device": "",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "none"
+      },
+      "expected_element_type": "NONE",
+      "expected_fault_domain": "NONE",
+      "expected_verdict": "ALLOW",
+      "family": "CONTROL",
+      "prototype_id": "normal"
+    },
+    "normal-v04": {
+      "boundary": false,
+      "expected_affected_device": "",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "none"
+      },
+      "expected_element_type": "NONE",
+      "expected_fault_domain": "NONE",
+      "expected_verdict": "ALLOW",
+      "family": "CONTROL",
+      "prototype_id": "normal"
+    },
+    "normal-v05": {
+      "boundary": false,
+      "expected_affected_device": "",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "none"
+      },
+      "expected_element_type": "NONE",
+      "expected_fault_domain": "NONE",
+      "expected_verdict": "ALLOW",
+      "family": "CONTROL",
+      "prototype_id": "normal"
+    },
+    "route-blackhole-host-v01": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-blackhole-host"
+    },
+    "route-blackhole-host-v02": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-blackhole-host"
+    },
+    "route-blackhole-host-v03": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-blackhole-host"
+    },
+    "route-blackhole-host-v04": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-blackhole-host"
+    },
+    "route-blackhole-host-v05": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-blackhole-host"
+    },
+    "route-missing-v01": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-missing"
+    },
+    "route-missing-v02": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.11"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-missing"
+    },
+    "route-missing-v03": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.12"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-missing"
+    },
+    "route-missing-v04": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.13"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-missing"
+    },
+    "route-missing-v05": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.14"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-missing"
+    },
+    "route-unreachable-next-hop-v01": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-unreachable-next-hop"
+    },
+    "route-unreachable-next-hop-v02": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-unreachable-next-hop"
+    },
+    "route-unreachable-next-hop-v03": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-unreachable-next-hop"
+    },
+    "route-unreachable-next-hop-v04": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-unreachable-next-hop"
+    },
+    "route-unreachable-next-hop-v05": {
+      "boundary": false,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-unreachable-next-hop"
+    },
+    "route-wrong-interface-v01": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-wrong-interface"
+    },
+    "route-wrong-interface-v02": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-wrong-interface"
+    },
+    "route-wrong-interface-v03": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-wrong-interface"
+    },
+    "route-wrong-interface-v04": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-wrong-interface"
+    },
+    "route-wrong-interface-v05": {
+      "boundary": true,
+      "expected_affected_device": "r1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "ROUTE",
+      "expected_fault_domain": "ROUTE",
+      "expected_verdict": "UNROUTABLE",
+      "family": "ROUTE",
+      "prototype_id": "route-wrong-interface"
+    },
+    "vlan-access-only-drift-v01": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-access-only-drift"
+    },
+    "vlan-access-only-drift-v02": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-access-only-drift"
+    },
+    "vlan-access-only-drift-v03": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-access-only-drift"
+    },
+    "vlan-access-only-drift-v04": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-access-only-drift"
+    },
+    "vlan-access-only-drift-v05": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-access-only-drift"
+    },
+    "vlan-mismatch-v01": {
+      "boundary": false,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "vlan-missing:10"
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-mismatch"
+    },
+    "vlan-mismatch-v02": {
+      "boundary": false,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "vlan-missing:10"
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-mismatch"
+    },
+    "vlan-mismatch-v03": {
+      "boundary": false,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "vlan-missing:10"
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-mismatch"
+    },
+    "vlan-mismatch-v04": {
+      "boundary": false,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "vlan-missing:10"
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-mismatch"
+    },
+    "vlan-mismatch-v05": {
+      "boundary": false,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "vlan-missing:10"
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-mismatch"
+    },
+    "vlan-trunk-only-drift-v01": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-trunk-only-drift"
+    },
+    "vlan-trunk-only-drift-v02": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-trunk-only-drift"
+    },
+    "vlan-trunk-only-drift-v03": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-trunk-only-drift"
+    },
+    "vlan-trunk-only-drift-v04": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-trunk-only-drift"
+    },
+    "vlan-trunk-only-drift-v05": {
+      "boundary": true,
+      "expected_affected_device": "sw1",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "expected_element_type": "VLAN",
+      "expected_fault_domain": "VLAN",
+      "expected_verdict": "UNKNOWN",
+      "family": "VLAN",
+      "prototype_id": "vlan-trunk-only-drift"
+    }
+  },
+  "purpose": "Independent ground truth for Phase-2 parameterized diagnosis evaluation. This file is consumed only by the evaluation stage.",
+  "schema_version": 1
+}

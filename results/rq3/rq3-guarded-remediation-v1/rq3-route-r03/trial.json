@@ -1,0 +1,13 @@
+{
+  "environment": "virtual-lab",
+  "family": "ROUTE",
+  "ground_truth_consumed_by_runner": false,
+  "instance_id": "rq3-route-r03",
+  "phase": "RQ3 guarded remediation",
+  "plan_sha256": "294e8dbf258dbbafb6ab323169aedf563a69b084ad46bb54dcd5c249a3062f00",
+  "preregistration_commit": "cca05b5ce5d92e2d67bb3d261978515ddd3d82bc",
+  "preregistration_tag": "paper-rq3-guarded-remediation-prereg-v1",
+  "repetition": 3,
+  "runner_commit": "c7990ba9bbfe4c0625714da4a99adffe5ded17e2",
+  "schema_version": 1
+}

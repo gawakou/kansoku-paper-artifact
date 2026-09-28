@@ -1,0 +1,47 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+artifacts/raw/*.json
+.DS_Store
+.vscode/
+.idea/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv*/
+
+# Remote agent credentials and durable local queues
+.kansoku/
+spool/
+*.agent-token
+agent-token*
+
+# Packet capture artifacts (metadata and schemas are tracked; packet data is not)
+*.pcap
+*.pcapng
+artifacts/pcap/
+
+# Imported live network configuration/state can disclose infrastructure details
+artifacts/network-state/
+artifacts/config/
+
+# Reproducible virtual-lab runtime outputs
+artifacts/lab/
+.clab/
+clab-*/
+
+# Local source backups
+*.before-*

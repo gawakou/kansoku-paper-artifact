@@ -1,0 +1,1760 @@
+{
+  "accuracy_unit": "parameterized instance",
+  "groups": {
+    "ALL": {
+      "instance_count": 60,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 60,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.5833333333333334,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 20
+              },
+              "NONE": {
+                "NONE": 5
+              },
+              "ROUTE": {
+                "NONE": 10,
+                "ROUTE": 10
+              },
+              "VLAN": {
+                "NONE": 15
+              }
+            },
+            "fault_domain_correct": 35,
+            "localization_accuracy": 0.5454545454545454,
+            "localization_applicable": 55,
+            "localization_correct": 30,
+            "strict_accuracy": 0.5833333333333334,
+            "strict_correct": 35,
+            "trials": 60,
+            "verdict_accuracy": 0.5833333333333334,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              },
+              "DENY": {
+                "DENY": 20
+              },
+              "UNKNOWN": {
+                "ALLOW": 15
+              },
+              "UNROUTABLE": {
+                "ALLOW": 10,
+                "UNROUTABLE": 10
+              }
+            },
+            "verdict_correct": 35
+          },
+          "FLOW_ONLY": {
+            "abstentions": 40,
+            "answered": 20,
+            "coverage": 0.3333333333333333,
+            "fault_domain_accuracy": 0.08333333333333333,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "UNKNOWN": 20
+              },
+              "NONE": {
+                "NONE": 5
+              },
+              "ROUTE": {
+                "UNKNOWN": 20
+              },
+              "VLAN": {
+                "NONE": 15
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 55,
+            "localization_correct": 0,
+            "strict_accuracy": 0.08333333333333333,
+            "strict_correct": 5,
+            "trials": 60,
+            "verdict_accuracy": 0.08333333333333333,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              },
+              "DENY": {
+                "UNKNOWN": 20
+              },
+              "UNKNOWN": {
+                "ALLOW": 15
+              },
+              "UNROUTABLE": {
+                "UNKNOWN": 20
+              }
+            },
+            "verdict_correct": 5
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 60,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.6666666666666666,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 20
+              },
+              "NONE": {
+                "NONE": 5
+              },
+              "ROUTE": {
+                "NONE": 10,
+                "ROUTE": 10
+              },
+              "VLAN": {
+                "NONE": 10,
+                "VLAN": 5
+              }
+            },
+            "fault_domain_correct": 40,
+            "localization_accuracy": 0.6363636363636364,
+            "localization_applicable": 55,
+            "localization_correct": 35,
+            "strict_accuracy": 0.6666666666666666,
+            "strict_correct": 40,
+            "trials": 60,
+            "verdict_accuracy": 0.6666666666666666,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              },
+              "DENY": {
+                "DENY": 20
+              },
+              "UNKNOWN": {
+                "ALLOW": 10,
+                "UNKNOWN": 5
+              },
+              "UNROUTABLE": {
+                "ALLOW": 10,
+                "UNROUTABLE": 10
+              }
+            },
+            "verdict_correct": 40
+          }
+        },
+        "record_count": 180,
+        "scenario_count": 60,
+        "schema_version": 1
+      }
+    },
+    "BOUNDARY": {
+      "instance_count": 20,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 20,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 10
+              },
+              "VLAN": {
+                "NONE": 10
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 20,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 20,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 10
+              },
+              "UNROUTABLE": {
+                "ALLOW": 10
+              }
+            },
+            "verdict_correct": 0
+          },
+          "FLOW_ONLY": {
+            "abstentions": 10,
+            "answered": 10,
+            "coverage": 0.5,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "UNKNOWN": 10
+              },
+              "VLAN": {
+                "NONE": 10
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 20,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 20,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 10
+              },
+              "UNROUTABLE": {
+                "UNKNOWN": 10
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 20,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 10
+              },
+              "VLAN": {
+                "NONE": 10
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 20,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 20,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 10
+              },
+              "UNROUTABLE": {
+                "ALLOW": 10
+              }
+            },
+            "verdict_correct": 0
+          }
+        },
+        "record_count": 60,
+        "scenario_count": 20,
+        "schema_version": 1
+      }
+    },
+    "FAMILY_CONTROL": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "NONE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": null,
+            "localization_applicable": 0,
+            "localization_correct": 0,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "NONE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": null,
+            "localization_applicable": 0,
+            "localization_correct": 0,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "NONE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": null,
+            "localization_applicable": 0,
+            "localization_correct": 0,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "FAMILY_FIREWALL": {
+      "instance_count": 20,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 20,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 20
+              }
+            },
+            "fault_domain_correct": 20,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 20,
+            "localization_correct": 20,
+            "strict_accuracy": 1.0,
+            "strict_correct": 20,
+            "trials": 20,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 20
+              }
+            },
+            "verdict_correct": 20
+          },
+          "FLOW_ONLY": {
+            "abstentions": 20,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "UNKNOWN": 20
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 20,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 20,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "DENY": {
+                "UNKNOWN": 20
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 20,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 20
+              }
+            },
+            "fault_domain_correct": 20,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 20,
+            "localization_correct": 20,
+            "strict_accuracy": 1.0,
+            "strict_correct": 20,
+            "trials": 20,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 20
+              }
+            },
+            "verdict_correct": 20
+          }
+        },
+        "record_count": 60,
+        "scenario_count": 20,
+        "schema_version": 1
+      }
+    },
+    "FAMILY_ROUTE": {
+      "instance_count": 20,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 20,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.5,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 10,
+                "ROUTE": 10
+              }
+            },
+            "fault_domain_correct": 10,
+            "localization_accuracy": 0.5,
+            "localization_applicable": 20,
+            "localization_correct": 10,
+            "strict_accuracy": 0.5,
+            "strict_correct": 10,
+            "trials": 20,
+            "verdict_accuracy": 0.5,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "ALLOW": 10,
+                "UNROUTABLE": 10
+              }
+            },
+            "verdict_correct": 10
+          },
+          "FLOW_ONLY": {
+            "abstentions": 20,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "UNKNOWN": 20
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 20,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 20,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNKNOWN": 20
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 20,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.5,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 10,
+                "ROUTE": 10
+              }
+            },
+            "fault_domain_correct": 10,
+            "localization_accuracy": 0.5,
+            "localization_applicable": 20,
+            "localization_correct": 10,
+            "strict_accuracy": 0.5,
+            "strict_correct": 10,
+            "trials": 20,
+            "verdict_accuracy": 0.5,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "ALLOW": 10,
+                "UNROUTABLE": 10
+              }
+            },
+            "verdict_correct": 10
+          }
+        },
+        "record_count": 60,
+        "scenario_count": 20,
+        "schema_version": 1
+      }
+    },
+    "FAMILY_VLAN": {
+      "instance_count": 15,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 15,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 15
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 15,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 15,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 15
+              }
+            },
+            "verdict_correct": 0
+          },
+          "FLOW_ONLY": {
+            "abstentions": 0,
+            "answered": 15,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 15
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 15,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 15,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 15
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 15,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.3333333333333333,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 10,
+                "VLAN": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 0.3333333333333333,
+            "localization_applicable": 15,
+            "localization_correct": 5,
+            "strict_accuracy": 0.3333333333333333,
+            "strict_correct": 5,
+            "trials": 15,
+            "verdict_accuracy": 0.3333333333333333,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 10,
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 45,
+        "scenario_count": 15,
+        "schema_version": 1
+      }
+    },
+    "NON_BOUNDARY": {
+      "instance_count": 40,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 40,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.875,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 20
+              },
+              "NONE": {
+                "NONE": 5
+              },
+              "ROUTE": {
+                "ROUTE": 10
+              },
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 35,
+            "localization_accuracy": 0.8571428571428571,
+            "localization_applicable": 35,
+            "localization_correct": 30,
+            "strict_accuracy": 0.875,
+            "strict_correct": 35,
+            "trials": 40,
+            "verdict_accuracy": 0.875,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              },
+              "DENY": {
+                "DENY": 20
+              },
+              "UNKNOWN": {
+                "ALLOW": 5
+              },
+              "UNROUTABLE": {
+                "UNROUTABLE": 10
+              }
+            },
+            "verdict_correct": 35
+          },
+          "FLOW_ONLY": {
+            "abstentions": 30,
+            "answered": 10,
+            "coverage": 0.25,
+            "fault_domain_accuracy": 0.125,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "UNKNOWN": 20
+              },
+              "NONE": {
+                "NONE": 5
+              },
+              "ROUTE": {
+                "UNKNOWN": 10
+              },
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 35,
+            "localization_correct": 0,
+            "strict_accuracy": 0.125,
+            "strict_correct": 5,
+            "trials": 40,
+            "verdict_accuracy": 0.125,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              },
+              "DENY": {
+                "UNKNOWN": 20
+              },
+              "UNKNOWN": {
+                "ALLOW": 5
+              },
+              "UNROUTABLE": {
+                "UNKNOWN": 10
+              }
+            },
+            "verdict_correct": 5
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 40,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 20
+              },
+              "NONE": {
+                "NONE": 5
+              },
+              "ROUTE": {
+                "ROUTE": 10
+              },
+              "VLAN": {
+                "VLAN": 5
+              }
+            },
+            "fault_domain_correct": 40,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 35,
+            "localization_correct": 35,
+            "strict_accuracy": 1.0,
+            "strict_correct": 40,
+            "trials": 40,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              },
+              "DENY": {
+                "DENY": 20
+              },
+              "UNKNOWN": {
+                "UNKNOWN": 5
+              },
+              "UNROUTABLE": {
+                "UNROUTABLE": 10
+              }
+            },
+            "verdict_correct": 40
+          }
+        },
+        "record_count": 120,
+        "scenario_count": 40,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_firewall-deny": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "DENY": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_firewall-port-range-deny": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "DENY": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_firewall-rule-order": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "DENY": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_firewall-subnet-deny": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "DENY": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "FIREWALL": {
+                "FIREWALL": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "DENY": {
+                "DENY": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_normal": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "NONE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": null,
+            "localization_applicable": 0,
+            "localization_correct": 0,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "NONE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": null,
+            "localization_applicable": 0,
+            "localization_correct": 0,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "NONE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": null,
+            "localization_applicable": 0,
+            "localization_correct": 0,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "ALLOW": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_route-blackhole-host": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_route-missing": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "ROUTE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNROUTABLE": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "ROUTE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNROUTABLE": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_route-unreachable-next-hop": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "ROUTE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNROUTABLE": 5
+              }
+            },
+            "verdict_correct": 5
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "ROUTE": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNROUTABLE": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_route-wrong-interface": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "FLOW_ONLY": {
+            "abstentions": 5,
+            "answered": 0,
+            "coverage": 0.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "UNKNOWN": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "ROUTE": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNROUTABLE": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_vlan-access-only-drift": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "FLOW_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_vlan-mismatch": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "FLOW_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 1.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "VLAN": 5
+              }
+            },
+            "fault_domain_correct": 5,
+            "localization_accuracy": 1.0,
+            "localization_applicable": 5,
+            "localization_correct": 5,
+            "strict_accuracy": 1.0,
+            "strict_correct": 5,
+            "trials": 5,
+            "verdict_accuracy": 1.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "UNKNOWN": 5
+              }
+            },
+            "verdict_correct": 5
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    },
+    "PROTOTYPE_vlan-trunk-only-drift": {
+      "instance_count": 5,
+      "summary": {
+        "methods": {
+          "CONFIG_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "FLOW_ONLY": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          },
+          "PROPOSED": {
+            "abstentions": 0,
+            "answered": 5,
+            "coverage": 1.0,
+            "fault_domain_accuracy": 0.0,
+            "fault_domain_confusion": {
+              "VLAN": {
+                "NONE": 5
+              }
+            },
+            "fault_domain_correct": 0,
+            "localization_accuracy": 0.0,
+            "localization_applicable": 5,
+            "localization_correct": 0,
+            "strict_accuracy": 0.0,
+            "strict_correct": 0,
+            "trials": 5,
+            "verdict_accuracy": 0.0,
+            "verdict_confusion": {
+              "UNKNOWN": {
+                "ALLOW": 5
+              }
+            },
+            "verdict_correct": 0
+          }
+        },
+        "record_count": 15,
+        "scenario_count": 5,
+        "schema_version": 1
+      }
+    }
+  },
+  "primary_repetition": 1,
+  "schema_version": 1
+}

@@ -1,0 +1,60 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m compileall -q kansoku
+      - run: python -m pytest -q
+      - run: kansoku --help
+      - run: kansoku profile --help
+      - run: kansoku policy --help
+      - run: kansoku approval --help
+      - run: kansoku controller --help
+      - run: kansoku controller process --help
+      - run: kansoku agent watch --help
+      - run: kansoku target --help
+      - run: kansoku service --help
+      - run: kansoku service once --help
+      - run: kansoku remote-agent --help
+      - run: kansoku ingest serve --help
+      - run: kansoku edge --help
+      - run: kansoku edge flush --help
+      - run: kansoku capture --help
+      - run: kansoku capture summarize --help
+      - run: kansoku capture run --help
+      - run: kansoku network --help
+      - run: kansoku network import --help
+      - run: kansoku network correlate --help
+      - run: kansoku network collect --help
+      - run: kansoku recommend --help
+      - run: kansoku recommend generate --help
+      - run: kansoku recommend validate --help
+      - run: kansoku recommend export --help
+      - run: kansoku experiment --help
+      - run: kansoku experiment create --help
+      - run: kansoku experiment record --help
+      - run: kansoku experiment import-lab --help
+      - run: kansoku experiment export --help
+      - run: kansoku experiment validate-catalog --help
+      - run: ./scripts/v08_virtual_lab_smoke.sh
+      - run: ./scripts/v09_recommendation_smoke.sh
+      - run: ./scripts/v091_experiment_smoke.sh
+      - run: ./scripts/v100_remediation_smoke.sh
+      - run: ./lab/scripts/lab-selftest.sh
+      - run: kansoku edge pcap --help
+      - run: kansoku edge capture --help
+      - run: python -c "import json,pathlib; [json.loads(p.read_text()) for p in pathlib.Path('schemas').glob('*.json')]"

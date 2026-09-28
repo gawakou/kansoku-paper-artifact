@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/scheduler-cycle.schema.json",
+  "title": "KANSOKU SchedulerCycle",
+  "type": "object",
+  "required": [
+    "target", "owner_id", "status", "started_at", "finished_at",
+    "collection_run_ids", "observation_count", "message", "cycle_id"
+  ],
+  "properties": {
+    "target": {"type": "string", "minLength": 1},
+    "owner_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["SUCCESS", "PARTIAL", "FAILED", "SKIPPED"]},
+    "started_at": {"type": "string", "format": "date-time"},
+    "finished_at": {"type": "string", "format": "date-time"},
+    "collection_run_ids": {"type": "array", "items": {"type": "string"}},
+    "observation_count": {"type": "integer", "minimum": 0},
+    "state_id": {"type": ["string", "null"]},
+    "proposal_id": {"type": ["string", "null"]},
+    "transaction_id": {"type": ["string", "null"]},
+    "message": {"type": "string"},
+    "cycle_id": {"type": "string", "pattern": "^cycle-"}
+  },
+  "additionalProperties": false
+}

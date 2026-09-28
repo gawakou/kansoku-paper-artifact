@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU Observation",
+  "type": "object",
+  "required": ["observation_id", "timestamp", "target", "source", "domain", "metric", "value", "unit", "method"],
+  "properties": {
+    "observation_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "target": {"type": "string"},
+    "source": {"type": "string"},
+    "domain": {"type": "string"},
+    "metric": {"type": "string"},
+    "value": {"type": "number"},
+    "unit": {"type": "string"},
+    "method": {"type": "string"},
+    "quality": {"type": "object"},
+    "labels": {"type": "object"}
+  }
+}

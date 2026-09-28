@@ -1,0 +1,66 @@
+{
+  "candidate_count": 4,
+  "evidence_graph_summary": {
+    "evidence_coverage": 1.0,
+    "node_ids": [
+      "assessment:assessment-972ef9591b16",
+      "device:fw1",
+      "device:r1",
+      "device:sw1",
+      "flow:flowev-9ebd0f7bce0620e5",
+      "gap:vlan:10",
+      "interface:sw1:eth2",
+      "policy:rule-5a9063b0528a",
+      "route:route-578d53506f27"
+    ],
+    "node_types": [
+      "ASSESSMENT",
+      "DEVICE",
+      "EVIDENCE_GAP",
+      "FLOW",
+      "INTERFACE",
+      "POLICY_RULE",
+      "ROUTE"
+    ],
+    "relations": [
+      "ASSESSES",
+      "EXITS_VIA",
+      "LOCATED_ON",
+      "MATCHED_BY",
+      "MISSING",
+      "ROUTED_BY"
+    ]
+  },
+  "frozen_proposed_diagnosis": {
+    "fault_domain": "VLAN",
+    "verdict": "UNKNOWN"
+  },
+  "matched_flow_count": 1,
+  "reconstructed_diagnosis": {
+    "fault_domain": "VLAN",
+    "policy_status": "ALLOW",
+    "route_status": "FOUND",
+    "verdict": "UNKNOWN",
+    "vlan_status": "UNKNOWN_VLAN"
+  },
+  "schema_version": 1,
+  "source_query_id": "q-b77775d52bf3ee49d55b",
+  "top1": {
+    "category": "VLAN",
+    "device_id": "sw1",
+    "rank": 1,
+    "ranking_components": {
+      "blast_radius_safety": 0.84,
+      "change_simplicity": 0.8200000000000001,
+      "evidence_coverage": 1.0,
+      "repair_probability": 0.86,
+      "reversibility": 1.0,
+      "security_safety": 0.68
+    },
+    "risk_level": "medium",
+    "score": 0.893,
+    "simulated_verdict": "ALLOW",
+    "simulation_status": "PASSED",
+    "variant": "primary"
+  }
+}

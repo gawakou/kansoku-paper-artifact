@@ -1,0 +1,9 @@
+{
+  "query_id": "query-https-001",
+  "ip_version": 4,
+  "protocol": "TCP",
+  "src_ip": "10.10.10.10",
+  "dst_ip": "10.20.20.10",
+  "src_port": null,
+  "dst_port": 443
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/scheduler-lease.schema.json",
+  "title": "KANSOKU SchedulerLease",
+  "type": "object",
+  "required": ["name", "owner_id", "acquired_at", "expires_at"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "owner_id": {"type": "string", "minLength": 1},
+    "acquired_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

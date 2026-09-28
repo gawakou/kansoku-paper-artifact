@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "target_spec": "target_https.json",
+  "scenario_plan": "scenario_plan.json",
+  "active_ground_truth": "ground_truth.json",
+  "scenarios": {
+    "normal": {
+      "family": "CONTROL",
+      "fault_model": "none",
+      "pilot": true,
+      "validation_status": "pilot-verified",
+      "flow_observation_phase": "healthy",
+      "configuration_state_phase": "healthy"
+    },
+    "firewall-deny": {
+      "family": "FIREWALL",
+      "fault_model": "explicit deny rule for target TCP/443 flow",
+      "pilot": true,
+      "validation_status": "pilot-verified",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "firewall-subnet-deny": {
+      "family": "FIREWALL",
+      "fault_model": "source-subnet deny covers the target TCP/443 flow",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "firewall-port-range-deny": {
+      "family": "FIREWALL",
+      "fault_model": "destination-port range deny includes TCP/443",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "firewall-rule-order": {
+      "family": "FIREWALL",
+      "fault_model": "broad earlier deny shadows the later TCP/443 allow",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "route-missing": {
+      "family": "ROUTE",
+      "fault_model": "required destination route removed from r1",
+      "pilot": true,
+      "validation_status": "pilot-verified",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "route-unreachable-next-hop": {
+      "family": "ROUTE",
+      "fault_model": "configured static route points to an unreachable next hop and is absent from the active FRR RIB",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "route-wrong-interface": {
+      "family": "ROUTE",
+      "fault_model": "destination prefix is installed toward the wrong output interface eth1 while target HTTP fails",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "boundary": true,
+      "expected_limitation": true,
+      "observed_model_result": "CONFIG_ONLY=ALLOW/NONE; PROPOSED=ALLOW/NONE",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "route-blackhole-host": {
+      "family": "ROUTE",
+      "fault_model": "more-specific /32 blackhole route is installed and selected while target HTTP fails",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "boundary": true,
+      "expected_limitation": true,
+      "observed_model_result": "CONFIG_ONLY=ALLOW/NONE; PROPOSED=ALLOW/NONE",
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active"
+    },
+    "vlan-mismatch": {
+      "family": "VLAN",
+      "fault_model": "observed VLAN 10 followed by OVS drift to VLAN 30",
+      "pilot": true,
+      "validation_status": "pilot-verified",
+      "flow_observation_phase": "pre-drift known-good target flow",
+      "configuration_state_phase": "post-drift"
+    },
+    "vlan-access-only-drift": {
+      "family": "VLAN",
+      "fault_model": "access port moves from VLAN 10 to VLAN 30 while the trunk still carries VLAN 10 and target HTTP fails",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "boundary": true,
+      "expected_limitation": true,
+      "observed_model_result": "FLOW_ONLY=ALLOW/NONE; CONFIG_ONLY=ALLOW/NONE; PROPOSED=ALLOW/NONE",
+      "flow_observation_phase": "pre-drift known-good target flow",
+      "configuration_state_phase": "post-drift"
+    },
+    "vlan-trunk-only-drift": {
+      "family": "VLAN",
+      "fault_model": "trunk moves from VLAN 10 to VLAN 30 while the access port remains on VLAN 10 and target HTTP fails",
+      "pilot": false,
+      "validation_status": "live-verified",
+      "boundary": true,
+      "expected_limitation": true,
+      "observed_model_result": "FLOW_ONLY=ALLOW/NONE; CONFIG_ONLY=ALLOW/NONE; PROPOSED=ALLOW/NONE",
+      "flow_observation_phase": "pre-drift known-good target flow",
+      "configuration_state_phase": "post-drift"
+    }
+  }
+}

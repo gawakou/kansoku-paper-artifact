@@ -1,0 +1,154 @@
+{
+  "name": "kansoku-v100",
+  "mgmt": {
+    "network": "kansoku-v100-mgmt",
+    "ipv4-subnet": "172.31.81.0/24"
+  },
+  "topology": {
+    "nodes": {
+      "client-a": {
+        "kind": "linux",
+        "image": "kansoku/lab-node:0.10.0",
+        "binds": [
+          "configs/common/host-start.sh:/opt/kansoku/host-start.sh:ro"
+        ],
+        "exec": [
+          "bash /opt/kansoku/host-start.sh eth1 10.10.10.10/24 10.10.10.1 client"
+        ]
+      },
+      "sw1": {
+        "kind": "linux",
+        "image": "kansoku/lab-node:0.10.0",
+        "binds": [
+          "configs/common/ovs-start.sh:/opt/kansoku/ovs-start.sh:ro",
+          "configs/sw1/start.sh:/opt/kansoku/start.sh:ro"
+        ],
+        "exec": [
+          "bash /opt/kansoku/start.sh"
+        ],
+        "cap-add": [
+          "NET_ADMIN",
+          "NET_RAW",
+          "SYS_ADMIN"
+        ]
+      },
+      "fw1": {
+        "kind": "linux",
+        "image": "kansoku/lab-node:0.10.0",
+        "sysctls": {
+          "net.ipv4.ip_forward": "1"
+        },
+        "binds": [
+          "configs/fw1/start.sh:/opt/kansoku/start.sh:ro",
+          "configs/fw1/ruleset.nft:/etc/kansoku/ruleset.nft:ro"
+        ],
+        "exec": [
+          "bash /opt/kansoku/start.sh"
+        ],
+        "cap-add": [
+          "NET_ADMIN",
+          "NET_RAW",
+          "SYS_ADMIN"
+        ]
+      },
+      "r1": {
+        "kind": "linux",
+        "image": "frrouting/frr:v8.4.0",
+        "sysctls": {
+          "net.ipv4.ip_forward": "1"
+        },
+        "binds": [
+          "configs/r1/daemons:/etc/frr/daemons:ro",
+          "configs/r1/frr.conf:/etc/frr/frr.conf:ro",
+          "configs/r1/vtysh.conf:/etc/frr/vtysh.conf:ro"
+        ],
+        "cap-add": [
+          "NET_ADMIN",
+          "NET_RAW",
+          "SYS_ADMIN"
+        ]
+      },
+      "r2": {
+        "kind": "linux",
+        "image": "frrouting/frr:v8.4.0",
+        "sysctls": {
+          "net.ipv4.ip_forward": "1"
+        },
+        "binds": [
+          "configs/r2/daemons:/etc/frr/daemons:ro",
+          "configs/r2/frr.conf:/etc/frr/frr.conf:ro",
+          "configs/r2/vtysh.conf:/etc/frr/vtysh.conf:ro"
+        ],
+        "cap-add": [
+          "NET_ADMIN",
+          "NET_RAW",
+          "SYS_ADMIN"
+        ]
+      },
+      "sw2": {
+        "kind": "linux",
+        "image": "kansoku/lab-node:0.10.0",
+        "binds": [
+          "configs/common/ovs-start.sh:/opt/kansoku/ovs-start.sh:ro",
+          "configs/sw2/start.sh:/opt/kansoku/start.sh:ro"
+        ],
+        "exec": [
+          "bash /opt/kansoku/start.sh"
+        ],
+        "cap-add": [
+          "NET_ADMIN",
+          "NET_RAW",
+          "SYS_ADMIN"
+        ]
+      },
+      "server-a": {
+        "kind": "linux",
+        "image": "kansoku/lab-node:0.10.0",
+        "binds": [
+          "configs/common/host-start.sh:/opt/kansoku/host-start.sh:ro"
+        ],
+        "exec": [
+          "bash /opt/kansoku/host-start.sh eth1 10.20.20.10/24 10.20.20.1 server"
+        ]
+      }
+    },
+    "links": [
+      {
+        "endpoints": [
+          "client-a:eth1",
+          "sw1:eth1"
+        ]
+      },
+      {
+        "endpoints": [
+          "sw1:eth2",
+          "fw1:eth1"
+        ]
+      },
+      {
+        "endpoints": [
+          "fw1:eth2",
+          "r1:eth1"
+        ]
+      },
+      {
+        "endpoints": [
+          "r1:eth2",
+          "r2:eth1"
+        ]
+      },
+      {
+        "endpoints": [
+          "r2:eth2",
+          "sw2:eth1"
+        ]
+      },
+      {
+        "endpoints": [
+          "sw2:eth2",
+          "server-a:eth1"
+        ]
+      }
+    ]
+  }
+}

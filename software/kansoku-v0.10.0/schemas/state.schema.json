@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU StateEstimate",
+  "type": "object",
+  "required": ["state_id", "timestamp", "target", "state", "confidence", "evidence", "reason", "control_mode"],
+  "properties": {
+    "state_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "target": {"type": "string"},
+    "state": {"enum": ["NORMAL", "WARNING", "DEGRADED", "CRITICAL"]},
+    "confidence": {"type": "number"},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "reason": {"type": "string"},
+    "control_mode": {"type": "string"},
+    "features": {"type": "object"}
+  }
+}

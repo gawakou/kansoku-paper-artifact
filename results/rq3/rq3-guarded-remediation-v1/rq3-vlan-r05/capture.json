@@ -1,0 +1,222 @@
+{
+  "capture": {
+    "bpf_filter": "",
+    "capture_id": "capture-ea94baf4ab0e",
+    "captured_bytes": 524,
+    "duration_sec": 0.000971,
+    "file_size": 660,
+    "finished_at": "2026-09-16T22:44:18.446952+00:00",
+    "flow_count": 1,
+    "interface": "offline",
+    "linktype": 1,
+    "metadata": {
+      "arp_packets": 0,
+      "flow_overflow_packets": 0,
+      "icmp_packets": 0,
+      "ipv4_packets": 7,
+      "ipv6_packets": 0,
+      "max_flows": 10000,
+      "non_ip_packets": 0,
+      "tcp_packets": 7,
+      "udp_packets": 0
+    },
+    "packet_count": 7,
+    "pcap_path": "/home/ogawa/kansoku_paper_eval/artifacts/paper/rq3-guarded-remediation-v1/rq3-vlan-r05/target.pcap",
+    "privacy_mode": "offline",
+    "retention_days": 7,
+    "sha256": "09fcb853ab37beffdbeb0416756eb0f31e031323bccf64804c598c35139a4bc2",
+    "snaplen": 0,
+    "source": "containerlab",
+    "started_at": "2026-09-16T22:44:18.445981+00:00",
+    "status": "SUMMARIZED",
+    "storage_scope": "local",
+    "target": "rq3-target",
+    "wire_bytes": 576
+  },
+  "import_status": "IMPORTED",
+  "observations": [
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_packet_count",
+      "observation_id": "obs-3b84361f51a2",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "packets",
+      "value": 7.0
+    },
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_wire_bytes",
+      "observation_id": "obs-8a237dcd9c0c",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "bytes",
+      "value": 576.0
+    },
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_unique_flows",
+      "observation_id": "obs-24d59c93d5ca",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "flows",
+      "value": 1.0
+    },
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_tcp_packets",
+      "observation_id": "obs-66cb8aa8de57",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "packets",
+      "value": 7.0
+    },
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_udp_packets",
+      "observation_id": "obs-2ce7946fab11",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "packets",
+      "value": 0.0
+    },
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_ipv4_packets",
+      "observation_id": "obs-50ccbd3a8e5b",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "packets",
+      "value": 7.0
+    },
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_ipv6_packets",
+      "observation_id": "obs-5cc0d53028bd",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "packets",
+      "value": 0.0
+    },
+    {
+      "domain": "network",
+      "labels": {
+        "capture_id": "capture-ea94baf4ab0e",
+        "privacy_mode": "offline"
+      },
+      "method": "pcap",
+      "metric": "capture_top_flow_share_pct",
+      "observation_id": "obs-69cb36c53302",
+      "quality": {
+        "confidence": 1.0,
+        "missing": false
+      },
+      "source": "containerlab",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:44:18.446952+00:00",
+      "unit": "%",
+      "value": 100.0
+    }
+  ],
+  "top_flows": [
+    {
+      "capture_id": "capture-ea94baf4ab0e",
+      "captured_bytes": 524,
+      "dst_ip": "10.20.20.10",
+      "dst_port": 443,
+      "first_seen": "2026-09-16T22:44:18.445981+00:00",
+      "flow_id": "flow-ab716542ac1f",
+      "ip_version": 4,
+      "last_seen": "2026-09-16T22:44:18.446952+00:00",
+      "metadata": {},
+      "packets": 7,
+      "protocol": "TCP",
+      "source": "containerlab",
+      "src_ip": "10.10.10.10",
+      "src_port": 44382,
+      "target": "rq3-target",
+      "tcp_flags": {
+        "ack": 6,
+        "cwr": 0,
+        "ece": 0,
+        "fin": 1,
+        "psh": 1,
+        "rst": 0,
+        "syn": 1,
+        "urg": 0
+      },
+      "vlan_id": 10,
+      "wire_bytes": 576
+    }
+  ]
+}

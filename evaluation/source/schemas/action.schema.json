@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU ActionProposal",
+  "type": "object",
+  "required": ["proposal_id", "timestamp", "target", "action", "parameters", "expected_effect", "source_state_id"],
+  "properties": {
+    "proposal_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "target": {"type": "string"},
+    "action": {"type": "string"},
+    "parameters": {"type": "object"},
+    "expected_effect": {"type": "string"},
+    "rollback": {"type": ["object", "null"]},
+    "source_state_id": {"type": "string"},
+    "risk_level": {"type": "string"},
+    "preconditions": {"type": "array", "items": {"type": "string"}},
+    "postconditions": {"type": "array", "items": {"type": "string"}}
+  }
+}

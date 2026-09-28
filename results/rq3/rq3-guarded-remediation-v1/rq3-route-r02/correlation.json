@@ -1,0 +1,41 @@
+{
+  "assessments": [
+    {
+      "assessment_id": "assessment-b604efcc6f60",
+      "capture_id": "capture-15c48b0105e0",
+      "evidence": {
+        "destination": "10.20.20.10",
+        "in_interface": "",
+        "out_interface": "",
+        "policy_device": "fw1",
+        "policy_snapshot": "snapshot-0ecc8065374d",
+        "protocol": "TCP",
+        "route_device": "r1",
+        "route_snapshot": "snapshot-3ad31e1a19fa",
+        "vlan_device": "sw1",
+        "vlan_snapshot": "snapshot-f12837741f0e",
+        "vrf": "default"
+      },
+      "flow_id": "flow-3fdab30845bf",
+      "ingress_device_id": "fw1",
+      "matched_rule_id": "rule-40f621b02034",
+      "policy_status": "ALLOW",
+      "reason": "no installed route matches the destination",
+      "route_id": null,
+      "route_status": "NO_ROUTE",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:39:26.891282+00:00",
+      "verdict": "UNROUTABLE",
+      "vlan_status": "KNOWN"
+    }
+  ],
+  "summary": {
+    "flows": 1,
+    "policy_device": "fw1",
+    "route_device": "r1",
+    "verdicts": {
+      "UNROUTABLE": 1
+    },
+    "vlan_device": "sw1"
+  }
+}

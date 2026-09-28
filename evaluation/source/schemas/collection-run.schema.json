@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU Collection Run",
+  "type": "object",
+  "required": ["run_id", "agent", "target", "source", "command", "returncode", "started_at", "finished_at"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "agent": {"type": "string"},
+    "target": {"type": "string"},
+    "source": {"type": "string"},
+    "command": {"type": "array", "items": {"type": "string"}},
+    "returncode": {"type": "integer"},
+    "stdout": {"type": "string"},
+    "stderr": {"type": "string"},
+    "started_at": {"type": "string", "format": "date-time"},
+    "finished_at": {"type": "string", "format": "date-time"},
+    "metadata": {"type": "object"}
+  }
+}

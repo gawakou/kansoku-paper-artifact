@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU FlowAssessment",
+  "type": "object",
+  "required": ["assessment_id", "flow_id", "capture_id", "target", "ingress_device_id", "route_status", "policy_status", "verdict", "reason"],
+  "properties": {
+    "assessment_id": {"type": "string"}, "flow_id": {"type": "string"}, "capture_id": {"type": "string"},
+    "target": {"type": "string"}, "ingress_device_id": {"type": "string"},
+    "route_status": {"enum": ["FOUND", "NO_ROUTE"]},
+    "policy_status": {"type": "string"},
+    "verdict": {"enum": ["ALLOW", "DENY", "UNROUTABLE", "UNKNOWN"]},
+    "reason": {"type": "string"}
+  }
+}

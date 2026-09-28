@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "target_spec": "target_https.json",
+  "active_ground_truth": "ground_truth.json",
+  "purpose": "Pre-registered expansion plan for the KANSOKU paper diagnosis ablation. Planned scenarios are promoted into active ground truth only after live fault-injection validation on the dedicated Ubuntu evaluation host.",
+  "design_rules": {
+    "same_target_flow": "10.10.10.10 -> 10.20.20.10 TCP/443",
+    "diagnosers_must_not_read_ground_truth": true,
+    "single_faults_before_compound_faults": true,
+    "deterministic_repetition_is_not_an_independent_accuracy_sample": true,
+    "boundary_cases_are_retained_even_when_the_current_model_is_expected_to_fail": true,
+    "reset_between_trials": "reset_network"
+  },
+  "scenarios": {
+    "normal": {
+      "ordinal": 1,
+      "family": "CONTROL",
+      "phase": "single",
+      "status": "pilot-verified",
+      "fault_model": "none",
+      "fault_injection": {
+        "summary": "No fault injection after reset_network.",
+        "commands": []
+      },
+      "flow_observation_phase": "healthy",
+      "configuration_state_phase": "healthy",
+      "ground_truth": {
+        "expected_verdict": "ALLOW",
+        "expected_fault_domain": "NONE",
+        "expected_affected_device": "",
+        "expected_element_type": "NONE"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "ALLOW/NONE",
+        "CONFIG_ONLY": "ALLOW/NONE",
+        "PROPOSED": "ALLOW/NONE"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "already satisfied by saved v0.10.0 artifact"
+    },
+    "firewall-deny": {
+      "ordinal": 2,
+      "family": "FIREWALL",
+      "phase": "single",
+      "status": "pilot-verified",
+      "fault_model": "specific deny rule precedes the normal TCP/443 allow rule",
+      "fault_injection": {
+        "summary": "Insert an explicit deny for the target flow at the beginning of fw1 forward chain.",
+        "commands": [
+          "nft insert rule inet filter forward ip saddr 10.10.10.0/24 ip daddr 10.20.20.10 tcp dport 443 counter drop"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "DENY",
+        "expected_fault_domain": "FIREWALL",
+        "expected_affected_device": "fw1",
+        "expected_element_type": "POLICY_RULE",
+        "element_semantics": "effective denying rule"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "DENY/FIREWALL",
+        "PROPOSED": "DENY/FIREWALL"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "already satisfied by saved v0.10.0 artifact"
+    },
+    "firewall-subnet-deny": {
+      "ordinal": 3,
+      "family": "FIREWALL",
+      "phase": "single",
+      "status": "planned-core",
+      "fault_model": "source-subnet deny covers the target client while being broader than a host-specific rule",
+      "fault_injection": {
+        "summary": "Insert a source-subnet deny for TCP/443 before the normal allow rule.",
+        "commands": [
+          "nft insert rule inet filter forward ip saddr 10.10.10.0/25 tcp dport 443 counter drop"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "DENY",
+        "expected_fault_domain": "FIREWALL",
+        "expected_affected_device": "fw1",
+        "expected_element_type": "POLICY_RULE",
+        "element_semantics": "effective denying rule"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "DENY/FIREWALL",
+        "PROPOSED": "DENY/FIREWALL"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "live injection must fail target HTTP and imported nftables state must preserve the subnet predicate"
+    },
+    "firewall-port-range-deny": {
+      "ordinal": 4,
+      "family": "FIREWALL",
+      "phase": "single",
+      "status": "planned-core",
+      "fault_model": "port-range deny includes the target destination port 443",
+      "fault_injection": {
+        "summary": "Insert a TCP destination-port range deny that contains port 443.",
+        "commands": [
+          "nft insert rule inet filter forward tcp dport 400-500 counter drop"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "DENY",
+        "expected_fault_domain": "FIREWALL",
+        "expected_affected_device": "fw1",
+        "expected_element_type": "POLICY_RULE",
+        "element_semantics": "effective denying rule"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "DENY/FIREWALL",
+        "PROPOSED": "DENY/FIREWALL"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "live nftables JSON import must normalize the range and the target flow must match it"
+    },
+    "firewall-rule-order": {
+      "ordinal": 5,
+      "family": "FIREWALL",
+      "phase": "single",
+      "status": "planned-core",
+      "fault_model": "broad deny shadows the later specific TCP/443 allow rule",
+      "fault_injection": {
+        "summary": "Insert a broad client-to-server deny ahead of the existing specific allow rule to exercise chain order.",
+        "commands": [
+          "nft insert rule inet filter forward ip saddr 10.10.10.0/24 ip daddr 10.20.20.0/24 counter drop"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "DENY",
+        "expected_fault_domain": "FIREWALL",
+        "expected_affected_device": "fw1",
+        "expected_element_type": "POLICY_RULE",
+        "element_semantics": "first effective denying rule in chain evaluation order"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "DENY/FIREWALL",
+        "PROPOSED": "DENY/FIREWALL"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "imported policy priority must preserve nftables chain sequence and identify the shadowing deny"
+    },
+    "route-missing": {
+      "ordinal": 6,
+      "family": "ROUTE",
+      "phase": "single",
+      "status": "pilot-verified",
+      "fault_model": "required destination route removed from r1",
+      "fault_injection": {
+        "summary": "Remove the static route for 10.20.20.0/24 from r1.",
+        "commands": [
+          "vtysh -c 'configure terminal' -c 'no ip route 10.20.20.0/24 172.16.1.2'"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "UNROUTABLE",
+        "expected_fault_domain": "ROUTE",
+        "expected_affected_device": "r1",
+        "expected_element_type": "ROUTE"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "UNROUTABLE/ROUTE",
+        "PROPOSED": "UNROUTABLE/ROUTE"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "already satisfied by saved v0.10.0 artifact"
+    },
+    "route-unreachable-next-hop": {
+      "ordinal": 7,
+      "family": "ROUTE",
+      "phase": "single",
+      "status": "planned-core-empirical-gate",
+      "fault_model": "static route points to an unreachable next hop and is expected not to become an installed usable route",
+      "fault_injection": {
+        "summary": "Replace the healthy static route with a route through an unreachable next hop.",
+        "commands": [
+          "vtysh -c 'configure terminal' -c 'no ip route 10.20.20.0/24 172.16.1.2' -c 'ip route 10.20.20.0/24 172.16.1.254'"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "UNROUTABLE",
+        "expected_fault_domain": "ROUTE",
+        "expected_affected_device": "r1",
+        "expected_element_type": "ROUTE",
+        "element_semantics": "unusable static route caused by unresolved next hop"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "TO_VALIDATE_FRR_INSTALLATION_STATE",
+        "PROPOSED": "TO_VALIDATE_FRR_INSTALLATION_STATE"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "confirm with live FRR JSON whether the route is absent/uninstalled; if FRR reports it installed, reclassify as a boundary case"
+    },
+    "route-wrong-interface": {
+      "ordinal": 8,
+      "family": "ROUTE",
+      "phase": "single",
+      "status": "planned-boundary",
+      "fault_model": "destination prefix is installed toward the wrong output interface",
+      "fault_injection": {
+        "summary": "Replace the healthy next-hop route with an interface route toward eth1, the firewall-facing side.",
+        "commands": [
+          "vtysh -c 'configure terminal' -c 'no ip route 10.20.20.0/24 172.16.1.2' -c 'ip route 10.20.20.0/24 eth1'"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "UNROUTABLE",
+        "expected_fault_domain": "ROUTE",
+        "expected_affected_device": "r1",
+        "expected_element_type": "ROUTE",
+        "element_semantics": "installed route with incorrect output interface"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "LIKELY_ALLOW_UNDER_CURRENT_MODEL",
+        "PROPOSED": "LIKELY_ALLOW_UNDER_CURRENT_MODEL"
+      },
+      "expected_limitation": true,
+      "promotion_gate": "retain even if Proposed fails; validates the boundary that v0.10.0 does not verify next-hop/interface reachability"
+    },
+    "route-blackhole-host": {
+      "ordinal": 9,
+      "family": "ROUTE",
+      "phase": "single",
+      "status": "planned-boundary",
+      "fault_model": "more-specific blackhole host route overrides the otherwise healthy destination subnet route",
+      "fault_injection": {
+        "summary": "Add a /32 blackhole route for the target server while leaving the healthy /24 route present.",
+        "commands": [
+          "vtysh -c 'configure terminal' -c 'ip route 10.20.20.10/32 blackhole'"
+        ]
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_verdict": "UNROUTABLE",
+        "expected_fault_domain": "ROUTE",
+        "expected_affected_device": "r1",
+        "expected_element_type": "ROUTE",
+        "element_semantics": "selected more-specific blackhole route"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "TO_VALIDATE_PARSER_SEMANTICS",
+        "PROPOSED": "TO_VALIDATE_PARSER_SEMANTICS"
+      },
+      "expected_limitation": true,
+      "promotion_gate": "confirm FRR JSON and parser representation of blackhole routes before final expected-method labels are frozen"
+    },
+    "vlan-mismatch": {
+      "ordinal": 10,
+      "family": "VLAN",
+      "phase": "single",
+      "status": "pilot-verified",
+      "fault_model": "known-good observed VLAN 10 followed by complete sw1 drift to VLAN 30",
+      "fault_injection": {
+        "summary": "Capture a known-good VLAN 10 target flow, then change sw1 access and trunk state to VLAN 30.",
+        "commands": [
+          "ovs-vsctl set Port eth1 tag=30",
+          "ovs-vsctl set Port eth2 trunks=30"
+        ]
+      },
+      "flow_observation_phase": "pre-drift known-good target flow",
+      "configuration_state_phase": "post-drift",
+      "ground_truth": {
+        "expected_verdict": "UNKNOWN",
+        "expected_fault_domain": "VLAN",
+        "expected_affected_device": "sw1",
+        "expected_element_type": "VLAN"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "ALLOW/NONE",
+        "CONFIG_ONLY": "ALLOW/NONE",
+        "PROPOSED": "UNKNOWN/VLAN"
+      },
+      "expected_limitation": false,
+      "promotion_gate": "already satisfied by saved v0.10.0 artifact"
+    },
+    "vlan-access-only-drift": {
+      "ordinal": 11,
+      "family": "VLAN",
+      "phase": "single",
+      "status": "planned-boundary",
+      "fault_model": "access port moves from VLAN 10 to VLAN 30 while the trunk still advertises VLAN 10",
+      "fault_injection": {
+        "summary": "Capture known-good VLAN 10, then move only sw1 eth1 access VLAN to 30.",
+        "commands": [
+          "ovs-vsctl set Port eth1 tag=30"
+        ]
+      },
+      "flow_observation_phase": "pre-drift known-good target flow",
+      "configuration_state_phase": "post-drift",
+      "ground_truth": {
+        "expected_verdict": "UNKNOWN",
+        "expected_fault_domain": "VLAN",
+        "expected_affected_device": "sw1",
+        "expected_element_type": "VLAN",
+        "element_semantics": "access/trunk VLAN inconsistency"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "ALLOW/NONE",
+        "CONFIG_ONLY": "ALLOW/NONE",
+        "PROPOSED": "LIKELY_ALLOW_UNDER_CURRENT_GLOBAL_VLAN_MEMBERSHIP_MODEL"
+      },
+      "expected_limitation": true,
+      "promotion_gate": "retain as a negative-control boundary case; current correlation checks VLAN existence, not per-port path continuity"
+    },
+    "vlan-trunk-only-drift": {
+      "ordinal": 12,
+      "family": "VLAN",
+      "phase": "single",
+      "status": "planned-boundary",
+      "fault_model": "trunk stops carrying VLAN 10 while the access port remains assigned to VLAN 10",
+      "fault_injection": {
+        "summary": "Capture known-good VLAN 10, then change only sw1 eth2 trunk allowance to VLAN 30.",
+        "commands": [
+          "ovs-vsctl set Port eth2 trunks=30"
+        ]
+      },
+      "flow_observation_phase": "pre-drift known-good target flow",
+      "configuration_state_phase": "post-drift",
+      "ground_truth": {
+        "expected_verdict": "UNKNOWN",
+        "expected_fault_domain": "VLAN",
+        "expected_affected_device": "sw1",
+        "expected_element_type": "VLAN",
+        "element_semantics": "access/trunk VLAN inconsistency"
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "ALLOW/NONE",
+        "CONFIG_ONLY": "ALLOW/NONE",
+        "PROPOSED": "LIKELY_ALLOW_UNDER_CURRENT_GLOBAL_VLAN_MEMBERSHIP_MODEL"
+      },
+      "expected_limitation": true,
+      "promotion_gate": "retain as a negative-control boundary case; current correlation checks VLAN existence, not per-port path continuity"
+    },
+    "compound-route-firewall": {
+      "ordinal": 13,
+      "family": "COMPOUND",
+      "phase": "compound",
+      "status": "deferred",
+      "fault_model": "route missing and explicit firewall deny are active simultaneously",
+      "fault_injection": {
+        "summary": "Combine route-missing and firewall-deny after both single-fault families are stable.",
+        "commands": []
+      },
+      "flow_observation_phase": "fault-active",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_outcome": "TARGET_FAIL",
+        "expected_fault_domains": ["FIREWALL", "ROUTE"],
+        "expected_affected_devices": ["fw1", "r1"]
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "UNKNOWN/UNKNOWN abstain",
+        "CONFIG_ONLY": "CURRENT_SINGLE_LABEL_SCHEMA_WILL_REPORT_ONE_CAUSE",
+        "PROPOSED": "CURRENT_SINGLE_LABEL_SCHEMA_WILL_REPORT_ONE_CAUSE"
+      },
+      "expected_limitation": true,
+      "evaluator_schema_support": false,
+      "promotion_gate": "implement multi-causal ground truth and partial-credit evaluation before activation"
+    },
+    "compound-vlan-firewall": {
+      "ordinal": 14,
+      "family": "COMPOUND",
+      "phase": "compound",
+      "status": "deferred",
+      "fault_model": "complete VLAN drift and explicit firewall deny are active simultaneously",
+      "fault_injection": {
+        "summary": "Combine vlan-mismatch and firewall-deny after both single-fault families are stable.",
+        "commands": []
+      },
+      "flow_observation_phase": "pre-drift known-good flow plus post-drift/deny configuration state",
+      "configuration_state_phase": "fault-active",
+      "ground_truth": {
+        "expected_outcome": "TARGET_FAIL",
+        "expected_fault_domains": ["FIREWALL", "VLAN"],
+        "expected_affected_devices": ["fw1", "sw1"]
+      },
+      "method_expectation": {
+        "FLOW_ONLY": "ALLOW/NONE from pre-drift observation",
+        "CONFIG_ONLY": "CURRENT_SINGLE_LABEL_SCHEMA_WILL_REPORT_ONE_CAUSE",
+        "PROPOSED": "CURRENT_SINGLE_LABEL_SCHEMA_WILL_REPORT_ONE_CAUSE"
+      },
+      "expected_limitation": true,
+      "evaluator_schema_support": false,
+      "promotion_gate": "implement multi-causal ground truth and partial-credit evaluation before activation"
+    }
+  }
+}

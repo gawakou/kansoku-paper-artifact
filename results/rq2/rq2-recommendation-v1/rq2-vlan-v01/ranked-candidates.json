@@ -1,0 +1,631 @@
+{
+  "ranked": [
+    {
+      "components": {
+        "blast_radius_safety": 0.84,
+        "change_simplicity": 0.8200000000000001,
+        "evidence_coverage": 1.0,
+        "repair_probability": 0.86,
+        "reversibility": 1.0,
+        "security_safety": 0.68
+      },
+      "explanation": [
+        "model repair probability=0.860",
+        "evidence coverage=1.000",
+        "rollback reversibility=1.000",
+        "blast-radius safety=0.840",
+        "security safety=0.680",
+        "change simplicity=0.820"
+      ],
+      "rank": 1,
+      "recommendation": {
+        "assessment_id": "assessment-80d237c9be1a",
+        "capture_id": "paper-q-443620237fdbadc7b046",
+        "category": "VLAN",
+        "commands": [
+          "ovs-vsctl set Port eth1 tag=10",
+          "ovs-vsctl set Port eth2 trunks=10"
+        ],
+        "confidence": 0.86,
+        "current_state": {
+          "access_interface": {
+            "access_vlan": 20,
+            "addresses": [],
+            "admin_up": true,
+            "bridge": "",
+            "device_id": "sw1",
+            "interface_id": "if-12429d3616ff",
+            "kind": "virtual",
+            "mac_address": "",
+            "metadata": {},
+            "mtu": 1500,
+            "name": "eth1",
+            "observed_at": "2026-09-16T00:46:24.619913+00:00",
+            "oper_up": true,
+            "trunk_vlans": [],
+            "vlan_mode": "access",
+            "vrf": "default"
+          },
+          "assessment": {
+            "assessment_id": "assessment-80d237c9be1a",
+            "capture_id": "paper-q-443620237fdbadc7b046",
+            "evidence": {
+              "destination": "10.20.20.10",
+              "in_interface": "",
+              "out_interface": "eth2",
+              "policy_device": "fw1",
+              "protocol": "TCP",
+              "route_device": "r1",
+              "vlan_device": "sw1",
+              "vrf": "default"
+            },
+            "flow_id": "flowev-122d3f511bf45018",
+            "ingress_device_id": "fw1",
+            "matched_rule_id": "rule-d0541ce9f681",
+            "policy_status": "ALLOW",
+            "reason": "route 10.20.20.0/24 and allowing rule rule-d0541ce9f681 match; captured VLAN is not present in the imported VLAN state",
+            "route_id": "route-1c48bfa889af",
+            "route_status": "FOUND",
+            "target": "paper-query",
+            "timestamp": "2026-09-16T05:01:25.084477+00:00",
+            "verdict": "UNKNOWN",
+            "vlan_status": "UNKNOWN_VLAN"
+          },
+          "flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 48128,
+            "vlan_id": 10
+          },
+          "known_vlans": [
+            {
+              "device_id": "sw1",
+              "interfaces": [
+                "eth1",
+                "eth2"
+              ],
+              "metadata": {},
+              "name": "VLAN 20",
+              "observed_at": "2026-09-16T00:46:24.619913+00:00",
+              "record_id": "vlan-86bc76ccdc63",
+              "vlan_id": 20
+            }
+          ],
+          "trunk_interface": {
+            "access_vlan": null,
+            "addresses": [],
+            "admin_up": true,
+            "bridge": "",
+            "device_id": "sw1",
+            "interface_id": "if-8c716b269f6b",
+            "kind": "virtual",
+            "mac_address": "",
+            "metadata": {},
+            "mtu": 1500,
+            "name": "eth2",
+            "observed_at": "2026-09-16T00:46:24.619913+00:00",
+            "oper_up": true,
+            "trunk_vlans": [
+              20
+            ],
+            "vlan_mode": "trunk",
+            "vrf": "default"
+          }
+        },
+        "desired_state": {
+          "access_interface": "eth1",
+          "expected_verdict": "ALLOW",
+          "trunk_interface": "eth2",
+          "vlan_id": 10
+        },
+        "device_id": "sw1",
+        "flow_id": "flowev-122d3f511bf45018",
+        "generated_at": "2026-09-16T05:01:25.084719+00:00",
+        "impact": {
+          "requires_port_confirmation": false,
+          "scope": "VLAN 10 on explicitly named ports"
+        },
+        "intent": "RESTORE_OBSERVED_VLAN_PATH",
+        "metadata": {
+          "ranking": {
+            "components": {
+              "blast_radius_safety": 0.84,
+              "change_simplicity": 0.8200000000000001,
+              "evidence_coverage": 1.0,
+              "repair_probability": 0.86,
+              "reversibility": 1.0,
+              "security_safety": 0.68
+            },
+            "rank": 1,
+            "score": 0.893,
+            "weights": {
+              "blast_radius_safety": 0.15,
+              "change_simplicity": 0.05,
+              "evidence_coverage": 0.25,
+              "repair_probability": 0.3,
+              "reversibility": 0.15,
+              "security_safety": 0.1
+            }
+          },
+          "what_if": {
+            "after_reason": "route 10.20.20.0/24 and allowing rule rule-d0541ce9f681 match",
+            "after_verdict": "ALLOW",
+            "before_verdict": "UNKNOWN",
+            "category": "VLAN"
+          }
+        },
+        "platform": "openvswitch",
+        "postconditions": [
+          "VLAN 10 is present on the intended access/trunk path.",
+          "The target flow reaches the firewall and destination service.",
+          "No unintended MAC learning or broadcast-domain expansion is observed."
+        ],
+        "preconditions": [
+          "Confirm the intended access and trunk ports from the topology and cabling model.",
+          "Check that restoring the VLAN will not bridge unrelated security zones.",
+          "Capture the current OVS port configuration for rollback."
+        ],
+        "rationale": "The captured flow carries VLAN 10, but that VLAN was absent from the imported switch state. The affected ports must be confirmed before applying the candidate.",
+        "recommendation_id": "recommendation-4c78a7b2d70b",
+        "risk_level": "medium",
+        "rollback_commands": [
+          "ovs-vsctl set Port eth1 tag=20",
+          "ovs-vsctl set Port eth2 trunks=20"
+        ],
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED",
+        "status": "DRAFT",
+        "summary": "Restore VLAN 10 membership on the affected Open vSwitch port or trunk.",
+        "target": "paper-query"
+      },
+      "score": 0.893,
+      "variant": "primary"
+    },
+    {
+      "components": {
+        "blast_radius_safety": 0.84,
+        "change_simplicity": 1.0,
+        "evidence_coverage": 1.0,
+        "repair_probability": 0.71,
+        "reversibility": 1.0,
+        "security_safety": 0.68
+      },
+      "explanation": [
+        "model repair probability=0.710",
+        "evidence coverage=1.000",
+        "rollback reversibility=1.000",
+        "blast-radius safety=0.840",
+        "security safety=0.680",
+        "change simplicity=1.000"
+      ],
+      "rank": 2,
+      "recommendation": {
+        "assessment_id": "assessment-80d237c9be1a",
+        "capture_id": "paper-q-443620237fdbadc7b046",
+        "category": "VLAN",
+        "commands": [
+          "ovs-vsctl set Port eth1 tag=10"
+        ],
+        "confidence": 0.71,
+        "current_state": {
+          "access_interface": {
+            "access_vlan": 20,
+            "addresses": [],
+            "admin_up": true,
+            "bridge": "",
+            "device_id": "sw1",
+            "interface_id": "if-12429d3616ff",
+            "kind": "virtual",
+            "mac_address": "",
+            "metadata": {},
+            "mtu": 1500,
+            "name": "eth1",
+            "observed_at": "2026-09-16T00:46:24.619913+00:00",
+            "oper_up": true,
+            "trunk_vlans": [],
+            "vlan_mode": "access",
+            "vrf": "default"
+          },
+          "assessment": {
+            "assessment_id": "assessment-80d237c9be1a",
+            "capture_id": "paper-q-443620237fdbadc7b046",
+            "evidence": {
+              "destination": "10.20.20.10",
+              "in_interface": "",
+              "out_interface": "eth2",
+              "policy_device": "fw1",
+              "protocol": "TCP",
+              "route_device": "r1",
+              "vlan_device": "sw1",
+              "vrf": "default"
+            },
+            "flow_id": "flowev-122d3f511bf45018",
+            "ingress_device_id": "fw1",
+            "matched_rule_id": "rule-d0541ce9f681",
+            "policy_status": "ALLOW",
+            "reason": "route 10.20.20.0/24 and allowing rule rule-d0541ce9f681 match; captured VLAN is not present in the imported VLAN state",
+            "route_id": "route-1c48bfa889af",
+            "route_status": "FOUND",
+            "target": "paper-query",
+            "timestamp": "2026-09-16T05:01:25.084477+00:00",
+            "verdict": "UNKNOWN",
+            "vlan_status": "UNKNOWN_VLAN"
+          },
+          "flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 48128,
+            "vlan_id": 10
+          },
+          "known_vlans": [
+            {
+              "device_id": "sw1",
+              "interfaces": [
+                "eth1",
+                "eth2"
+              ],
+              "metadata": {},
+              "name": "VLAN 20",
+              "observed_at": "2026-09-16T00:46:24.619913+00:00",
+              "record_id": "vlan-86bc76ccdc63",
+              "vlan_id": 20
+            }
+          ]
+        },
+        "desired_state": {
+          "access_interface": "eth1",
+          "expected_verdict": "ALLOW",
+          "trunk_interface": "<confirm>",
+          "vlan_id": 10
+        },
+        "device_id": "sw1",
+        "flow_id": "flowev-122d3f511bf45018",
+        "generated_at": "2026-09-16T05:01:25.084799+00:00",
+        "impact": {
+          "requires_port_confirmation": false,
+          "scope": "VLAN 10 on explicitly named ports"
+        },
+        "intent": "RESTORE_OBSERVED_VLAN_PATH",
+        "metadata": {
+          "candidate_variant": "access-only",
+          "ranking": {
+            "components": {
+              "blast_radius_safety": 0.84,
+              "change_simplicity": 1.0,
+              "evidence_coverage": 1.0,
+              "repair_probability": 0.71,
+              "reversibility": 1.0,
+              "security_safety": 0.68
+            },
+            "rank": 2,
+            "score": 0.857,
+            "weights": {
+              "blast_radius_safety": 0.15,
+              "change_simplicity": 0.05,
+              "evidence_coverage": 0.25,
+              "repair_probability": 0.3,
+              "reversibility": 0.15,
+              "security_safety": 0.1
+            }
+          },
+          "simulation_model_limitation": "The normalized VLAN model does not prove trunk continuity.",
+          "what_if": {
+            "after_reason": "route 10.20.20.0/24 and allowing rule rule-d0541ce9f681 match",
+            "after_verdict": "ALLOW",
+            "before_verdict": "UNKNOWN",
+            "category": "VLAN"
+          }
+        },
+        "platform": "openvswitch",
+        "postconditions": [
+          "VLAN 10 is present on the intended access/trunk path.",
+          "The target flow reaches the firewall and destination service.",
+          "No unintended MAC learning or broadcast-domain expansion is observed."
+        ],
+        "preconditions": [
+          "Confirm the intended access and trunk ports from the topology and cabling model.",
+          "Check that restoring the VLAN will not bridge unrelated security zones.",
+          "Capture the current OVS port configuration for rollback."
+        ],
+        "rationale": "The captured flow carries VLAN 10, but that VLAN was absent from the imported switch state. The affected ports must be confirmed before applying the candidate.",
+        "recommendation_id": "recommendation-b9e4e78f1947",
+        "risk_level": "medium",
+        "rollback_commands": [
+          "ovs-vsctl set Port eth1 tag=20"
+        ],
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED",
+        "status": "DRAFT",
+        "summary": "Restore VLAN 10 only on access port eth1.",
+        "target": "paper-query"
+      },
+      "score": 0.857,
+      "variant": "access-only"
+    },
+    {
+      "components": {
+        "blast_radius_safety": 0.84,
+        "change_simplicity": 1.0,
+        "evidence_coverage": 1.0,
+        "repair_probability": 0.71,
+        "reversibility": 1.0,
+        "security_safety": 0.68
+      },
+      "explanation": [
+        "model repair probability=0.710",
+        "evidence coverage=1.000",
+        "rollback reversibility=1.000",
+        "blast-radius safety=0.840",
+        "security safety=0.680",
+        "change simplicity=1.000"
+      ],
+      "rank": 3,
+      "recommendation": {
+        "assessment_id": "assessment-80d237c9be1a",
+        "capture_id": "paper-q-443620237fdbadc7b046",
+        "category": "VLAN",
+        "commands": [
+          "ovs-vsctl set Port eth2 trunks=10"
+        ],
+        "confidence": 0.71,
+        "current_state": {
+          "assessment": {
+            "assessment_id": "assessment-80d237c9be1a",
+            "capture_id": "paper-q-443620237fdbadc7b046",
+            "evidence": {
+              "destination": "10.20.20.10",
+              "in_interface": "",
+              "out_interface": "eth2",
+              "policy_device": "fw1",
+              "protocol": "TCP",
+              "route_device": "r1",
+              "vlan_device": "sw1",
+              "vrf": "default"
+            },
+            "flow_id": "flowev-122d3f511bf45018",
+            "ingress_device_id": "fw1",
+            "matched_rule_id": "rule-d0541ce9f681",
+            "policy_status": "ALLOW",
+            "reason": "route 10.20.20.0/24 and allowing rule rule-d0541ce9f681 match; captured VLAN is not present in the imported VLAN state",
+            "route_id": "route-1c48bfa889af",
+            "route_status": "FOUND",
+            "target": "paper-query",
+            "timestamp": "2026-09-16T05:01:25.084477+00:00",
+            "verdict": "UNKNOWN",
+            "vlan_status": "UNKNOWN_VLAN"
+          },
+          "flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 48128,
+            "vlan_id": 10
+          },
+          "known_vlans": [
+            {
+              "device_id": "sw1",
+              "interfaces": [
+                "eth1",
+                "eth2"
+              ],
+              "metadata": {},
+              "name": "VLAN 20",
+              "observed_at": "2026-09-16T00:46:24.619913+00:00",
+              "record_id": "vlan-86bc76ccdc63",
+              "vlan_id": 20
+            }
+          ],
+          "trunk_interface": {
+            "access_vlan": null,
+            "addresses": [],
+            "admin_up": true,
+            "bridge": "",
+            "device_id": "sw1",
+            "interface_id": "if-8c716b269f6b",
+            "kind": "virtual",
+            "mac_address": "",
+            "metadata": {},
+            "mtu": 1500,
+            "name": "eth2",
+            "observed_at": "2026-09-16T00:46:24.619913+00:00",
+            "oper_up": true,
+            "trunk_vlans": [
+              20
+            ],
+            "vlan_mode": "trunk",
+            "vrf": "default"
+          }
+        },
+        "desired_state": {
+          "access_interface": "<confirm>",
+          "expected_verdict": "ALLOW",
+          "trunk_interface": "eth2",
+          "vlan_id": 10
+        },
+        "device_id": "sw1",
+        "flow_id": "flowev-122d3f511bf45018",
+        "generated_at": "2026-09-16T05:01:25.084883+00:00",
+        "impact": {
+          "requires_port_confirmation": false,
+          "scope": "VLAN 10 on explicitly named ports"
+        },
+        "intent": "RESTORE_OBSERVED_VLAN_PATH",
+        "metadata": {
+          "candidate_variant": "trunk-only",
+          "ranking": {
+            "components": {
+              "blast_radius_safety": 0.84,
+              "change_simplicity": 1.0,
+              "evidence_coverage": 1.0,
+              "repair_probability": 0.71,
+              "reversibility": 1.0,
+              "security_safety": 0.68
+            },
+            "rank": 3,
+            "score": 0.857,
+            "weights": {
+              "blast_radius_safety": 0.15,
+              "change_simplicity": 0.05,
+              "evidence_coverage": 0.25,
+              "repair_probability": 0.3,
+              "reversibility": 0.15,
+              "security_safety": 0.1
+            }
+          },
+          "simulation_model_limitation": "The normalized VLAN model does not prove access-port membership.",
+          "what_if": {
+            "after_reason": "route 10.20.20.0/24 and allowing rule rule-d0541ce9f681 match",
+            "after_verdict": "ALLOW",
+            "before_verdict": "UNKNOWN",
+            "category": "VLAN"
+          }
+        },
+        "platform": "openvswitch",
+        "postconditions": [
+          "VLAN 10 is present on the intended access/trunk path.",
+          "The target flow reaches the firewall and destination service.",
+          "No unintended MAC learning or broadcast-domain expansion is observed."
+        ],
+        "preconditions": [
+          "Confirm the intended access and trunk ports from the topology and cabling model.",
+          "Check that restoring the VLAN will not bridge unrelated security zones.",
+          "Capture the current OVS port configuration for rollback."
+        ],
+        "rationale": "The captured flow carries VLAN 10, but that VLAN was absent from the imported switch state. The affected ports must be confirmed before applying the candidate.",
+        "recommendation_id": "recommendation-e041d02a84a1",
+        "risk_level": "medium",
+        "rollback_commands": [
+          "ovs-vsctl set Port eth2 trunks=20"
+        ],
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED",
+        "status": "DRAFT",
+        "summary": "Restore VLAN 10 only on trunk port eth2.",
+        "target": "paper-query"
+      },
+      "score": 0.857,
+      "variant": "trunk-only"
+    },
+    {
+      "components": {
+        "blast_radius_safety": 1.0,
+        "change_simplicity": 0.65,
+        "evidence_coverage": 1.0,
+        "repair_probability": 0.08000000000000002,
+        "reversibility": 1.0,
+        "security_safety": 0.95
+      },
+      "explanation": [
+        "model repair probability=0.080",
+        "evidence coverage=1.000",
+        "rollback reversibility=1.000",
+        "blast-radius safety=1.000",
+        "security safety=0.950",
+        "change simplicity=0.650"
+      ],
+      "rank": 4,
+      "recommendation": {
+        "assessment_id": "assessment-80d237c9be1a",
+        "capture_id": "paper-q-443620237fdbadc7b046",
+        "category": "MANUAL_REVIEW",
+        "commands": [],
+        "confidence": 0.4,
+        "current_state": {
+          "assessment": {
+            "assessment_id": "assessment-80d237c9be1a",
+            "capture_id": "paper-q-443620237fdbadc7b046",
+            "evidence": {
+              "destination": "10.20.20.10",
+              "in_interface": "",
+              "out_interface": "eth2",
+              "policy_device": "fw1",
+              "protocol": "TCP",
+              "route_device": "r1",
+              "vlan_device": "sw1",
+              "vrf": "default"
+            },
+            "flow_id": "flowev-122d3f511bf45018",
+            "ingress_device_id": "fw1",
+            "matched_rule_id": "rule-d0541ce9f681",
+            "policy_status": "ALLOW",
+            "reason": "route 10.20.20.0/24 and allowing rule rule-d0541ce9f681 match; captured VLAN is not present in the imported VLAN state",
+            "route_id": "route-1c48bfa889af",
+            "route_status": "FOUND",
+            "target": "paper-query",
+            "timestamp": "2026-09-16T05:01:25.084477+00:00",
+            "verdict": "UNKNOWN",
+            "vlan_status": "UNKNOWN_VLAN"
+          },
+          "flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 48128,
+            "vlan_id": 10
+          }
+        },
+        "desired_state": {
+          "expected_verdict": "DETERMINATE"
+        },
+        "device_id": "fw1",
+        "flow_id": "flowev-122d3f511bf45018",
+        "generated_at": "2026-09-16T05:01:25.084905+00:00",
+        "impact": {
+          "scope": "observation only"
+        },
+        "intent": "COLLECT_ADDITIONAL_EVIDENCE",
+        "metadata": {
+          "alternative_to": [
+            "recommendation-4c78a7b2d70b",
+            "recommendation-b9e4e78f1947",
+            "recommendation-e041d02a84a1"
+          ],
+          "candidate_variant": "observation-only",
+          "ranking": {
+            "components": {
+              "blast_radius_safety": 1.0,
+              "change_simplicity": 0.65,
+              "evidence_coverage": 1.0,
+              "repair_probability": 0.08000000000000002,
+              "reversibility": 1.0,
+              "security_safety": 0.95
+            },
+            "rank": 4,
+            "score": 0.7015,
+            "weights": {
+              "blast_radius_safety": 0.15,
+              "change_simplicity": 0.05,
+              "evidence_coverage": 0.25,
+              "repair_probability": 0.3,
+              "reversibility": 0.15,
+              "security_safety": 0.1
+            }
+          }
+        },
+        "platform": "vendor-neutral",
+        "postconditions": [
+          "A conclusive route, policy, or VLAN cause is identified."
+        ],
+        "preconditions": [],
+        "rationale": "The current assessment (UNKNOWN) does not map to a safely actionable configuration delta.",
+        "recommendation_id": "recommendation-43559b9c147f",
+        "risk_level": "low",
+        "rollback_commands": [],
+        "simulated_verdict": "UNKNOWN",
+        "simulation_status": "NOT_RUN",
+        "status": "DRAFT",
+        "summary": "Collect additional route, policy, VLAN, and bidirectional flow evidence before proposing a configuration change.",
+        "target": "paper-query"
+      },
+      "score": 0.7015,
+      "variant": "observation-only"
+    }
+  ],
+  "schema_version": 1
+}

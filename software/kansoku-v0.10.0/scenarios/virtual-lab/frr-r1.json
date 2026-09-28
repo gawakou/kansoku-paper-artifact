@@ -1,0 +1,36 @@
+{
+  "interfaces": {
+    "eth0": {
+      "interfaceName": "eth0",
+      "flags": "<UP,BROADCAST,RUNNING>",
+      "mtu": 1500,
+      "hardwareAddress": "02:00:00:00:01:01",
+      "ipAddresses": [{"address": "192.0.2.1/30"}]
+    },
+    "eth1": {
+      "interfaceName": "eth1",
+      "flags": "<UP,BROADCAST,RUNNING>",
+      "mtu": 1500,
+      "hardwareAddress": "02:00:00:00:01:02",
+      "ipAddresses": [{"address": "10.0.0.254/24"}]
+    }
+  },
+  "routes": {
+    "0.0.0.0/0": [{
+      "protocol": "static",
+      "selected": true,
+      "installed": true,
+      "distance": 1,
+      "metric": 10,
+      "nexthops": [{"ip": "192.0.2.2", "interfaceName": "eth0", "active": true}]
+    }],
+    "10.0.0.0/24": [{
+      "protocol": "connected",
+      "selected": true,
+      "installed": true,
+      "distance": 0,
+      "metric": 0,
+      "nexthops": [{"interfaceName": "eth1", "active": true}]
+    }]
+  }
+}

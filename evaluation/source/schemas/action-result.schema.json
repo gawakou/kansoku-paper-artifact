@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU ActionResult",
+  "type": "object",
+  "required": ["result_id", "timestamp", "proposal_id", "status", "command", "returncode", "adapter", "is_rollback"],
+  "properties": {
+    "result_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "proposal_id": {"type": "string"},
+    "status": {"enum": ["DRY_RUN", "EXECUTED", "FAILED", "SKIPPED"]},
+    "command": {"type": "string"},
+    "stdout": {"type": "string"},
+    "stderr": {"type": "string"},
+    "returncode": {"type": "integer"},
+    "adapter": {"enum": ["internal", "simulation", "system", "legacy", "none", "unknown"]},
+    "is_rollback": {"type": "boolean"}
+  }
+}

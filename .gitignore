@@ -1,0 +1,27 @@
+*.pcap
+*.pcapng
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+
+.env
+.env.*
+secrets/
+credentials/
+
+__pycache__/
+*.pyc
+.venv/
+.venv-*/
+.clab/
+clab-*/
+
+.DS_Store
+
+# Raw experiment command logs are intentionally excluded
+command-log.json

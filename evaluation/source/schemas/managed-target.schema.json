@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/managed-target.schema.json",
+  "title": "KANSOKU ManagedTarget",
+  "type": "object",
+  "required": [
+    "target", "name", "enabled", "ping_enabled", "ping_count",
+    "ping_timeout_sec", "iperf3_enabled", "iperf3_port",
+    "iperf3_duration_sec", "iperf3_parallel", "iperf3_every_n_cycles",
+    "auto_process_low_risk", "raw_dir", "target_id", "updated_at"
+  ],
+  "properties": {
+    "target": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "enabled": {"type": "boolean"},
+    "ping_enabled": {"type": "boolean"},
+    "ping_count": {"type": "integer", "minimum": 1},
+    "ping_timeout_sec": {"type": "number", "exclusiveMinimum": 0},
+    "iperf3_enabled": {"type": "boolean"},
+    "iperf3_port": {"type": "integer", "minimum": 1, "maximum": 65535},
+    "iperf3_duration_sec": {"type": "integer", "minimum": 1},
+    "iperf3_parallel": {"type": "integer", "minimum": 1},
+    "iperf3_every_n_cycles": {"type": "integer", "minimum": 0},
+    "auto_process_low_risk": {"type": "boolean"},
+    "raw_dir": {"type": "string"},
+    "target_id": {"type": "string", "pattern": "^target-"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

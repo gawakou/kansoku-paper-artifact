@@ -1,0 +1,313 @@
+{
+  "interfaces": [
+    {
+      "access_vlan": null,
+      "addresses": [],
+      "admin_up": true,
+      "bridge": "",
+      "device_id": "sw1",
+      "interface_id": "if-d2790e40b72e",
+      "kind": "virtual",
+      "mac_address": "",
+      "metadata": {
+        "ovs_table": "Port"
+      },
+      "mtu": 1500,
+      "name": "eth2",
+      "observed_at": "2026-09-16T22:41:58.239530+00:00",
+      "oper_up": true,
+      "trunk_vlans": [
+        30
+      ],
+      "vlan_mode": "trunk",
+      "vrf": "default"
+    },
+    {
+      "access_vlan": 30,
+      "addresses": [],
+      "admin_up": true,
+      "bridge": "",
+      "device_id": "sw1",
+      "interface_id": "if-16f8dc4b179b",
+      "kind": "virtual",
+      "mac_address": "",
+      "metadata": {
+        "ovs_table": "Port"
+      },
+      "mtu": 1500,
+      "name": "eth1",
+      "observed_at": "2026-09-16T22:41:58.239530+00:00",
+      "oper_up": true,
+      "trunk_vlans": [],
+      "vlan_mode": "access",
+      "vrf": "default"
+    },
+    {
+      "access_vlan": null,
+      "addresses": [],
+      "admin_up": true,
+      "bridge": "",
+      "device_id": "sw1",
+      "interface_id": "if-f68e92554201",
+      "kind": "virtual",
+      "mac_address": "",
+      "metadata": {
+        "ovs_table": "Port"
+      },
+      "mtu": 1500,
+      "name": "br0",
+      "observed_at": "2026-09-16T22:41:58.239530+00:00",
+      "oper_up": true,
+      "trunk_vlans": [],
+      "vlan_mode": "none",
+      "vrf": "default"
+    }
+  ],
+  "policies": [
+    {
+      "action": "DENY",
+      "chain": "forward",
+      "comment": "default deny",
+      "counters": {
+        "bytes": 120,
+        "packets": 2
+      },
+      "device_id": "fw1",
+      "dst_network": "",
+      "dst_port": null,
+      "family": "inet",
+      "in_interface": "",
+      "metadata": {
+        "chain_hook": "forward",
+        "chain_policy": "drop",
+        "chain_sequence": 5,
+        "raw_handle": 6
+      },
+      "observed_at": "2026-09-16T22:41:58.490101+00:00",
+      "out_interface": "",
+      "policy_type": "firewall",
+      "priority": 5,
+      "protocol": "ANY",
+      "rule_id": "rule-fc2544728b3e",
+      "src_network": "",
+      "src_port": null,
+      "state": [],
+      "table": "filter"
+    },
+    {
+      "action": "ALLOW",
+      "chain": "forward",
+      "comment": "allow client iperf3",
+      "counters": {
+        "bytes": 0,
+        "packets": 0
+      },
+      "device_id": "fw1",
+      "dst_network": "10.20.20.10",
+      "dst_port": "5201",
+      "family": "inet",
+      "in_interface": "",
+      "metadata": {
+        "chain_hook": "forward",
+        "chain_policy": "drop",
+        "chain_sequence": 4,
+        "raw_handle": 5
+      },
+      "observed_at": "2026-09-16T22:41:58.490101+00:00",
+      "out_interface": "",
+      "policy_type": "firewall",
+      "priority": 4,
+      "protocol": "TCP",
+      "rule_id": "rule-6d1e5d794728",
+      "src_network": "10.10.10.0/24",
+      "src_port": null,
+      "state": [],
+      "table": "filter"
+    },
+    {
+      "action": "ALLOW",
+      "chain": "forward",
+      "comment": "allow client HTTP test",
+      "counters": {
+        "bytes": 120,
+        "packets": 2
+      },
+      "device_id": "fw1",
+      "dst_network": "10.20.20.10",
+      "dst_port": "443",
+      "family": "inet",
+      "in_interface": "",
+      "metadata": {
+        "chain_hook": "forward",
+        "chain_policy": "drop",
+        "chain_sequence": 3,
+        "raw_handle": 4
+      },
+      "observed_at": "2026-09-16T22:41:58.490101+00:00",
+      "out_interface": "",
+      "policy_type": "firewall",
+      "priority": 3,
+      "protocol": "TCP",
+      "rule_id": "rule-2bcc17d0c83d",
+      "src_network": "10.10.10.0/24",
+      "src_port": null,
+      "state": [],
+      "table": "filter"
+    },
+    {
+      "action": "ALLOW",
+      "chain": "forward",
+      "comment": "allow client ping",
+      "counters": {
+        "bytes": 0,
+        "packets": 0
+      },
+      "device_id": "fw1",
+      "dst_network": "10.20.20.10",
+      "dst_port": null,
+      "family": "inet",
+      "in_interface": "",
+      "metadata": {
+        "chain_hook": "forward",
+        "chain_policy": "drop",
+        "chain_sequence": 2,
+        "raw_handle": 3
+      },
+      "observed_at": "2026-09-16T22:41:58.490101+00:00",
+      "out_interface": "",
+      "policy_type": "firewall",
+      "priority": 2,
+      "protocol": "ANY",
+      "rule_id": "rule-27c68d242aeb",
+      "src_network": "10.10.10.0/24",
+      "src_port": null,
+      "state": [],
+      "table": "filter"
+    },
+    {
+      "action": "ALLOW",
+      "chain": "forward",
+      "comment": "allow established",
+      "counters": {
+        "bytes": 1742,
+        "packets": 22
+      },
+      "device_id": "fw1",
+      "dst_network": "",
+      "dst_port": null,
+      "family": "inet",
+      "in_interface": "",
+      "metadata": {
+        "chain_hook": "forward",
+        "chain_policy": "drop",
+        "chain_sequence": 1,
+        "raw_handle": 2
+      },
+      "observed_at": "2026-09-16T22:41:58.490101+00:00",
+      "out_interface": "",
+      "policy_type": "firewall",
+      "priority": 1,
+      "protocol": "ANY",
+      "rule_id": "rule-bb1bb5c89b6d",
+      "src_network": "",
+      "src_port": null,
+      "state": [
+        "established",
+        "related"
+      ],
+      "table": "filter"
+    }
+  ],
+  "routes": [
+    {
+      "address_family": "ipv4",
+      "device_id": "r1",
+      "distance": 0,
+      "installed": true,
+      "interface": "eth2",
+      "metadata": {
+        "active": true,
+        "tag": null
+      },
+      "metric": 0,
+      "next_hop": "",
+      "observed_at": "2026-09-16T22:41:57.989420+00:00",
+      "prefix": "172.16.1.0/30",
+      "protocol": "connected",
+      "route_id": "route-5418e049abcc",
+      "selected": true,
+      "vrf": "default"
+    },
+    {
+      "address_family": "ipv4",
+      "device_id": "r1",
+      "distance": 0,
+      "installed": true,
+      "interface": "eth1",
+      "metadata": {
+        "active": true,
+        "tag": null
+      },
+      "metric": 0,
+      "next_hop": "",
+      "observed_at": "2026-09-16T22:41:57.989420+00:00",
+      "prefix": "172.16.0.0/30",
+      "protocol": "connected",
+      "route_id": "route-018fdb659c18",
+      "selected": true,
+      "vrf": "default"
+    },
+    {
+      "address_family": "ipv4",
+      "device_id": "r1",
+      "distance": 1,
+      "installed": true,
+      "interface": "eth2",
+      "metadata": {
+        "active": true,
+        "tag": null
+      },
+      "metric": 0,
+      "next_hop": "172.16.1.2",
+      "observed_at": "2026-09-16T22:41:57.989420+00:00",
+      "prefix": "10.20.20.0/24",
+      "protocol": "static",
+      "route_id": "route-5125f0ed799d",
+      "selected": true,
+      "vrf": "default"
+    },
+    {
+      "address_family": "ipv4",
+      "device_id": "r1",
+      "distance": 1,
+      "installed": true,
+      "interface": "eth1",
+      "metadata": {
+        "active": true,
+        "tag": null
+      },
+      "metric": 0,
+      "next_hop": "172.16.0.1",
+      "observed_at": "2026-09-16T22:41:57.989420+00:00",
+      "prefix": "10.10.10.0/24",
+      "protocol": "static",
+      "route_id": "route-c7937bab9951",
+      "selected": true,
+      "vrf": "default"
+    }
+  ],
+  "vlans": [
+    {
+      "device_id": "sw1",
+      "interfaces": [
+        "eth1",
+        "eth2"
+      ],
+      "metadata": {},
+      "name": "VLAN 30",
+      "observed_at": "2026-09-16T22:41:58.239530+00:00",
+      "record_id": "vlan-bb331c38b151",
+      "vlan_id": 30
+    }
+  ]
+}

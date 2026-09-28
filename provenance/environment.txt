@@ -1,0 +1,75 @@
+==================================================
+KANSOKU PAPER ENVIRONMENT AUDIT
+==================================================
+captured_at=2026-09-28T22:14:58+09:00
+repository_commit=8740edd8577bcb1e0af85c3c197254e7fa25ee5f
+
+===== OS / KERNEL =====
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+VERSION_ID="24.04"
+Linux ogawa-M8-router 7.0.0-31-generic #31~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Aug 10 09:38:02 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
+===== CPU =====
+CPU(s):                                  12
+Model name:                              AMD Ryzen 5 PRO 6650H with Radeon Graphics
+Thread(s) per core:                      2
+Core(s) per socket:                      6
+Socket(s):                               1
+
+===== MEMORY =====
+               total        used        free      shared  buff/cache   available
+Mem:            12Gi       1.4Gi       5.0Gi        18Mi       6.3Gi        10Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+===== PYTHON =====
+Python 3.12.3
+
+===== DOCKER =====
+Docker version 27.5.1, build 9f9e405
+server=29.8.0 client=27.5.1
+
+===== CONTAINERLAB =====
+
+ ⣴⡾⠛⠛⠖ ⢠⣶⠟⠛⢷⣦ ⢸⣿⣧  ⣿ ⠘⠛⢻⡟⠛⠛  ⣾⣿⡀  ⣿⡇ ⣿⣿⡄ ⢸⡇ ⣿⡟⠛⠛⠃⢸⣿⠛⠛⣷⡄ [38;2;0;201;255m⣿⡇[0m      [38;2;0;201;255m⣿⡇[0m    
+⢸⣿     ⣿⡇   ⣿⡇⢸⣿⠹⣧⡀⣿   ⢸⡇   ⣸⡏⢹⣧  ⣿⡇ ⣿⡏⢿⣄⢸⡇ ⣿⣧⣤⣤ ⢸⣿⣀⣀⣾⠇ [38;2;0;201;255m⣿⡇⠐⠟⠛⢿⡆[0m [38;2;0;201;255m⣿⡷⠛⢿⣆[0m 
+⠘⣿⣄  ⡀ ⢻⣧⡀ ⣠⣿⠃⢸⣿ ⠘⣷⣿   ⢸⡇  ⢠⣿⠷⠶⢿⡆ ⣿⡇ ⣿⡇ ⢻⣾⡇ ⣿⡇   ⢸⣿⠉⢻⣧⡀ [38;2;0;201;255m⣿⡇⢰⡟⠛⣻⡇[0m [38;2;0;201;255m⣿⡇[0m [38;2;0;201;255m⣸⡿[0m 
+ ⠈⠙⠛⠛⠉  ⠉⠛⠛⠋⠁ ⠘⠛  ⠈⠛   ⠘⠃  ⠚⠃  ⠘⠛ ⠛⠃ ⠛⠃  ⠙⠃ ⠛⠛⠛⠛⠃⠘⠛  ⠙⠓ [38;2;0;201;255m⠛⠃⠈⠛⠛⠙⠃[0m [38;2;0;201;255m⠛⠛⠛⠛⠁[0m 
+
+    version: 0.77.0
+     commit: 05c2006e3
+       date: 2026-06-28T08:07:27Z
+     source: https://github.com/srl-labs/containerlab
+ rel. notes: https://containerlab.dev/rn/0.77/
+
+===== CONTAINER IMAGES =====
+--- kansoku/lab-node:0.10.0 ---
+id=sha256:44f2b900ddf260083cbb0f6ceddb8855e48133de09a3e28f126b6d4e6d3822f3 repo_digests=["kansoku/lab-node@sha256:44f2b900ddf260083cbb0f6ceddb8855e48133de09a3e28f126b6d4e6d3822f3"]
+--- frrouting/frr:v8.4.0 ---
+id=sha256:3f4d1f4726fd763e0c7a771ea617f425dd5726e573ce3d58d88d22235ad6a12d repo_digests=["frrouting/frr@sha256:3f4d1f4726fd763e0c7a771ea617f425dd5726e573ce3d58d88d22235ad6a12d"]
+
+===== FRR =====
+vtysh: unrecognized option `--version'
+Try `vtysh --help' for more information.
+
+===== OPEN VSWITCH =====
+ovs-vsctl (Open vSwitch) 3.3.9
+DB Schema 8.5.1
+
+===== NFTABLES =====
+nftables v1.0.9 (Old Doc Yak #3)
+
+===== EXPLICIT TOPOLOGY RESOURCE LIMITS =====
+NONE: no explicit CPU/memory limits in topology
+
+===== FORMAL RQ3 PROBE PARAMETERS =====
+270:            timeout=10.0,
+376:    for _ in range(20):
+394:        time.sleep(1)
+470:                "--connect-timeout",
+472:                "--max-time",
+488:            "-W",
+526:            "--connect-timeout",
+528:            "--max-time",
+553:                    "iperf3 -c "
+682:        time.sleep(1)
+719:        time.sleep(1)

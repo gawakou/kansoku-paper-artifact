@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "catalog": "kansoku-v0.10.0-evaluation",
+  "scenarios": [
+    {
+      "scenario_id": "normal",
+      "layer": "end-to-end",
+      "fault_type": "none",
+      "implemented": true,
+      "expected_verdict": "ALLOW",
+      "description": "Healthy VLAN, firewall, routing, and service path."
+    },
+    {
+      "scenario_id": "firewall-deny",
+      "layer": "firewall",
+      "fault_type": "explicit-drop",
+      "implemented": true,
+      "expected_verdict": "DENY",
+      "expected_category": "FIREWALL_POLICY",
+      "description": "A narrow nftables drop rule blocks the observed HTTPS flow."
+    },
+    {
+      "scenario_id": "route-missing",
+      "layer": "l3",
+      "fault_type": "missing-static-route",
+      "implemented": true,
+      "expected_verdict": "UNROUTABLE",
+      "expected_category": "ROUTE",
+      "description": "The destination static route is removed from r1."
+    },
+    {
+      "scenario_id": "vlan-mismatch",
+      "layer": "l2",
+      "fault_type": "access-trunk-vlan-mismatch",
+      "implemented": true,
+      "expected_verdict": "UNKNOWN",
+      "expected_category": "VLAN",
+      "description": "Observed VLAN 10 is replaced by VLAN 30 on the OVS access and trunk ports."
+    },
+    {
+      "scenario_id": "packet-loss",
+      "layer": "link",
+      "fault_type": "netem-loss",
+      "implemented": true,
+      "expected_recovery": true,
+      "description": "A temporary 100 percent packet-loss impairment is injected and removed."
+    },
+    {
+      "scenario_id": "access-vlan-wrong",
+      "layer": "l2",
+      "fault_type": "wrong-access-vlan",
+      "implemented": false,
+      "expected_verdict": "UNKNOWN",
+      "expected_category": "VLAN",
+      "description": "Only the client-facing access VLAN is changed."
+    },
+    {
+      "scenario_id": "trunk-vlan-omitted",
+      "layer": "l2",
+      "fault_type": "missing-trunk-vlan",
+      "implemented": false,
+      "expected_verdict": "UNKNOWN",
+      "expected_category": "VLAN",
+      "description": "The expected VLAN is removed from an OVS trunk."
+    },
+    {
+      "scenario_id": "switch-port-down",
+      "layer": "l2",
+      "fault_type": "administrative-port-down",
+      "implemented": false,
+      "expected_verdict": "UNKNOWN",
+      "description": "An OVS data-plane port is administratively disabled."
+    },
+    {
+      "scenario_id": "next-hop-wrong",
+      "layer": "l3",
+      "fault_type": "incorrect-next-hop",
+      "implemented": false,
+      "expected_verdict": "UNROUTABLE",
+      "expected_category": "ROUTE",
+      "description": "The destination route points to an unreachable next hop."
+    },
+    {
+      "scenario_id": "out-interface-wrong",
+      "layer": "l3",
+      "fault_type": "incorrect-output-interface",
+      "implemented": false,
+      "expected_verdict": "UNROUTABLE",
+      "expected_category": "ROUTE",
+      "description": "The route is installed with an incorrect output interface."
+    },
+    {
+      "scenario_id": "default-route-misdirection",
+      "layer": "l3",
+      "fault_type": "incorrect-default-route",
+      "implemented": false,
+      "expected_verdict": "UNROUTABLE",
+      "expected_category": "ROUTE",
+      "description": "Traffic follows an unintended default route after a specific route is removed."
+    },
+    {
+      "scenario_id": "firewall-port-wrong",
+      "layer": "firewall",
+      "fault_type": "incorrect-service-port",
+      "implemented": false,
+      "expected_verdict": "DENY",
+      "expected_category": "FIREWALL_POLICY",
+      "description": "The allow rule references the wrong destination port."
+    },
+    {
+      "scenario_id": "firewall-source-wrong",
+      "layer": "firewall",
+      "fault_type": "incorrect-source-prefix",
+      "implemented": false,
+      "expected_verdict": "DENY",
+      "expected_category": "FIREWALL_POLICY",
+      "description": "The allow rule contains an incorrect source prefix."
+    },
+    {
+      "scenario_id": "firewall-rule-order",
+      "layer": "firewall",
+      "fault_type": "rule-order-conflict",
+      "implemented": false,
+      "expected_verdict": "DENY",
+      "expected_category": "FIREWALL_POLICY",
+      "description": "A higher-priority drop shadows a narrow allow rule."
+    },
+    {
+      "scenario_id": "mtu-mismatch",
+      "layer": "l3",
+      "fault_type": "path-mtu-mismatch",
+      "implemented": false,
+      "expected_verdict": "UNKNOWN",
+      "description": "An MTU mismatch causes large-packet failures while basic reachability remains."
+    },
+    {
+      "scenario_id": "route-and-firewall",
+      "layer": "compound",
+      "fault_type": "missing-route-plus-explicit-drop",
+      "implemented": false,
+      "expected_verdict": "UNROUTABLE",
+      "description": "A route fault and firewall fault are injected simultaneously."
+    },
+    {
+      "scenario_id": "vlan-and-firewall",
+      "layer": "compound",
+      "fault_type": "vlan-mismatch-plus-explicit-drop",
+      "implemented": false,
+      "expected_verdict": "UNKNOWN",
+      "description": "A VLAN mismatch prevents observation of a simultaneous firewall policy fault."
+    },
+    {
+      "scenario_id": "background-traffic",
+      "layer": "evaluation",
+      "fault_type": "concurrent-unrelated-flows",
+      "implemented": false,
+      "expected_verdict": "ALLOW",
+      "description": "Diagnosis is evaluated while unrelated background flows are present."
+    }
+  ]
+}

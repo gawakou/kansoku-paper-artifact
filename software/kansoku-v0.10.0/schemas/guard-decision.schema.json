@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU GuardDecision",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "timestamp",
+    "proposal_id",
+    "status",
+    "reasons",
+    "policy_version"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "proposal_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "APPROVED",
+        "REJECTED",
+        "REQUIRE_APPROVAL"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

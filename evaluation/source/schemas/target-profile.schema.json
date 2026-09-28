@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU TargetProfile",
+  "type": "object",
+  "required": ["target", "name", "throughput_normal_ratio", "throughput_warning_ratio", "throughput_degraded_ratio"],
+  "properties": {
+    "target": {"type": "string", "minLength": 1},
+    "name": {"type": "string"},
+    "expected_bandwidth_mbps": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "baseline_throughput_mbps": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "throughput_normal_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "throughput_warning_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "throughput_degraded_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "normal_interval_sec": {"type": "integer", "minimum": 1},
+    "warning_interval_sec": {"type": "integer", "minimum": 1}
+  }
+}

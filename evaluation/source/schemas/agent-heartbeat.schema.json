@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/agent-heartbeat.schema.json",
+  "title": "KANSOKU Agent Heartbeat",
+  "type": "object",
+  "required": ["agent_id", "hostname", "version", "status", "queue_depth", "metadata", "heartbeat_id", "timestamp"],
+  "properties": {
+    "agent_id": {"type": "string", "minLength": 1},
+    "hostname": {"type": "string"},
+    "version": {"type": "string"},
+    "status": {"type": "string"},
+    "queue_depth": {"type": "integer", "minimum": 0},
+    "metadata": {"type": "object"},
+    "heartbeat_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

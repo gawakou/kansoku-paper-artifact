@@ -1,0 +1,18 @@
+{
+  "bridges": [{
+    "name": "br0",
+    "ports": [
+      {
+        "name": "client-a",
+        "tag": 10,
+        "interfaces": [{"name": "client-a", "type": "system", "link_state": "up", "mac_in_use": "02:00:00:00:10:01"}]
+      },
+      {
+        "name": "uplink",
+        "trunks": [10, 20],
+        "interfaces": [{"name": "uplink", "type": "system", "link_state": "up", "mac_in_use": "02:00:00:00:10:02"}],
+        "peer": {"device": "fw1", "interface": "lan0"}
+      }
+    ]
+  }]
+}

@@ -1,0 +1,13 @@
+flush ruleset
+
+table inet filter {
+  chain forward {
+    type filter hook forward priority 0; policy drop;
+
+    ct state established,related counter accept comment "allow established"
+    ip saddr 10.10.10.0/24 ip daddr 10.20.20.10 icmp type echo-request counter accept comment "allow client ping"
+    ip saddr 10.10.10.0/24 ip daddr 10.20.20.10 tcp dport 443 counter accept comment "allow client HTTP test"
+    ip saddr 10.10.10.0/24 ip daddr 10.20.20.10 tcp dport 5201 counter accept comment "allow client iperf3"
+    counter drop comment "default deny"
+  }
+}

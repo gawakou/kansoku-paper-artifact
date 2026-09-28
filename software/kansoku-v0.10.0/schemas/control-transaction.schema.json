@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU ControlTransaction",
+  "type": "object",
+  "required": ["transaction_id", "timestamp", "target", "proposal_id", "outcome", "message"],
+  "properties": {
+    "transaction_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "target": {"type": "string"},
+    "proposal_id": {"type": "string"},
+    "outcome": {"enum": ["WAITING_APPROVAL", "REJECTED", "DRY_RUN", "VERIFIED", "INCONCLUSIVE", "ROLLED_BACK", "FAILED"]},
+    "guard_decision_id": {"type": ["string", "null"]},
+    "approval_id": {"type": ["string", "null"]},
+    "action_result_id": {"type": ["string", "null"]},
+    "verification_id": {"type": ["string", "null"]},
+    "rollback_result_id": {"type": ["string", "null"]},
+    "message": {"type": "string"}
+  }
+}

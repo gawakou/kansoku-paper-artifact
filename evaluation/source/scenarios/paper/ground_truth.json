@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "scenarios": {
+    "normal": {
+      "expected_verdict": "ALLOW",
+      "expected_fault_domain": "NONE",
+      "expected_affected_device": "",
+      "expected_element_type": "NONE",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "none"
+      },
+      "notes": "No injected fault; target TCP/443 communication and matching network state are healthy."
+    },
+    "firewall-deny": {
+      "expected_verdict": "DENY",
+      "expected_fault_domain": "FIREWALL",
+      "expected_affected_device": "fw1",
+      "expected_element_type": "POLICY_RULE",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "notes": "A firewall policy on fw1 explicitly denies the target TCP/443 flow. Runtime rule IDs are not fixed in ground truth."
+    },
+    "firewall-subnet-deny": {
+      "expected_verdict": "DENY",
+      "expected_fault_domain": "FIREWALL",
+      "expected_affected_device": "fw1",
+      "expected_element_type": "POLICY_RULE",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "notes": "A source-subnet deny on fw1 covers the target TCP/443 flow. The expected label was declared in scenario_plan.json before live validation; runtime rule IDs are not fixed."
+    },
+    "firewall-port-range-deny": {
+      "expected_verdict": "DENY",
+      "expected_fault_domain": "FIREWALL",
+      "expected_affected_device": "fw1",
+      "expected_element_type": "POLICY_RULE",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "notes": "A destination-port range deny on fw1 includes TCP/443. The expected label was declared in scenario_plan.json before live validation; runtime rule IDs are not fixed."
+    },
+    "firewall-rule-order": {
+      "expected_verdict": "DENY",
+      "expected_fault_domain": "FIREWALL",
+      "expected_affected_device": "fw1",
+      "expected_element_type": "POLICY_RULE",
+      "expected_element_ref": {
+        "mode": "prefix",
+        "value": "policy:"
+      },
+      "notes": "A broad deny inserted before the later TCP/443 allow shadows that allow rule. The expected label was declared in scenario_plan.json before live validation; runtime rule IDs are not fixed."
+    },
+    "route-missing": {
+      "expected_verdict": "UNROUTABLE",
+      "expected_fault_domain": "ROUTE",
+      "expected_affected_device": "r1",
+      "expected_element_type": "ROUTE",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "notes": "The route required to reach the target destination is absent on r1."
+    },
+    "route-unreachable-next-hop": {
+      "expected_verdict": "UNROUTABLE",
+      "expected_fault_domain": "ROUTE",
+      "expected_affected_device": "r1",
+      "expected_element_type": "ROUTE",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "route-missing:10.20.20.10"
+      },
+      "notes": "The static route is configured with an unreachable next hop, but FRRouting exposes no active installed route for the destination. The expected fault domain and verdict were declared in scenario_plan.json before live validation; the active-state localization is therefore route-missing for the target destination."
+    },
+    "route-wrong-interface": {
+      "expected_verdict": "UNROUTABLE",
+      "expected_fault_domain": "ROUTE",
+      "expected_affected_device": "r1",
+      "expected_element_type": "ROUTE",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "notes": "The destination prefix is installed and selected on r1 through the wrong output interface eth1 while the target HTTP transaction fails. These verdict/domain/device/type labels were predeclared in scenario_plan.json. Element-ref matching is intentionally ignored because the current canonical reference schema has no identifier for an installed-but-misdirected route. This is a live-verified boundary case and the observed v0.10.0 Proposed result is ALLOW/NONE, which is retained as a model limitation rather than relabeled as correct."
+    },
+    "route-blackhole-host": {
+      "expected_verdict": "UNROUTABLE",
+      "expected_fault_domain": "ROUTE",
+      "expected_affected_device": "r1",
+      "expected_element_type": "ROUTE",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "notes": "A more-specific 10.20.20.10/32 route is installed and selected by FRRouting with blackhole=true and unreachable=true while the target HTTP transaction fails. The verdict/domain/device/type labels were predeclared in scenario_plan.json before live validation. Element-ref matching is intentionally ignored because the current canonical reference schema has no blackhole-route identifier. The observed v0.10.0 CONFIG_ONLY and PROPOSED results are ALLOW/NONE and are retained as a model limitation rather than relabeled as correct."
+    },
+    "vlan-mismatch": {
+      "expected_verdict": "UNKNOWN",
+      "expected_fault_domain": "VLAN",
+      "expected_affected_device": "sw1",
+      "expected_element_type": "VLAN",
+      "expected_element_ref": {
+        "mode": "exact",
+        "value": "vlan-missing:10"
+      },
+      "notes": "The observed target flow carries VLAN 10 while the post-drift OVS state is configured for VLAN 30."
+    },
+    "vlan-access-only-drift": {
+      "expected_verdict": "UNKNOWN",
+      "expected_fault_domain": "VLAN",
+      "expected_affected_device": "sw1",
+      "expected_element_type": "VLAN",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "notes": "The pre-drift target flow carries VLAN 10. After live validation, the sw1 access port is moved to VLAN 30 while the trunk still carries VLAN 10, and the target HTTP transaction fails. The verdict/domain/device/type labels were predeclared in scenario_plan.json. Element-ref matching is intentionally ignored because the current canonical reference schema does not identify a per-port VLAN path-continuity fault. The observed v0.10.0 FLOW_ONLY, CONFIG_ONLY, and PROPOSED results are ALLOW/NONE and are retained as model limitations rather than relabeled as correct."
+    },
+    "vlan-trunk-only-drift": {
+      "expected_verdict": "UNKNOWN",
+      "expected_fault_domain": "VLAN",
+      "expected_affected_device": "sw1",
+      "expected_element_type": "VLAN",
+      "expected_element_ref": {
+        "mode": "ignore",
+        "value": ""
+      },
+      "notes": "The pre-drift target flow carries VLAN 10. After live validation, the sw1 access port remains on VLAN 10 while the trunk is moved to VLAN 30, and the target HTTP transaction fails. The verdict/domain/device/type labels were predeclared in scenario_plan.json. Element-ref matching is intentionally ignored because the current canonical reference schema does not identify a per-port VLAN path-continuity fault. The observed v0.10.0 FLOW_ONLY, CONFIG_ONLY, and PROPOSED results are ALLOW/NONE and are retained as model limitations rather than relabeled as correct."
+    }
+  }
+}

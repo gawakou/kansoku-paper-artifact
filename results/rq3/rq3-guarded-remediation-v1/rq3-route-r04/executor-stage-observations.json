@@ -1,0 +1,164 @@
+{
+  "post_change": {
+    "auxiliary": {
+      "independent_control": {
+        "argv": [
+          "docker",
+          "exec",
+          "clab-kansoku-v100-server-a",
+          "ping",
+          "-c",
+          "1",
+          "-W",
+          "1",
+          "10.20.20.1"
+        ],
+        "duration_ms": 27.245139004662633,
+        "observed_success": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "PING 10.20.20.1 (10.20.20.1) 56(84) bytes of data.\n64 bytes from 10.20.20.1: icmp_seq=1 ttl=64 time=0.061 ms\n\n--- 10.20.20.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.061/0.061/0.061/0.000 ms\n"
+      },
+      "same_path_control": null,
+      "security_invariant": {
+        "argv": [
+          "docker",
+          "exec",
+          "clab-kansoku-v100-client-a",
+          "curl",
+          "-fsS",
+          "--connect-timeout",
+          "2",
+          "--max-time",
+          "4",
+          "http://10.20.20.10:8443/"
+        ],
+        "duration_ms": 2041.6132910177112,
+        "observed_success": false,
+        "returncode": 28,
+        "stderr": "curl: (28) Failed to connect to 10.20.20.10 port 8443 after 2002 ms: Timeout was reached\n",
+        "stdout": ""
+      },
+      "security_service_listening": {
+        "argv": [
+          "docker",
+          "exec",
+          "clab-kansoku-v100-server-a",
+          "sh",
+          "-c",
+          "ss -lnt | grep -Eq '[:.]8443[[:space:]]'"
+        ],
+        "duration_ms": 34.00021302513778,
+        "observed_success": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": ""
+      },
+      "stage": "post_change",
+      "stage_duration_ms": 2102.879912010394
+    },
+    "stage_duration_ms": 2136.4675559452735,
+    "target": {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-client-a",
+        "curl",
+        "-fsS",
+        "--connect-timeout",
+        "2",
+        "--max-time",
+        "5",
+        "http://10.20.20.10:443/"
+      ],
+      "duration_ms": 33.56181597337127,
+      "expected_success": true,
+      "observed_success": true,
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "KANSOKU v0.10.0 virtual lab\n"
+    }
+  },
+  "post_rollback": {
+    "auxiliary": {
+      "independent_control": {
+        "argv": [
+          "docker",
+          "exec",
+          "clab-kansoku-v100-server-a",
+          "ping",
+          "-c",
+          "1",
+          "-W",
+          "1",
+          "10.20.20.1"
+        ],
+        "duration_ms": 38.782679999712855,
+        "observed_success": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "PING 10.20.20.1 (10.20.20.1) 56(84) bytes of data.\n64 bytes from 10.20.20.1: icmp_seq=1 ttl=64 time=0.068 ms\n\n--- 10.20.20.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.068/0.068/0.068/0.000 ms\n"
+      },
+      "same_path_control": null,
+      "security_invariant": {
+        "argv": [
+          "docker",
+          "exec",
+          "clab-kansoku-v100-client-a",
+          "curl",
+          "-fsS",
+          "--connect-timeout",
+          "2",
+          "--max-time",
+          "4",
+          "http://10.20.20.10:8443/"
+        ],
+        "duration_ms": 2048.244241042994,
+        "observed_success": false,
+        "returncode": 28,
+        "stderr": "curl: (28) Failed to connect to 10.20.20.10 port 8443 after 2002 ms: Timeout was reached\n",
+        "stdout": ""
+      },
+      "security_service_listening": {
+        "argv": [
+          "docker",
+          "exec",
+          "clab-kansoku-v100-server-a",
+          "sh",
+          "-c",
+          "ss -lnt | grep -Eq '[:.]8443[[:space:]]'"
+        ],
+        "duration_ms": 46.02250800235197,
+        "observed_success": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": ""
+      },
+      "stage": "post_rollback",
+      "stage_duration_ms": 2133.0745560117066
+    },
+    "stage_duration_ms": 4183.465826965403,
+    "target": {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-client-a",
+        "curl",
+        "-fsS",
+        "--connect-timeout",
+        "2",
+        "--max-time",
+        "5",
+        "http://10.20.20.10:443/"
+      ],
+      "duration_ms": 2050.361175031867,
+      "expected_success": false,
+      "observed_success": false,
+      "passed": true,
+      "returncode": 28,
+      "stderr": "curl: (28) Failed to connect to 10.20.20.10 port 443 after 2002 ms: Timeout was reached\n",
+      "stdout": ""
+    }
+  }
+}

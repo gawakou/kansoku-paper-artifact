@@ -1,0 +1,112 @@
+============================================================================
+rq3-vlan-r01
+============================================================================
+capture timing : before_fault_injection
+capture ID     : capture-fb792ddf9204
+flow ID        : flow-1ee51789594f
+observed VLAN  : 10
+capture start  : 2026-09-16T22:41:46.625653+00:00
+capture finish : 2026-09-16T22:41:46.626634+00:00
+flow first     : 2026-09-16T22:41:46.625653+00:00
+flow last      : 2026-09-16T22:41:46.626634+00:00
+VLAN snapshot  : snapshot-b0814bd2a8d8
+collector      : ovs
+snapshot start : 2026-09-16T22:41:58.239702+00:00
+snapshot finish: 2026-09-16T22:41:58.239707+00:00
+interface obs  : ['2026-09-16T22:41:58.239530+00:00', '2026-09-16T22:41:58.239530+00:00', '2026-09-16T22:41:58.239530+00:00']
+state VLAN IDs : [30]
+last packet -> snapshot start [ms]: 11613.068
+last packet -> snapshot finish [ms]: 11613.073
+chronology     : PASS
+
+============================================================================
+rq3-vlan-r02
+============================================================================
+capture timing : before_fault_injection
+capture ID     : capture-710172082f9d
+flow ID        : flow-981d1d80d349
+observed VLAN  : 10
+capture start  : 2026-09-16T22:42:24.564570+00:00
+capture finish : 2026-09-16T22:42:24.565547+00:00
+flow first     : 2026-09-16T22:42:24.564570+00:00
+flow last      : 2026-09-16T22:42:24.565547+00:00
+VLAN snapshot  : snapshot-481343f4f133
+collector      : ovs
+snapshot start : 2026-09-16T22:42:36.230626+00:00
+snapshot finish: 2026-09-16T22:42:36.230631+00:00
+interface obs  : ['2026-09-16T22:42:36.230457+00:00', '2026-09-16T22:42:36.230457+00:00', '2026-09-16T22:42:36.230457+00:00']
+state VLAN IDs : [30]
+last packet -> snapshot start [ms]: 11665.079
+last packet -> snapshot finish [ms]: 11665.084
+chronology     : PASS
+
+============================================================================
+rq3-vlan-r03
+============================================================================
+capture timing : before_fault_injection
+capture ID     : capture-65544cebe733
+flow ID        : flow-4073c97c7f62
+observed VLAN  : 10
+capture start  : 2026-09-16T22:43:02.551177+00:00
+capture finish : 2026-09-16T22:43:02.552173+00:00
+flow first     : 2026-09-16T22:43:02.551177+00:00
+flow last      : 2026-09-16T22:43:02.552173+00:00
+VLAN snapshot  : snapshot-8d9b2434ca70
+collector      : ovs
+snapshot start : 2026-09-16T22:43:14.183649+00:00
+snapshot finish: 2026-09-16T22:43:14.183654+00:00
+interface obs  : ['2026-09-16T22:43:14.183500+00:00', '2026-09-16T22:43:14.183500+00:00', '2026-09-16T22:43:14.183500+00:00']
+state VLAN IDs : [30]
+last packet -> snapshot start [ms]: 11631.476
+last packet -> snapshot finish [ms]: 11631.481
+chronology     : PASS
+
+============================================================================
+rq3-vlan-r04
+============================================================================
+capture timing : before_fault_injection
+capture ID     : capture-5d422b339602
+flow ID        : flow-e903579000ce
+observed VLAN  : 10
+capture start  : 2026-09-16T22:43:40.500124+00:00
+capture finish : 2026-09-16T22:43:40.501110+00:00
+flow first     : 2026-09-16T22:43:40.500124+00:00
+flow last      : 2026-09-16T22:43:40.501110+00:00
+VLAN snapshot  : snapshot-4d02a4ed24a7
+collector      : ovs
+snapshot start : 2026-09-16T22:43:52.122516+00:00
+snapshot finish: 2026-09-16T22:43:52.122521+00:00
+interface obs  : ['2026-09-16T22:43:52.122344+00:00', '2026-09-16T22:43:52.122344+00:00', '2026-09-16T22:43:52.122344+00:00']
+state VLAN IDs : [30]
+last packet -> snapshot start [ms]: 11621.406
+last packet -> snapshot finish [ms]: 11621.411
+chronology     : PASS
+
+============================================================================
+rq3-vlan-r05
+============================================================================
+capture timing : before_fault_injection
+capture ID     : capture-ea94baf4ab0e
+flow ID        : flow-ab716542ac1f
+observed VLAN  : 10
+capture start  : 2026-09-16T22:44:18.445981+00:00
+capture finish : 2026-09-16T22:44:18.446952+00:00
+flow first     : 2026-09-16T22:44:18.445981+00:00
+flow last      : 2026-09-16T22:44:18.446952+00:00
+VLAN snapshot  : snapshot-83e7e94da881
+collector      : ovs
+snapshot start : 2026-09-16T22:44:30.165990+00:00
+snapshot finish: 2026-09-16T22:44:30.165994+00:00
+interface obs  : ['2026-09-16T22:44:30.165840+00:00', '2026-09-16T22:44:30.165840+00:00', '2026-09-16T22:44:30.165840+00:00']
+state VLAN IDs : [30]
+last packet -> snapshot start [ms]: 11719.038
+last packet -> snapshot finish [ms]: 11719.042
+chronology     : PASS
+
+============================================================================
+FORMAL RQ3 VLAN TEMPORAL SUMMARY
+============================================================================
+N = 5
+last-packet -> snapshot-start ms: min=11613.068 median=11631.476 max=11719.038
+last-packet -> snapshot-finish ms: min=11613.073 median=11631.481 max=11719.042
+PASS: all five formal VLAN executions use pre-fault packet evidence and later post-fault OVS state

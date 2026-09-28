@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kansoku"
+version = "0.10.0"
+description = "A modular observation-driven framework for safe infrastructure operations"
+requires-python = ">=3.10"
+authors = [{name = "KANSOKU Project"}]
+
+[project.scripts]
+kansoku = "kansoku.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["kansoku"]

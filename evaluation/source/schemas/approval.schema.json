@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU ApprovalRecord",
+  "type": "object",
+  "required": ["approval_id", "timestamp", "proposal_id", "status", "actor", "comment"],
+  "properties": {
+    "approval_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "proposal_id": {"type": "string"},
+    "status": {"enum": ["APPROVED", "REJECTED"]},
+    "actor": {"type": "string", "minLength": 1},
+    "comment": {"type": "string"}
+  }
+}

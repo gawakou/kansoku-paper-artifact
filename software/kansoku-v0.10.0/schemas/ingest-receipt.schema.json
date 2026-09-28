@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/ingest-receipt.schema.json",
+  "title": "KANSOKU Remote Ingest Receipt",
+  "type": "object",
+  "required": [
+    "batch_id",
+    "agent_id",
+    "status",
+    "observation_count",
+    "run_count",
+    "capture_count",
+    "flow_count",
+    "targets",
+    "duplicate",
+    "message",
+    "received_at",
+    "receipt_id"
+  ],
+  "properties": {
+    "batch_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "DUPLICATE"
+      ]
+    },
+    "observation_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "run_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "duplicate": {
+      "type": "boolean"
+    },
+    "message": {
+      "type": "string"
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "capture_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "flow_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

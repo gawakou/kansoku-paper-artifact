@@ -1,0 +1,30 @@
+#cloud-config
+# Replace the SSH public key before using this template.
+hostname: kansoku-lab
+manage_etc_hosts: true
+users:
+  - default
+  - name: kansoku
+    groups: [adm, sudo, docker]
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - REPLACE_WITH_YOUR_SSH_PUBLIC_KEY
+package_update: true
+packages:
+  - ca-certificates
+  - curl
+  - git
+  - jq
+  - openvswitch-switch
+  - python3
+  - python3-pip
+  - python3-venv
+  - tcpdump
+  - docker.io
+runcmd:
+  - [systemctl, enable, --now, docker]
+  - [modprobe, openvswitch]
+  - [modprobe, 8021q]
+  - [bash, -lc, "curl -sL https://containerlab.dev/setup | bash -s all"]
+  - [bash, -lc, "printf 'openvswitch\\n8021q\\n' >/etc/modules-load.d/kansoku-lab.conf"]

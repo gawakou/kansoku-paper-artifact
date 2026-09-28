@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/kansoku/remediation-execution.schema.json",
+  "title": "KANSOKU Virtual-Lab Remediation Execution",
+  "type": "object",
+  "required": [
+    "execution_id", "recommendation_id", "assessment_id", "environment", "lab_name",
+    "device_id", "category", "approved_by", "status", "apply_results", "verification",
+    "readback", "rollback_results", "rollback_verification", "error", "started_at",
+    "finished_at", "metadata"
+  ],
+  "properties": {
+    "execution_id": {"type": "string", "minLength": 1},
+    "recommendation_id": {"type": "string", "minLength": 1},
+    "assessment_id": {"type": "string", "minLength": 1},
+    "environment": {"const": "virtual-lab"},
+    "lab_name": {"type": "string", "minLength": 1},
+    "device_id": {"type": "string", "minLength": 1},
+    "category": {"enum": ["FIREWALL_POLICY", "ROUTE", "VLAN"]},
+    "approved_by": {"type": "string", "minLength": 1},
+    "status": {"enum": ["PLANNED", "APPLYING", "VERIFIED", "ROLLED_BACK", "FAILED", "REFUSED"]},
+    "apply_results": {"type": "array"},
+    "verification": {"type": "object"},
+    "readback": {"type": "object"},
+    "rollback_results": {"type": "array"},
+    "rollback_verification": {"type": "object"},
+    "error": {"type": "string"},
+    "started_at": {"type": "string"},
+    "finished_at": {"type": "string"},
+    "metadata": {"type": "object"}
+  }
+}

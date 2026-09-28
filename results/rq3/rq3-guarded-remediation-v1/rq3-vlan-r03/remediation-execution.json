@@ -1,0 +1,158 @@
+{
+  "apply_results": [
+    {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-sw1",
+        "ovs-vsctl",
+        "set",
+        "Port",
+        "eth1",
+        "tag=10"
+      ],
+      "command": "ovs-vsctl set Port eth1 tag=10",
+      "duration_ms": 32.50674204900861,
+      "finished_at": "2026-09-16T22:43:14.949471+00:00",
+      "returncode": 0,
+      "started_at": "2026-09-16T22:43:14.916958+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-sw1",
+        "ovs-vsctl",
+        "set",
+        "Port",
+        "eth2",
+        "trunks=10"
+      ],
+      "command": "ovs-vsctl set Port eth2 trunks=10",
+      "duration_ms": 32.045743020717055,
+      "finished_at": "2026-09-16T22:43:14.981620+00:00",
+      "returncode": 0,
+      "started_at": "2026-09-16T22:43:14.949568+00:00",
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "approved_by": "rq3-operator",
+  "assessment_id": "assessment-881bb1abc73b",
+  "category": "VLAN",
+  "device_id": "sw1",
+  "environment": "virtual-lab",
+  "error": "",
+  "execution_id": "remediation-c61ed05c7fda",
+  "finished_at": "2026-09-16T22:43:21.417372+00:00",
+  "lab_name": "kansoku-v100",
+  "metadata": {
+    "execution_boundary": "containerlab virtual lab only",
+    "rollback_after_verify": true,
+    "runtime": "docker",
+    "verify_url": "http://10.20.20.10:443/"
+  },
+  "readback": {
+    "argv": [
+      "docker",
+      "exec",
+      "clab-kansoku-v100-sw1",
+      "ovs-vsctl",
+      "--format=json",
+      "--columns=name,tag,trunks,interfaces",
+      "list",
+      "Port"
+    ],
+    "read_only": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\"data\":[[\"br0\",[\"set\",[]],[\"set\",[]],[\"uuid\",\"cb20e446-146c-4bdf-bdc5-9ce9d515a63b\"]],[\"eth1\",10,[\"set\",[]],[\"uuid\",\"ed6a91c1-97ee-4347-bc08-a42996c9a68b\"]],[\"eth2\",[\"set\",[]],10,[\"uuid\",\"fe7f8d14-0e5c-4e8c-9dc5-5bc7e16a3fe4\"]]],\"headings\":[\"name\",\"tag\",\"trunks\",\"interfaces\"]}\n"
+  },
+  "recommendation_id": "recommendation-5ce93ced1be3",
+  "rollback_results": [
+    {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-sw1",
+        "ovs-vsctl",
+        "set",
+        "Port",
+        "eth2",
+        "trunks=30"
+      ],
+      "command": "ovs-vsctl set Port eth2 trunks=30",
+      "duration_ms": 41.5006399853155,
+      "finished_at": "2026-09-16T22:43:17.194604+00:00",
+      "returncode": 0,
+      "started_at": "2026-09-16T22:43:17.153102+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-sw1",
+        "ovs-vsctl",
+        "set",
+        "Port",
+        "eth1",
+        "tag=30"
+      ],
+      "command": "ovs-vsctl set Port eth1 tag=30",
+      "duration_ms": 41.52703896397725,
+      "finished_at": "2026-09-16T22:43:17.236218+00:00",
+      "returncode": 0,
+      "started_at": "2026-09-16T22:43:17.194685+00:00",
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "rollback_verification": {
+    "argv": [
+      "docker",
+      "exec",
+      "clab-kansoku-v100-client-a",
+      "curl",
+      "-fsS",
+      "--connect-timeout",
+      "2",
+      "--max-time",
+      "5",
+      "http://10.20.20.10:443/"
+    ],
+    "duration_ms": 2049.2575289681554,
+    "expected_success": false,
+    "observed_success": false,
+    "passed": true,
+    "returncode": 28,
+    "stderr": "curl: (28) Failed to connect to 10.20.20.10 port 443 after 2002 ms: Timeout was reached\n",
+    "stdout": ""
+  },
+  "started_at": "2026-09-16T22:43:14.916668+00:00",
+  "status": "ROLLED_BACK",
+  "verification": {
+    "argv": [
+      "docker",
+      "exec",
+      "clab-kansoku-v100-client-a",
+      "curl",
+      "-fsS",
+      "--connect-timeout",
+      "2",
+      "--max-time",
+      "5",
+      "http://10.20.20.10:443/"
+    ],
+    "duration_ms": 36.95946402149275,
+    "expected_success": true,
+    "observed_success": true,
+    "passed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "KANSOKU v0.10.0 virtual lab\n"
+  }
+}

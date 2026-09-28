@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU PolicyRule",
+  "type": "object",
+  "required": ["rule_id", "device_id", "policy_type", "table", "chain", "action", "priority", "protocol"],
+  "properties": {
+    "rule_id": {"type": "string"}, "device_id": {"type": "string"}, "policy_type": {"type": "string"},
+    "table": {"type": "string"}, "chain": {"type": "string"},
+    "action": {"enum": ["ALLOW", "DENY", "CONTINUE", "MASQUERADE", "SNAT", "DNAT", "REDIRECT", "RETURN"]},
+    "priority": {"type": "integer"}, "protocol": {"type": "string"},
+    "src_network": {"type": "string"}, "dst_network": {"type": "string"},
+    "src_port": {"type": ["string", "null"]}, "dst_port": {"type": ["string", "null"]}
+  }
+}

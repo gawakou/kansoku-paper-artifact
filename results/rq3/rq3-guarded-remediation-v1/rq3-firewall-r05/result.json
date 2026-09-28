@@ -1,0 +1,80 @@
+{
+  "assessment": {
+    "assessment_id": "assessment-a6b19d9e9f61",
+    "policy_status": "DENY",
+    "route_status": "FOUND",
+    "verdict": "DENY",
+    "vlan_status": "KNOWN"
+  },
+  "capture_timing": "after_fault_injection",
+  "execution": {
+    "apply_success": true,
+    "error": "",
+    "execution_id": "remediation-ec80af71b9ef",
+    "rollback_success": true,
+    "status": "ROLLED_BACK"
+  },
+  "family": "FIREWALL",
+  "ground_truth_consumed_by_runner": false,
+  "instance_id": "rq3-firewall-r05",
+  "observed_states": {
+    "baseline": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": true,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "fault": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": true,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": false
+    },
+    "final_baseline": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": true,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "post_change": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": true,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "post_rollback": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": true,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": false
+    }
+  },
+  "repetition": 5,
+  "schema_version": 1,
+  "timing": {
+    "apply_duration_ms": 31.528873019851744,
+    "post_change_verification_duration_ms": 3186.3124020164832,
+    "post_rollback_verification_duration_ms": 5216.711560031399,
+    "rollback_duration_ms": 47.720727045089006,
+    "total_guarded_remediation_duration_ms": 8541.420167020988
+  },
+  "top1": {
+    "approval_issues": [],
+    "approved": true,
+    "category": "FIREWALL_POLICY",
+    "device_id": "fw1",
+    "rank": 1,
+    "recommendation_id": "recommendation-3c192802202b",
+    "risk_level": "medium",
+    "score": 0.8575,
+    "simulated_verdict": "ALLOW",
+    "simulation_status": "PASSED",
+    "variant": "primary"
+  },
+  "what_if_actual_agreement": true
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU NetworkDevice",
+  "type": "object",
+  "required": ["device_id", "name", "device_type", "platform", "enabled"],
+  "properties": {
+    "device_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "device_type": {"enum": ["router", "l2_switch", "l3_switch", "firewall", "host", "generic"]},
+    "platform": {"type": "string"},
+    "management_address": {"type": "string"},
+    "enabled": {"type": "boolean"},
+    "labels": {"type": "object", "additionalProperties": {"type": "string"}},
+    "metadata": {"type": "object"}
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "assessment": {
+    "assessment_id": "assessment-6cb315003888",
+    "policy_status": "ALLOW",
+    "route_status": "FOUND",
+    "verdict": "UNKNOWN",
+    "vlan_status": "UNKNOWN_VLAN"
+  },
+  "capture_timing": "before_fault_injection",
+  "execution": {
+    "apply_success": true,
+    "error": "",
+    "execution_id": "remediation-37c989074787",
+    "rollback_success": true,
+    "status": "ROLLED_BACK"
+  },
+  "family": "VLAN",
+  "ground_truth_consumed_by_runner": false,
+  "instance_id": "rq3-vlan-r02",
+  "observed_states": {
+    "baseline": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "fault": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": false
+    },
+    "final_baseline": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "post_change": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "post_rollback": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": false
+    }
+  },
+  "repetition": 2,
+  "schema_version": 1,
+  "timing": {
+    "apply_duration_ms": 65.9527980023995,
+    "post_change_verification_duration_ms": 2141.2402340210974,
+    "post_rollback_verification_duration_ms": 4184.714420989621,
+    "rollback_duration_ms": 84.55149497603998,
+    "total_guarded_remediation_duration_ms": 6507.757088984363
+  },
+  "top1": {
+    "approval_issues": [],
+    "approved": true,
+    "category": "VLAN",
+    "device_id": "sw1",
+    "rank": 1,
+    "recommendation_id": "recommendation-b7ae720e9c32",
+    "risk_level": "medium",
+    "score": 0.893,
+    "simulated_verdict": "ALLOW",
+    "simulation_status": "PASSED",
+    "variant": "primary"
+  },
+  "what_if_actual_agreement": true
+}

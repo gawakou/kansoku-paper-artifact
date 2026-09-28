@@ -1,0 +1,12 @@
+{
+  "event": {
+    "note": "RQ3 virtual-lab guarded-remediation trial",
+    "reviewed_by": "rq3-operator",
+    "status": "APPROVED",
+    "timestamp": "2026-09-16T22:39:26.958308+00:00"
+  },
+  "recommendation_id": "recommendation-ca587d9990c3",
+  "simulated_verdict": "ALLOW",
+  "simulation_status": "PASSED",
+  "status": "APPROVED"
+}

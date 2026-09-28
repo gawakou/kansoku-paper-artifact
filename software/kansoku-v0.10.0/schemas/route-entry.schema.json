@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU RouteEntry",
+  "type": "object",
+  "required": ["route_id", "device_id", "prefix", "protocol", "vrf", "selected", "installed"],
+  "properties": {
+    "route_id": {"type": "string"}, "device_id": {"type": "string"}, "prefix": {"type": "string"},
+    "protocol": {"type": "string"}, "next_hop": {"type": "string"}, "interface": {"type": "string"},
+    "vrf": {"type": "string"}, "selected": {"type": "boolean"}, "installed": {"type": "boolean"}
+  }
+}

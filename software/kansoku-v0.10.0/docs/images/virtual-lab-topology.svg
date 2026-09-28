@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">KANSOKU v0.10.0 reproducible virtual lab topology</title>
+  <desc id="desc">Seven data-plane nodes are observed by KANSOKU on an Ubuntu VM. The containerlab management network is separated from data-plane route correlation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#274060"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#7a5195"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+      .title { font-size: 34px; font-weight: 700; fill: #16213e; }
+      .subtitle { font-size: 18px; fill: #4b5563; }
+      .section { font-size: 17px; font-weight: 700; fill: #274060; letter-spacing: .5px; }
+      .nodeTitle { font-size: 21px; font-weight: 700; fill: #16213e; text-anchor: middle; }
+      .nodeText { font-size: 15px; font-weight: 500; fill: #374151; text-anchor: middle; }
+      .small { font-size: 13px; fill: #4b5563; text-anchor: middle; }
+      .linkLabel { font-size: 13px; font-weight: 600; fill: #274060; text-anchor: middle; }
+      .observeLabel { font-size: 13px; font-weight: 600; fill: #6a3d86; text-anchor: middle; }
+      .mgmtLabel { font-size: 14px; font-weight: 600; fill: #4b5563; text-anchor: middle; }
+      .noteTitle { font-size: 15px; font-weight: 700; fill: #16213e; }
+      .noteText { font-size: 14px; fill: #374151; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="#f7f9fc"/>
+  <text class="title" x="800" y="55" text-anchor="middle">KANSOKU v0.10.0 Reproducible Virtual Lab</text>
+  <text class="subtitle" x="800" y="86" text-anchor="middle">containerlab · FRRouting · Open vSwitch · nftables · live pcap and state correlation</text>
+
+  <text class="section" x="70" y="128">OBSERVATION AND MANAGEMENT PLANE</text>
+  <rect x="440" y="112" width="720" height="125" rx="18" fill="#fff8cc" stroke="#8f7400" stroke-width="2.5"/>
+  <text class="nodeTitle" x="800" y="147">Ubuntu VM / KANSOKU</text>
+  <text class="nodeText" x="800" y="177">Hub + Agent · pcap summarizer · flow/configuration correlation</text>
+  <text class="small" x="800" y="203">Collectors: vtysh (FRR) · ovs-vsctl (OVS) · nft -j (firewall)</text>
+  <text class="small" x="800" y="225">Capture point: fw1 eth1 · Raw pcap stays local by default</text>
+
+  <text class="observeLabel" x="435" y="272">OVS ports / VLAN state</text>
+  <text class="observeLabel" x="675" y="272">nftables + pcap</text>
+  <text class="observeLabel" x="875" y="272">FRR routes</text>
+  <path d="M650 237 C590 270, 465 300, 370 390" stroke="#7a5195" stroke-width="2.6" stroke-dasharray="8 7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M800 237 C750 280, 665 320, 600 370" stroke="#7a5195" stroke-width="2.6" stroke-dasharray="8 7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M950 237 C915 285, 860 325, 830 390" stroke="#7a5195" stroke-width="2.6" stroke-dasharray="8 7" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <path d="M135 318 H1480" stroke="#6b7280" stroke-width="2.2" stroke-dasharray="7 7" fill="none"/>
+  <text class="mgmtLabel" x="800" y="307">containerlab management network 172.31.81.0/24 (eth0 on every node)</text>
+
+  <text class="section" x="70" y="365">DATA PLANE</text>
+
+  <!-- Management fan-down -->
+  <g stroke="#6b7280" stroke-width="2" stroke-dasharray="7 7">
+    <path d="M150 318 V395"/><path d="M370 318 V395"/><path d="M600 318 V375"/>
+    <path d="M830 318 V395"/><path d="M1050 318 V395"/><path d="M1270 318 V395"/><path d="M1475 318 V395"/>
+  </g>
+
+  <!-- Nodes -->
+  <rect x="55" y="395" width="190" height="155" rx="16" fill="#e7f0ff" stroke="#274060" stroke-width="2.5"/>
+  <text class="nodeTitle" x="150" y="431">client-a</text>
+  <text class="nodeText" x="150" y="460">Linux host</text>
+  <text class="small" x="150" y="489">10.10.10.10/24</text>
+  <text class="small" x="150" y="512">GW 10.10.10.1</text>
+  <text class="small" x="150" y="535">ping · curl · iperf3</text>
+
+  <rect x="275" y="395" width="190" height="155" rx="16" fill="#e8f7f0" stroke="#274060" stroke-width="2.5"/>
+  <text class="nodeTitle" x="370" y="431">sw1</text>
+  <text class="nodeText" x="370" y="460">Open vSwitch</text>
+  <text class="small" x="370" y="489">eth1 access VLAN 10</text>
+  <text class="small" x="370" y="512">eth2 trunk VLAN 10</text>
+  <text class="small" x="370" y="535">br0</text>
+
+  <rect x="495" y="375" width="210" height="195" rx="16" fill="#fff0e5" stroke="#274060" stroke-width="2.5"/>
+  <text class="nodeTitle" x="600" y="412">fw1</text>
+  <text class="nodeText" x="600" y="441">nftables firewall</text>
+  <text class="small" x="600" y="470">eth1.10 10.10.10.1/24</text>
+  <text class="small" x="600" y="493">eth2 172.16.0.1/30</text>
+  <text class="small" x="600" y="516">Stateful forwarding</text>
+  <text class="small" x="600" y="539">pcap on eth1</text>
+
+  <rect x="735" y="395" width="190" height="155" rx="16" fill="#f0ebff" stroke="#274060" stroke-width="2.5"/>
+  <text class="nodeTitle" x="830" y="431">r1</text>
+  <text class="nodeText" x="830" y="460">FRRouting</text>
+  <text class="small" x="830" y="489">eth1 172.16.0.2/30</text>
+  <text class="small" x="830" y="512">eth2 172.16.1.1/30</text>
+  <text class="small" x="830" y="535">Static routes</text>
+
+  <rect x="955" y="395" width="190" height="155" rx="16" fill="#f0ebff" stroke="#274060" stroke-width="2.5"/>
+  <text class="nodeTitle" x="1050" y="431">r2</text>
+  <text class="nodeText" x="1050" y="460">FRRouting</text>
+  <text class="small" x="1050" y="489">eth1 172.16.1.2/30</text>
+  <text class="small" x="1050" y="512">eth2 10.20.20.1/24</text>
+  <text class="small" x="1050" y="535">Static routes</text>
+
+  <rect x="1175" y="395" width="190" height="155" rx="16" fill="#e8f7f0" stroke="#274060" stroke-width="2.5"/>
+  <text class="nodeTitle" x="1270" y="431">sw2</text>
+  <text class="nodeText" x="1270" y="460">Open vSwitch</text>
+  <text class="small" x="1270" y="489">eth1 access VLAN 20</text>
+  <text class="small" x="1270" y="512">eth2 access VLAN 20</text>
+  <text class="small" x="1270" y="535">br0</text>
+
+  <rect x="1395" y="395" width="160" height="155" rx="16" fill="#e7f0ff" stroke="#274060" stroke-width="2.5"/>
+  <text class="nodeTitle" x="1475" y="431">server-a</text>
+  <text class="nodeText" x="1475" y="460">Linux host</text>
+  <text class="small" x="1475" y="489">10.20.20.10/24</text>
+  <text class="small" x="1475" y="512">GW 10.20.20.1</text>
+  <text class="small" x="1475" y="535">HTTP/443 · iperf3</text>
+
+  <!-- Data-plane links -->
+  <g stroke="#274060" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <path d="M245 472 H275"/><path d="M465 472 H495"/><path d="M705 472 H735"/>
+    <path d="M925 472 H955"/><path d="M1145 472 H1175"/><path d="M1365 472 H1395"/>
+  </g>
+  <text class="linkLabel" x="260" y="454">untagged</text>
+  <text class="linkLabel" x="480" y="454">VLAN 10</text>
+  <text class="linkLabel" x="720" y="454">172.16.0.0/30</text>
+  <text class="linkLabel" x="940" y="454">172.16.1.0/30</text>
+  <text class="linkLabel" x="1160" y="454">10.20.20.0/24</text>
+  <text class="linkLabel" x="1380" y="454">untagged</text>
+
+  <!-- Notes -->
+  <rect x="85" y="620" width="1430" height="190" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="noteTitle" x="115" y="655">Correlation boundary</text>
+  <text class="noteText" x="115" y="682">• The management interface eth0 and management routes are excluded from data-plane route correlation.</text>
+  <text class="noteText" x="115" y="708">• KANSOKU correlates fw1 packet/flow evidence with sw1 VLAN state, fw1 policy state, and r1 route state.</text>
+  <text class="noteText" x="115" y="734">• The disposable lab validates normal, firewall-deny, route-missing, VLAN-mismatch, and packet-loss/recovery.</text>
+  <text class="noteText" x="115" y="760">• Runtime pcap, SQLite databases, and reports are written under artifacts/lab/ and excluded from Git.</text>
+  <text class="noteText" x="115" y="786">• Additional collectors can later connect the same vendor-neutral model to physical devices.</text>
+
+  <text class="small" x="800" y="860">Source topology: lab/containerlab/kansoku.clab.yml · KANSOKU v0.10.0</text>
+</svg>

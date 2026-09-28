@@ -1,0 +1,29 @@
+{
+  "capture_id": "capture-677605f5f4ae",
+  "captured_bytes": 156,
+  "dst_ip": "10.20.20.10",
+  "dst_port": 443,
+  "first_seen": "2026-09-16T22:39:57.872321+00:00",
+  "flow_id": "flow-58a53b889f41",
+  "ip_version": 4,
+  "last_seen": "2026-09-16T22:39:58.915346+00:00",
+  "metadata": {},
+  "packets": 2,
+  "protocol": "TCP",
+  "source": "containerlab",
+  "src_ip": "10.10.10.10",
+  "src_port": 43330,
+  "target": "rq3-target",
+  "tcp_flags": {
+    "ack": 0,
+    "cwr": 0,
+    "ece": 0,
+    "fin": 0,
+    "psh": 0,
+    "rst": 0,
+    "syn": 2,
+    "urg": 0
+  },
+  "vlan_id": 10,
+  "wire_bytes": 156
+}

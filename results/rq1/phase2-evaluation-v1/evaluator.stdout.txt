@@ -1,0 +1,4 @@
+PASS: evaluated 60 parameterized instances across 5 repetitions
+PASS: primary accuracy uses rep-01 only (60 instances, 180 method records)
+PASS: repetitions 2-5 used for stability, not as independent accuracy samples
+output: /home/ogawa/kansoku_paper_eval/artifacts/paper/phase2-evaluation-v1

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/remote-agent.schema.json",
+  "title": "KANSOKU Remote Agent Registration",
+  "type": "object",
+  "required": ["agent_id", "name", "enabled", "capabilities", "labels", "created_at", "updated_at"],
+  "properties": {
+    "agent_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "token_fingerprint": {"type": "string"},
+    "enabled": {"type": "boolean"},
+    "capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "labels": {"type": "object", "additionalProperties": {"type": "string"}},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "last_seen_at": {"type": ["string", "null"], "format": "date-time"}
+  },
+  "additionalProperties": false
+}

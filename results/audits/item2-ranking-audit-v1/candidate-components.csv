@@ -1,0 +1,11 @@
+instance_id,rank,recommendation_id,category,variant,device_id,scope,confidence,risk_level,simulation_status,simulated_verdict,repair_probability,evidence_coverage,reversibility,blast_radius_safety,security_safety,change_simplicity,raw_score,serialized_score,score_ok,weights_ok
+rq2-firewall-v01,1,recommendation-72dd629bdb74,FIREWALL_POLICY,primary,fw1,single observed source/destination/service tuple,0.9,medium,PASSED,ALLOW,0.9,1.0,0.55,0.98,0.5800000000000001,1.0,0.8575,0.8575,True,True
+rq2-firewall-v01,2,recommendation-fc457e7237c4,FIREWALL_POLICY,host-pair-protocol,fw1,single observed source/destination pair for all ports of the protocol,0.72,high,PASSED,ALLOW,0.72,1.0,0.55,0.98,0.15,1.0,0.7605,0.7605,True,True
+rq2-firewall-v01,3,recommendation-4cbb91ce0192,MANUAL_REVIEW,observation-only,fw1,observation only,0.4,low,NOT_RUN,DENY,0.08000000000000002,1.0,1.0,1.0,0.95,0.65,0.7015,0.7015,True,True
+rq2-route-v01,1,recommendation-e1b0c5b8dab6,ROUTE,host-route,r1,10.20.20.10/32,0.88,medium,PASSED,ALLOW,0.88,1.0,1.0,0.98,0.68,1.0,0.929,0.929,True,True
+rq2-route-v01,2,recommendation-35ded81a7f2b,ROUTE,primary,r1,10.20.20.0/24,0.88,medium,PASSED,ALLOW,0.88,1.0,1.0,0.75,0.68,1.0,0.8945,0.8945,True,True
+rq2-route-v01,3,recommendation-1d8f1a4f7663,MANUAL_REVIEW,observation-only,fw1,observation only,0.4,low,NOT_RUN,UNROUTABLE,0.08000000000000002,1.0,1.0,1.0,0.95,0.65,0.7015,0.7015,True,True
+rq2-vlan-v01,1,recommendation-4c78a7b2d70b,VLAN,primary,sw1,VLAN 10 on explicitly named ports,0.86,medium,PASSED,ALLOW,0.86,1.0,1.0,0.84,0.68,0.8200000000000001,0.893,0.893,True,True
+rq2-vlan-v01,2,recommendation-b9e4e78f1947,VLAN,access-only,sw1,VLAN 10 on explicitly named ports,0.71,medium,PASSED,ALLOW,0.71,1.0,1.0,0.84,0.68,1.0,0.857,0.857,True,True
+rq2-vlan-v01,3,recommendation-e041d02a84a1,VLAN,trunk-only,sw1,VLAN 10 on explicitly named ports,0.71,medium,PASSED,ALLOW,0.71,1.0,1.0,0.84,0.68,1.0,0.857,0.857,True,True
+rq2-vlan-v01,4,recommendation-43559b9c147f,MANUAL_REVIEW,observation-only,fw1,observation only,0.4,low,NOT_RUN,UNKNOWN,0.08000000000000002,1.0,1.0,1.0,0.95,0.65,0.7015,0.7015,True,True

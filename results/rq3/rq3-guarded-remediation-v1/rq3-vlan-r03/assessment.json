@@ -1,0 +1,28 @@
+{
+  "assessment_id": "assessment-881bb1abc73b",
+  "capture_id": "capture-65544cebe733",
+  "evidence": {
+    "destination": "10.20.20.10",
+    "in_interface": "",
+    "out_interface": "eth2",
+    "policy_device": "fw1",
+    "policy_snapshot": "snapshot-da10fe8c27f3",
+    "protocol": "TCP",
+    "route_device": "r1",
+    "route_snapshot": "snapshot-000ae6d69434",
+    "vlan_device": "sw1",
+    "vlan_snapshot": "snapshot-8d9b2434ca70",
+    "vrf": "default"
+  },
+  "flow_id": "flow-4073c97c7f62",
+  "ingress_device_id": "fw1",
+  "matched_rule_id": "rule-d7b66d0ee602",
+  "policy_status": "ALLOW",
+  "reason": "route 10.20.20.0/24 and allowing rule rule-d7b66d0ee602 match; captured VLAN is not present in the imported VLAN state",
+  "route_id": "route-94c3e032aa7e",
+  "route_status": "FOUND",
+  "target": "rq3-target",
+  "timestamp": "2026-09-16T22:43:14.841744+00:00",
+  "verdict": "UNKNOWN",
+  "vlan_status": "UNKNOWN_VLAN"
+}

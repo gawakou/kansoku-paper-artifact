@@ -1,0 +1,108 @@
+============================================================================
+ITEM 9 REAL TRANSACTION: rq3-firewall-r01
+============================================================================
+
+[OBSERVATION]
+capture_id = capture-32ac9dafb2ee
+flow_id    = flow-77eed294f447
+tuple      = 10.10.10.10 -> 10.20.20.10 TCP 443 vlan= 10
+
+[SNAPSHOTS]
+route_snapshot   = snapshot-5d94e99a27aa
+policy_snapshot  = snapshot-14ad0ae37028
+vlan_snapshot    = snapshot-bec23d9415b9
+
+[ASSESSMENT]
+assessment_id = assessment-ea447d28583c
+verdict       = DENY
+route_status  = FOUND
+policy_status = DENY
+vlan_status   = KNOWN
+matched_rule  = rule-203b0c609f21
+
+[EVIDENCE GRAPH]
+graph_id       = evidence-graph-f796cbaf3d7c
+graph.flow_id  = flow-77eed294f447
+graph.assess   = assessment-ea447d28583c
+nodes          = 9
+edges          = 9
+
+[TOP-1 RECOMMENDATION]
+recommendation_id = recommendation-803f36eec3f0
+assessment_id     = assessment-ea447d28583c
+capture_id        = capture-32ac9dafb2ee
+category          = FIREWALL_POLICY
+variant           = primary
+score             = 0.8575
+simulation_status = PASSED
+simulated_verdict = ALLOW
+
+[APPROVAL]
+recommendation_id = recommendation-803f36eec3f0
+status            = APPROVED
+reviewed_by       = rq3-operator
+timestamp         = 2026-09-16T22:35:21.431013+00:00
+
+[EXECUTION]
+execution_id      = remediation-6fa629e64e0a
+assessment_id     = assessment-ea447d28583c
+recommendation_id = recommendation-803f36eec3f0
+approved_by       = rq3-operator
+status            = ROLLED_BACK
+apply[1].command  = nft insert rule inet filter forward ip saddr 10.10.10.10 ip daddr 10.20.20.10 tcp dport 443 counter accept comment "kansoku assessment-ea447d28583c"
+apply[1].rc       = 0
+
+[POST-CHANGE VERIFICATION]
+command          = ['docker', 'exec', 'clab-kansoku-v100-client-a', 'curl', '-fsS', '--connect-timeout', '2', '--max-time', '5', 'http://10.20.20.10:443/']
+expected_success = True
+observed_success = True
+passed           = True
+returncode       = 0
+
+[ROLLBACK 1]
+command    = nft delete rule inet filter forward handle 8
+returncode = 0
+
+[ROLLBACK VERIFICATION]
+command          = ['docker', 'exec', 'clab-kansoku-v100-client-a', 'curl', '-fsS', '--connect-timeout', '2', '--max-time', '5', 'http://10.20.20.10:443/']
+expected_success = False
+observed_success = False
+passed           = True
+returncode       = 28
+
+[RESULT SUMMARY]
+fault target_reachable        = False
+post_change target_reachable  = True
+post_rollback target_reachable= False
+final_baseline target_reachable= True
+what_if_actual_agreement      = True
+
+============================================================================
+POST-HOC CROSS-ARTIFACT REFERENTIAL-INTEGRITY AUDIT
+============================================================================
+PASS  flow.capture == assessment.capture
+PASS  flow.id == assessment.flow
+PASS  flow.id == graph.flow
+PASS  assessment.id == graph.assessment
+PASS  graph contains flow source ID
+PASS  graph contains assessment source ID
+PASS  graph contains route snapshot
+PASS  graph contains policy snapshot
+PASS  graph contains VLAN snapshot
+PASS  recommendation -> assessment
+PASS  recommendation -> capture
+PASS  result Top-1 -> recommendation
+PASS  approval -> recommendation
+PASS  execution -> recommendation
+PASS  execution -> assessment
+PASS  execution approver == approval reviewer
+PASS  what-if PASSED
+PASS  what-if predicts ALLOW
+PASS  post-change target recovered
+PASS  rollback command succeeded
+PASS  rollback restored failure
+PASS  overall status ROLLED_BACK
+
+checks = 22
+failed = 0
+PASS: complete saved transaction chain is internally consistent

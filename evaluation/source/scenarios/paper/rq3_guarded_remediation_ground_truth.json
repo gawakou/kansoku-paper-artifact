@@ -1,0 +1,564 @@
+{
+  "execution_count": 15,
+  "fault_family_count": 3,
+  "ground_truth_must_not_be_consumed_by_runner": true,
+  "instances": {
+    "rq3-firewall-r01": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": {
+        "fault_state_reachable": true,
+        "final_baseline_reachable": true,
+        "post_change_reachable": true,
+        "post_rollback_reachable": true
+      },
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "FIREWALL",
+      "repetition": 1,
+      "same_path_control_applicable": true
+    },
+    "rq3-firewall-r02": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": {
+        "fault_state_reachable": true,
+        "final_baseline_reachable": true,
+        "post_change_reachable": true,
+        "post_rollback_reachable": true
+      },
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "FIREWALL",
+      "repetition": 2,
+      "same_path_control_applicable": true
+    },
+    "rq3-firewall-r03": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": {
+        "fault_state_reachable": true,
+        "final_baseline_reachable": true,
+        "post_change_reachable": true,
+        "post_rollback_reachable": true
+      },
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "FIREWALL",
+      "repetition": 3,
+      "same_path_control_applicable": true
+    },
+    "rq3-firewall-r04": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": {
+        "fault_state_reachable": true,
+        "final_baseline_reachable": true,
+        "post_change_reachable": true,
+        "post_rollback_reachable": true
+      },
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "FIREWALL",
+      "repetition": 4,
+      "same_path_control_applicable": true
+    },
+    "rq3-firewall-r05": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": {
+        "fault_state_reachable": true,
+        "final_baseline_reachable": true,
+        "post_change_reachable": true,
+        "post_rollback_reachable": true
+      },
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "FIREWALL",
+      "repetition": 5,
+      "same_path_control_applicable": true
+    },
+    "rq3-route-r01": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "host-route",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "ROUTE",
+      "repetition": 1,
+      "same_path_control_applicable": false
+    },
+    "rq3-route-r02": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "host-route",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "ROUTE",
+      "repetition": 2,
+      "same_path_control_applicable": false
+    },
+    "rq3-route-r03": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "host-route",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "ROUTE",
+      "repetition": 3,
+      "same_path_control_applicable": false
+    },
+    "rq3-route-r04": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "host-route",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "ROUTE",
+      "repetition": 4,
+      "same_path_control_applicable": false
+    },
+    "rq3-route-r05": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "host-route",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "ROUTE",
+      "repetition": 5,
+      "same_path_control_applicable": false
+    },
+    "rq3-vlan-r01": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "VLAN",
+      "repetition": 1,
+      "same_path_control_applicable": false
+    },
+    "rq3-vlan-r02": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "VLAN",
+      "repetition": 2,
+      "same_path_control_applicable": false
+    },
+    "rq3-vlan-r03": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "VLAN",
+      "repetition": 3,
+      "same_path_control_applicable": false
+    },
+    "rq3-vlan-r04": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "VLAN",
+      "repetition": 4,
+      "same_path_control_applicable": false
+    },
+    "rq3-vlan-r05": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_execution_status": "ROLLED_BACK",
+      "expected_fault_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_final_baseline_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_change_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": true
+      },
+      "expected_post_rollback_state": {
+        "independent_control_reachable": true,
+        "security_invariant_reachable": false,
+        "target_reachable": false
+      },
+      "expected_same_path_control": null,
+      "expected_top1_variant": "primary",
+      "expected_what_if": {
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED"
+      },
+      "family": "VLAN",
+      "repetition": 5,
+      "same_path_control_applicable": false
+    }
+  },
+  "metric_definitions": {
+    "apply_success": "All bounded apply commands complete successfully.",
+    "eligible_top1": "Rank-1 recommendation is actionable and crosses the built-in approval eligibility gate only after PASSED/ALLOW what-if validation.",
+    "fault_restoration": "The target TCP/443 failure is restored after rollback.",
+    "final_baseline_restoration": "After canonical reset, healthy target connectivity and control conditions are restored.",
+    "firewall_same_path_control_preservation": "For FIREWALL only, TCP/5201 remains reachable during fault, after remediation, after rollback, and after final reset.",
+    "independent_control_preservation": "The preregistered independent control remains reachable after remediation.",
+    "rollback_success": "All rollback commands complete successfully.",
+    "security_invariant_preservation": "TCP/8443 remains unreachable from client-a while an actual TCP/8443 service is listening on server-a.",
+    "target_recovery": "TCP/443 target service becomes reachable after remediation.",
+    "what_if_actual_agreement": "A preregistered PASSED/ALLOW what-if prediction agrees with successful observed post-change TCP/443 recovery."
+  },
+  "phase": "RQ3 guarded remediation evaluation",
+  "repetitions_per_family": 5,
+  "schema_version": 1,
+  "statistical_interpretation": {
+    "executions": 15,
+    "independent_fault_families": 3,
+    "primary_reporting": "Report success counts per family and overall execution reliability without treating the 15 executions as 15 independent fault classes.",
+    "repetitions_are_not_independent_fault_samples": true,
+    "timing_reporting": "Report median, IQR, and p95 over repeated executions, with family-specific values."
+  }
+}

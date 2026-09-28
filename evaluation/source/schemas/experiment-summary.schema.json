@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/experiment-summary.schema.json",
+  "title": "ExperimentSummary",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "experiment", "trial_count", "status_counts", "by_scenario"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "generated_at": {"type": "string"},
+    "experiment": {"type": "object"},
+    "trial_count": {"type": "integer", "minimum": 0},
+    "status_counts": {"type": "object"},
+    "pass_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "verdict": {"type": "object"},
+    "recommendation": {"type": "object"},
+    "recovery": {"type": "object"},
+    "timings_ms": {"type": "object"},
+    "counters": {"type": "object"},
+    "verdict_confusion": {"type": "object"},
+    "by_scenario": {"type": "object"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU NetworkSnapshot",
+  "type": "object",
+  "required": ["snapshot_id", "device_id", "collector", "source", "status", "raw_sha256"],
+  "properties": {
+    "snapshot_id": {"type": "string"}, "device_id": {"type": "string"},
+    "collector": {"enum": ["frr", "ovs", "nftables"]}, "source": {"type": "string"},
+    "status": {"type": "string"}, "raw_sha256": {"type": "string"},
+    "interface_count": {"type": "integer"}, "vlan_count": {"type": "integer"},
+    "link_count": {"type": "integer"}, "route_count": {"type": "integer"}, "policy_count": {"type": "integer"}
+  }
+}

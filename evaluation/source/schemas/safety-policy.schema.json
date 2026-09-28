@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU SafetyPolicy",
+  "type": "object",
+  "required": ["target", "name", "allowed_actions", "auto_approve_actions", "approval_required_actions", "minimum_observation_interval_sec", "allow_system_changes", "policy_id", "updated_at", "version"],
+  "properties": {
+    "target": {"type": "string", "minLength": 1},
+    "name": {"type": "string"},
+    "allowed_actions": {"type": "array", "items": {"type": "string"}},
+    "auto_approve_actions": {"type": "array", "items": {"type": "string"}},
+    "approval_required_actions": {"type": "array", "items": {"type": "string"}},
+    "rollback_required_actions": {"type": "array", "items": {"type": "string"}},
+    "blocked_actions": {"type": "array", "items": {"type": "string"}},
+    "blocked_targets": {"type": "array", "items": {"type": "string"}},
+    "minimum_observation_interval_sec": {"type": "integer", "minimum": 1},
+    "allow_system_changes": {"type": "boolean"},
+    "rollback_on_verification_failure": {"type": "boolean"},
+    "policy_id": {"type": "string"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "version": {"type": "string"}
+  }
+}

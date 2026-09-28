@@ -1,0 +1,382 @@
+{
+  "candidate_variant_normalization": {
+    "manual_review_candidate_variant": "observation-only",
+    "missing_or_empty_candidate_variant": "primary"
+  },
+  "ground_truth_must_not_be_consumed_by_runner": true,
+  "instance_count": 15,
+  "instances": {
+    "rq2-firewall-v01": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "FIREWALL",
+      "forbidden_top1_variants": [
+        "host-pair-protocol",
+        "observation-only"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY"
+      ]
+    },
+    "rq2-firewall-v02": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "FIREWALL",
+      "forbidden_top1_variants": [
+        "host-pair-protocol",
+        "observation-only"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY"
+      ]
+    },
+    "rq2-firewall-v03": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "FIREWALL",
+      "forbidden_top1_variants": [
+        "host-pair-protocol",
+        "observation-only"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY"
+      ]
+    },
+    "rq2-firewall-v04": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "FIREWALL",
+      "forbidden_top1_variants": [
+        "host-pair-protocol",
+        "observation-only"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY"
+      ]
+    },
+    "rq2-firewall-v05": {
+      "expected_category": "FIREWALL_POLICY",
+      "expected_device": "fw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "FIREWALL",
+      "forbidden_top1_variants": [
+        "host-pair-protocol",
+        "observation-only"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY"
+      ]
+    },
+    "rq2-route-v01": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "host-route",
+      "family": "ROUTE",
+      "forbidden_top1_variants": [
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:route"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY",
+        "MISSING"
+      ]
+    },
+    "rq2-route-v02": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "host-route",
+      "family": "ROUTE",
+      "forbidden_top1_variants": [
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:route"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY",
+        "MISSING"
+      ]
+    },
+    "rq2-route-v03": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "host-route",
+      "family": "ROUTE",
+      "forbidden_top1_variants": [
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:route"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY",
+        "MISSING"
+      ]
+    },
+    "rq2-route-v04": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "host-route",
+      "family": "ROUTE",
+      "forbidden_top1_variants": [
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:route"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY",
+        "MISSING"
+      ]
+    },
+    "rq2-route-v05": {
+      "expected_category": "ROUTE",
+      "expected_device": "r1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "host-route",
+      "family": "ROUTE",
+      "forbidden_top1_variants": [
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:route"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "POLICY_RULE",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MATCHED_BY",
+        "MISSING"
+      ]
+    },
+    "rq2-vlan-v01": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "VLAN",
+      "forbidden_top1_variants": [
+        "access-only",
+        "trunk-only",
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:vlan:10"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MISSING"
+      ]
+    },
+    "rq2-vlan-v02": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "VLAN",
+      "forbidden_top1_variants": [
+        "access-only",
+        "trunk-only",
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:vlan:10"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MISSING"
+      ]
+    },
+    "rq2-vlan-v03": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "VLAN",
+      "forbidden_top1_variants": [
+        "access-only",
+        "trunk-only",
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:vlan:10"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MISSING"
+      ]
+    },
+    "rq2-vlan-v04": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "VLAN",
+      "forbidden_top1_variants": [
+        "access-only",
+        "trunk-only",
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:vlan:10"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MISSING"
+      ]
+    },
+    "rq2-vlan-v05": {
+      "expected_category": "VLAN",
+      "expected_device": "sw1",
+      "expected_simulated_verdict": "ALLOW",
+      "expected_simulation_status": "PASSED",
+      "expected_top1_variant": "primary",
+      "family": "VLAN",
+      "forbidden_top1_variants": [
+        "access-only",
+        "trunk-only",
+        "observation-only"
+      ],
+      "required_node_ids": [
+        "gap:vlan:10"
+      ],
+      "required_node_types": [
+        "FLOW",
+        "ASSESSMENT",
+        "EVIDENCE_GAP"
+      ],
+      "required_relations": [
+        "ASSESSES",
+        "MISSING"
+      ]
+    }
+  },
+  "phase": "RQ2 recommendation and evidence evaluation",
+  "primary_metrics": [
+    "recommendation_category_accuracy",
+    "top1_accuracy",
+    "what_if_pass_rate",
+    "evidence_traceability_rate",
+    "unsafe_or_broader_top1_rate"
+  ],
+  "schema_version": 1,
+  "selection_basis": "Conditional downstream evaluation using frozen Phase-2 rep-01 instances for which the PROPOSED diagnosis was strict-correct and the diagnosed fault category is actionable in KANSOKU v0.10.0.",
+  "source_phase2": {
+    "preregistration_commit": "588f536570a4efac43a3d96c93a5088c29736826",
+    "raw_snapshot": "full-300-pre-evaluation",
+    "raw_snapshot_manifest_sha256": "881fbe3aa9580de37dd8681eb626b127daf1d9fb55002b738edc4376060c7cad",
+    "runner_commit": "e1c0e757229c7eea490ec5e3850b149273890788",
+    "source_repetition": 1
+  }
+}

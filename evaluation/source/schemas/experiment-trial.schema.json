@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/experiment-trial.schema.json",
+  "title": "ExperimentTrial",
+  "type": "object",
+  "required": ["trial_id", "experiment_id", "scenario_id", "repetition", "seed", "status", "started_at", "finished_at"],
+  "properties": {
+    "trial_id": {"type": "string", "minLength": 1},
+    "experiment_id": {"type": "string", "minLength": 1},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "repetition": {"type": "integer", "minimum": 1},
+    "seed": {"type": "integer"},
+    "status": {"enum": ["PASS", "FAIL", "ERROR", "SKIPPED"]},
+    "expected_verdict": {"type": "string"},
+    "observed_verdict": {"type": "string"},
+    "expected_category": {"type": "string"},
+    "observed_category": {"type": "string"},
+    "expected_recovery": {"type": ["boolean", "null"]},
+    "recovered": {"type": ["boolean", "null"]},
+    "timings_ms": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0}},
+    "counters": {"type": "object", "additionalProperties": {"type": "number"}},
+    "artifacts": {"type": "object", "additionalProperties": {"type": "string"}},
+    "environment": {"type": "object"},
+    "error": {"type": "string"},
+    "metadata": {"type": "object"},
+    "started_at": {"type": "string"},
+    "finished_at": {"type": "string"}
+  },
+  "additionalProperties": false
+}

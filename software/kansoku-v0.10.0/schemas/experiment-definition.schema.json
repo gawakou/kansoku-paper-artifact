@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/experiment-definition.schema.json",
+  "title": "ExperimentDefinition",
+  "type": "object",
+  "required": ["experiment_id", "name", "scenarios", "repetitions", "base_seed", "status", "created_at", "updated_at"],
+  "properties": {
+    "experiment_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
+    "scenarios": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "repetitions": {"type": "integer", "minimum": 1},
+    "base_seed": {"type": "integer"},
+    "baselines": {"type": "array", "items": {"type": "string"}},
+    "metrics": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["PLANNED", "RUNNING", "COMPLETED", "FAILED", "ARCHIVED"]},
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "tags": {"type": "object", "additionalProperties": {"type": "string"}},
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": false
+}

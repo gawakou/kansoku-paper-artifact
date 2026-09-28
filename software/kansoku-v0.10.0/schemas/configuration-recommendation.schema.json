@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/configuration-recommendation.schema.json",
+  "title": "KANSOKU Configuration Recommendation",
+  "type": "object",
+  "required": [
+    "recommendation_id", "assessment_id", "flow_id", "capture_id", "target",
+    "device_id", "category", "intent", "platform", "risk_level", "confidence",
+    "summary", "rationale", "current_state", "desired_state", "commands",
+    "rollback_commands", "preconditions", "postconditions", "impact",
+    "simulation_status", "simulated_verdict", "status", "generated_at", "metadata"
+  ],
+  "properties": {
+    "recommendation_id": {"type": "string", "minLength": 1},
+    "assessment_id": {"type": "string", "minLength": 1},
+    "flow_id": {"type": "string", "minLength": 1},
+    "capture_id": {"type": "string", "minLength": 1},
+    "target": {"type": "string", "minLength": 1},
+    "device_id": {"type": "string", "minLength": 1},
+    "category": {"enum": ["FIREWALL_POLICY", "ROUTE", "VLAN", "MANUAL_REVIEW"]},
+    "intent": {"type": "string", "minLength": 1},
+    "platform": {"type": "string", "minLength": 1},
+    "risk_level": {"enum": ["low", "medium", "high"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "summary": {"type": "string", "minLength": 1},
+    "rationale": {"type": "string", "minLength": 1},
+    "current_state": {"type": "object"},
+    "desired_state": {"type": "object"},
+    "commands": {"type": "array", "items": {"type": "string"}},
+    "rollback_commands": {"type": "array", "items": {"type": "string"}},
+    "preconditions": {"type": "array", "items": {"type": "string"}},
+    "postconditions": {"type": "array", "items": {"type": "string"}},
+    "impact": {"type": "object"},
+    "simulation_status": {"enum": ["PASSED", "FAILED", "INCONCLUSIVE", "NOT_RUN"]},
+    "simulated_verdict": {"type": "string"},
+    "status": {"enum": ["DRAFT", "REVIEWED", "REJECTED", "APPROVED"]},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": false
+}

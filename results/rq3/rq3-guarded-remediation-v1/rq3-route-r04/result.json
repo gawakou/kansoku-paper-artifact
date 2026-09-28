@@ -1,0 +1,80 @@
+{
+  "assessment": {
+    "assessment_id": "assessment-728987425839",
+    "policy_status": "ALLOW",
+    "route_status": "NO_ROUTE",
+    "verdict": "UNROUTABLE",
+    "vlan_status": "KNOWN"
+  },
+  "capture_timing": "after_fault_injection",
+  "execution": {
+    "apply_success": true,
+    "error": "",
+    "execution_id": "remediation-25139797aabe",
+    "rollback_success": true,
+    "status": "ROLLED_BACK"
+  },
+  "family": "ROUTE",
+  "ground_truth_consumed_by_runner": false,
+  "instance_id": "rq3-route-r04",
+  "observed_states": {
+    "baseline": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "fault": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": false
+    },
+    "final_baseline": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "post_change": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": true
+    },
+    "post_rollback": {
+      "independent_control_reachable": true,
+      "same_path_control_reachable": null,
+      "security_invariant_reachable": false,
+      "security_service_listening": true,
+      "target_reachable": false
+    }
+  },
+  "repetition": 4,
+  "schema_version": 1,
+  "timing": {
+    "apply_duration_ms": 65.96901902230456,
+    "post_change_verification_duration_ms": 2136.4675559452735,
+    "post_rollback_verification_duration_ms": 4183.465826965403,
+    "rollback_duration_ms": 89.21504899626598,
+    "total_guarded_remediation_duration_ms": 6536.154493980575
+  },
+  "top1": {
+    "approval_issues": [],
+    "approved": true,
+    "category": "ROUTE",
+    "device_id": "r1",
+    "rank": 1,
+    "recommendation_id": "recommendation-0c0317ba3d65",
+    "risk_level": "medium",
+    "score": 0.929,
+    "simulated_verdict": "ALLOW",
+    "simulation_status": "PASSED",
+    "variant": "host-route"
+  },
+  "what_if_actual_agreement": true
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kansoku.example/schemas/capture-session.schema.json",
+  "title": "KANSOKU Capture Session",
+  "type": "object",
+  "required": ["target", "source", "interface", "bpf_filter", "snaplen", "privacy_mode", "pcap_path", "status", "packet_count", "captured_bytes", "wire_bytes", "flow_count", "file_size", "sha256", "linktype", "duration_sec", "retention_days", "storage_scope", "metadata", "capture_id", "started_at", "finished_at"],
+  "properties": {
+    "target": {"type": "string", "minLength": 1},
+    "source": {"type": "string"},
+    "interface": {"type": "string"},
+    "bpf_filter": {"type": "string"},
+    "snaplen": {"type": "integer", "minimum": 0, "maximum": 262144},
+    "privacy_mode": {"enum": ["headers-only", "full-packet", "offline"]},
+    "pcap_path": {"type": "string"},
+    "status": {"type": "string"},
+    "packet_count": {"type": "integer", "minimum": 0},
+    "captured_bytes": {"type": "integer", "minimum": 0},
+    "wire_bytes": {"type": "integer", "minimum": 0},
+    "flow_count": {"type": "integer", "minimum": 0},
+    "file_size": {"type": "integer", "minimum": 0},
+    "sha256": {"type": "string"},
+    "linktype": {"type": "integer"},
+    "duration_sec": {"type": "number", "minimum": 0},
+    "retention_days": {"type": "integer", "minimum": 0},
+    "storage_scope": {"enum": ["local", "edge"]},
+    "metadata": {"type": "object"},
+    "capture_id": {"type": "string"},
+    "started_at": {"type": "string", "format": "date-time"},
+    "finished_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

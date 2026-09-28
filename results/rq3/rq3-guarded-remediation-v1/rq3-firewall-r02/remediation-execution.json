@@ -1,0 +1,137 @@
+{
+  "apply_results": [
+    {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-fw1",
+        "nft",
+        "insert",
+        "rule",
+        "inet",
+        "filter",
+        "forward",
+        "ip",
+        "saddr",
+        "10.10.10.10",
+        "ip",
+        "daddr",
+        "10.20.20.10",
+        "tcp",
+        "dport",
+        "443",
+        "counter",
+        "accept",
+        "comment",
+        "\"kansoku assessment-8b99cbdbb639\""
+      ],
+      "command": "nft insert rule inet filter forward ip saddr 10.10.10.10 ip daddr 10.20.20.10 tcp dport 443 counter accept comment \"kansoku assessment-8b99cbdbb639\"",
+      "duration_ms": 30.122199037577957,
+      "finished_at": "2026-09-16T22:36:03.181445+00:00",
+      "returncode": 0,
+      "started_at": "2026-09-16T22:36:03.151317+00:00",
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "approved_by": "rq3-operator",
+  "assessment_id": "assessment-8b99cbdbb639",
+  "category": "FIREWALL_POLICY",
+  "device_id": "fw1",
+  "environment": "virtual-lab",
+  "error": "",
+  "execution_id": "remediation-f5be4e35b1da",
+  "finished_at": "2026-09-16T22:36:11.675870+00:00",
+  "lab_name": "kansoku-v100",
+  "metadata": {
+    "execution_boundary": "containerlab virtual lab only",
+    "rollback_after_verify": true,
+    "runtime": "docker",
+    "runtime_nft_handle": "8",
+    "verify_url": "http://10.20.20.10:443/"
+  },
+  "readback": {
+    "argv": [
+      "docker",
+      "exec",
+      "clab-kansoku-v100-fw1",
+      "nft",
+      "-j",
+      "list",
+      "ruleset"
+    ],
+    "read_only": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\"nftables\": [{\"metainfo\": {\"version\": \"1.0.9\", \"release_name\": \"Old Doc Yak #3\", \"json_schema_version\": 1}}, {\"table\": {\"family\": \"inet\", \"name\": \"filter\", \"handle\": 712}}, {\"chain\": {\"family\": \"inet\", \"table\": \"filter\", \"name\": \"forward\", \"handle\": 1, \"type\": \"filter\", \"hook\": \"forward\", \"prio\": 0, \"policy\": \"drop\"}}, {\"rule\": {\"family\": \"inet\", \"table\": \"filter\", \"chain\": \"forward\", \"handle\": 8, \"comment\": \"kansoku assessment-8b99cbdbb639\", \"expr\": [{\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"saddr\"}}, \"right\": \"10.10.10.10\"}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"daddr\"}}, \"right\": \"10.20.20.10\"}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"tcp\", \"field\": \"dport\"}}, \"right\": 443}}, {\"counter\": {\"packets\": 0, \"bytes\": 0}}, {\"accept\": null}]}}, {\"rule\": {\"family\": \"inet\", \"table\": \"filter\", \"chain\": \"forward\", \"handle\": 7, \"comment\": \"kansoku rq3 injected deny\", \"expr\": [{\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"saddr\"}}, \"right\": {\"prefix\": {\"addr\": \"10.10.10.0\", \"len\": 24}}}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"daddr\"}}, \"right\": \"10.20.20.10\"}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"tcp\", \"field\": \"dport\"}}, \"right\": 443}}, {\"counter\": {\"packets\": 4, \"bytes\": 240}}, {\"drop\": null}]}}, {\"rule\": {\"family\": \"inet\", \"table\": \"filter\", \"chain\": \"forward\", \"handle\": 2, \"comment\": \"allow established\", \"expr\": [{\"match\": {\"op\": \"in\", \"left\": {\"ct\": {\"key\": \"state\"}}, \"right\": [\"established\", \"related\"]}}, {\"counter\": {\"packets\": 168285, \"bytes\": 1304006374}}, {\"accept\": null}]}}, {\"rule\": {\"family\": \"inet\", \"table\": \"filter\", \"chain\": \"forward\", \"handle\": 3, \"comment\": \"allow client ping\", \"expr\": [{\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"saddr\"}}, \"right\": {\"prefix\": {\"addr\": \"10.10.10.0\", \"len\": 24}}}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"daddr\"}}, \"right\": \"10.20.20.10\"}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"icmp\", \"field\": \"type\"}}, \"right\": \"echo-request\"}}, {\"counter\": {\"packets\": 0, \"bytes\": 0}}, {\"accept\": null}]}}, {\"rule\": {\"family\": \"inet\", \"table\": \"filter\", \"chain\": \"forward\", \"handle\": 4, \"comment\": \"allow client HTTP test\", \"expr\": [{\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"saddr\"}}, \"right\": {\"prefix\": {\"addr\": \"10.10.10.0\", \"len\": 24}}}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"daddr\"}}, \"right\": \"10.20.20.10\"}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"tcp\", \"field\": \"dport\"}}, \"right\": 443}}, {\"counter\": {\"packets\": 1, \"bytes\": 60}}, {\"accept\": null}]}}, {\"rule\": {\"family\": \"inet\", \"table\": \"filter\", \"chain\": \"forward\", \"handle\": 5, \"comment\": \"allow client iperf3\", \"expr\": [{\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"saddr\"}}, \"right\": {\"prefix\": {\"addr\": \"10.10.10.0\", \"len\": 24}}}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"ip\", \"field\": \"daddr\"}}, \"right\": \"10.20.20.10\"}}, {\"match\": {\"op\": \"==\", \"left\": {\"payload\": {\"protocol\": \"tcp\", \"field\": \"dport\"}}, \"right\": 5201}}, {\"counter\": {\"packets\": 4, \"bytes\": 240}}, {\"accept\": null}]}}, {\"rule\": {\"family\": \"inet\", \"table\": \"filter\", \"chain\": \"forward\", \"handle\": 6, \"comment\": \"default deny\", \"expr\": [{\"counter\": {\"packets\": 4, \"bytes\": 240}}, {\"drop\": null}]}}]}\n"
+  },
+  "recommendation_id": "recommendation-79922a04b67e",
+  "rollback_results": [
+    {
+      "argv": [
+        "docker",
+        "exec",
+        "clab-kansoku-v100-fw1",
+        "nft",
+        "delete",
+        "rule",
+        "inet",
+        "filter",
+        "forward",
+        "handle",
+        "8"
+      ],
+      "command": "nft delete rule inet filter forward handle 8",
+      "duration_ms": 46.13776900805533,
+      "finished_at": "2026-09-16T22:36:06.462238+00:00",
+      "returncode": 0,
+      "started_at": "2026-09-16T22:36:06.416098+00:00",
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "rollback_verification": {
+    "argv": [
+      "docker",
+      "exec",
+      "clab-kansoku-v100-client-a",
+      "curl",
+      "-fsS",
+      "--connect-timeout",
+      "2",
+      "--max-time",
+      "5",
+      "http://10.20.20.10:443/"
+    ],
+    "duration_ms": 2038.6627310072072,
+    "expected_success": false,
+    "observed_success": false,
+    "passed": true,
+    "returncode": 28,
+    "stderr": "curl: (28) Failed to connect to 10.20.20.10 port 443 after 2002 ms: Timeout was reached\n",
+    "stdout": ""
+  },
+  "started_at": "2026-09-16T22:36:03.151038+00:00",
+  "status": "ROLLED_BACK",
+  "verification": {
+    "argv": [
+      "docker",
+      "exec",
+      "clab-kansoku-v100-client-a",
+      "curl",
+      "-fsS",
+      "--connect-timeout",
+      "2",
+      "--max-time",
+      "5",
+      "http://10.20.20.10:443/"
+    ],
+    "duration_ms": 34.233345999382436,
+    "expected_success": true,
+    "observed_success": true,
+    "passed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "KANSOKU v0.10.0 virtual lab\n"
+  }
+}

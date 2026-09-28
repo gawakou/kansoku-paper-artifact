@@ -1,0 +1,191 @@
+record_count = 60
+instance_count = 20
+
+==========================================================================================
+### route-blackhole-host
+==========================================================================================
+
+route-blackhole-host-v01  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-blackhole-host-v02  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-blackhole-host-v03  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-blackhole-host-v04  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-blackhole-host-v05  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+==========================================================================================
+### route-wrong-interface
+==========================================================================================
+
+route-wrong-interface-v01  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-wrong-interface-v02  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-wrong-interface-v03  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-wrong-interface-v04  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+route-wrong-interface-v05  GT=UNROUTABLE/ROUTE/r1/ROUTE
+  FLOW_ONLY    actual=UNKNOWN/UNKNOWN/UNKNOWN/UNKNOWN ref=unknown abstain=True verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+==========================================================================================
+### vlan-access-only-drift
+==========================================================================================
+
+vlan-access-only-drift-v01  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-access-only-drift-v02  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-access-only-drift-v03  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-access-only-drift-v04  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-access-only-drift-v05  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+==========================================================================================
+### vlan-trunk-only-drift
+==========================================================================================
+
+vlan-trunk-only-drift-v01  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-trunk-only-drift-v02  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-trunk-only-drift-v03  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-trunk-only-drift-v04  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+vlan-trunk-only-drift-v05  GT=UNKNOWN/VLAN/sw1/VLAN
+  FLOW_ONLY    actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  CONFIG_ONLY  actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+  PROPOSED     actual=ALLOW/NONE/<EMPTY>/NONE ref=none abstain=False verdict_ok=False domain_ok=False loc_ok=False strict=False
+
+==========================================================================================
+PROTOTYPE-LEVEL OUTPUT DISTRIBUTIONS
+==========================================================================================
+
+### route-blackhole-host
+  FLOW_ONLY
+    5/5: verdict=UNKNOWN domain=UNKNOWN device=UNKNOWN element=UNKNOWN abstain=True
+  CONFIG_ONLY
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+  PROPOSED
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+
+### route-wrong-interface
+  FLOW_ONLY
+    5/5: verdict=UNKNOWN domain=UNKNOWN device=UNKNOWN element=UNKNOWN abstain=True
+  CONFIG_ONLY
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+  PROPOSED
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+
+### vlan-access-only-drift
+  FLOW_ONLY
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+  CONFIG_ONLY
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+  PROPOSED
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+
+### vlan-trunk-only-drift
+  FLOW_ONLY
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+  CONFIG_ONLY
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+  PROPOSED
+    5/5: verdict=ALLOW domain=NONE device=<EMPTY> element=NONE abstain=False
+
+==========================================================================================
+BOUNDARY VERDICT CONFUSION
+==========================================================================================
+
+FLOW_ONLY  abstained=10/20
+  UNKNOWN      -> ALLOW       : 10
+  UNROUTABLE   -> UNKNOWN     : 10
+
+CONFIG_ONLY  abstained=0/20
+  UNKNOWN      -> ALLOW       : 10
+  UNROUTABLE   -> ALLOW       : 10
+
+PROPOSED  abstained=0/20
+  UNKNOWN      -> ALLOW       : 10
+  UNROUTABLE   -> ALLOW       : 10
+
+==========================================================================================
+BOUNDARY FAULT-DOMAIN CONFUSION
+==========================================================================================
+
+FLOW_ONLY
+  ROUTE        -> UNKNOWN     : 10
+  VLAN         -> NONE        : 10
+
+CONFIG_ONLY
+  ROUTE        -> NONE        : 10
+  VLAN         -> NONE        : 10
+
+PROPOSED
+  ROUTE        -> NONE        : 10
+  VLAN         -> NONE        : 10
+
+==========================================================================================
+OUTPUT
+==========================================================================================
+artifacts/paper/phase2-boundary-audit-v1/boundary-primary-records.csv

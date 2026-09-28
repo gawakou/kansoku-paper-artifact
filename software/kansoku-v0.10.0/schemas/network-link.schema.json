@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU L2Link",
+  "type": "object",
+  "required": ["link_id", "device_a", "interface_a", "device_b", "interface_b", "status", "discovery"],
+  "properties": {
+    "link_id": {"type": "string"},
+    "device_a": {"type": "string"},
+    "interface_a": {"type": "string"},
+    "device_b": {"type": "string"},
+    "interface_b": {"type": "string"},
+    "status": {"type": "string"},
+    "discovery": {"type": "string"}
+  }
+}

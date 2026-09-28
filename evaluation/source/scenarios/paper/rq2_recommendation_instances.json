@@ -1,0 +1,178 @@
+{
+  "accuracy_unit": "parameterized recommendation instance",
+  "instance_count": 15,
+  "instances": {
+    "rq2-firewall-v01": {
+      "family": "FIREWALL",
+      "recommendation_inputs": {
+        "policy_device_id": "fw1"
+      },
+      "source_instance": "firewall-deny-v01",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-firewall-v02": {
+      "family": "FIREWALL",
+      "recommendation_inputs": {
+        "policy_device_id": "fw1"
+      },
+      "source_instance": "firewall-deny-v02",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-firewall-v03": {
+      "family": "FIREWALL",
+      "recommendation_inputs": {
+        "policy_device_id": "fw1"
+      },
+      "source_instance": "firewall-deny-v03",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-firewall-v04": {
+      "family": "FIREWALL",
+      "recommendation_inputs": {
+        "policy_device_id": "fw1"
+      },
+      "source_instance": "firewall-deny-v04",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-firewall-v05": {
+      "family": "FIREWALL",
+      "recommendation_inputs": {
+        "policy_device_id": "fw1"
+      },
+      "source_instance": "firewall-deny-v05",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-route-v01": {
+      "family": "ROUTE",
+      "recommendation_inputs": {
+        "destination_prefix": "10.20.20.0/24",
+        "next_hop": "172.16.1.2",
+        "out_interface": "eth2",
+        "route_device_id": "r1"
+      },
+      "source_instance": "route-missing-v01",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-route-v02": {
+      "family": "ROUTE",
+      "recommendation_inputs": {
+        "destination_prefix": "10.20.20.0/24",
+        "next_hop": "172.16.1.2",
+        "out_interface": "eth2",
+        "route_device_id": "r1"
+      },
+      "source_instance": "route-missing-v02",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-route-v03": {
+      "family": "ROUTE",
+      "recommendation_inputs": {
+        "destination_prefix": "10.20.20.0/24",
+        "next_hop": "172.16.1.2",
+        "out_interface": "eth2",
+        "route_device_id": "r1"
+      },
+      "source_instance": "route-missing-v03",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-route-v04": {
+      "family": "ROUTE",
+      "recommendation_inputs": {
+        "destination_prefix": "10.20.20.0/24",
+        "next_hop": "172.16.1.2",
+        "out_interface": "eth2",
+        "route_device_id": "r1"
+      },
+      "source_instance": "route-missing-v04",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-route-v05": {
+      "family": "ROUTE",
+      "recommendation_inputs": {
+        "destination_prefix": "10.20.20.0/24",
+        "next_hop": "172.16.1.2",
+        "out_interface": "eth2",
+        "route_device_id": "r1"
+      },
+      "source_instance": "route-missing-v05",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-vlan-v01": {
+      "family": "VLAN",
+      "recommendation_inputs": {
+        "access_interface": "eth1",
+        "trunk_interface": "eth2",
+        "vlan_device_id": "sw1"
+      },
+      "source_instance": "vlan-mismatch-v01",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-vlan-v02": {
+      "family": "VLAN",
+      "recommendation_inputs": {
+        "access_interface": "eth1",
+        "trunk_interface": "eth2",
+        "vlan_device_id": "sw1"
+      },
+      "source_instance": "vlan-mismatch-v02",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-vlan-v03": {
+      "family": "VLAN",
+      "recommendation_inputs": {
+        "access_interface": "eth1",
+        "trunk_interface": "eth2",
+        "vlan_device_id": "sw1"
+      },
+      "source_instance": "vlan-mismatch-v03",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-vlan-v04": {
+      "family": "VLAN",
+      "recommendation_inputs": {
+        "access_interface": "eth1",
+        "trunk_interface": "eth2",
+        "vlan_device_id": "sw1"
+      },
+      "source_instance": "vlan-mismatch-v04",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    },
+    "rq2-vlan-v05": {
+      "family": "VLAN",
+      "recommendation_inputs": {
+        "access_interface": "eth1",
+        "trunk_interface": "eth2",
+        "vlan_device_id": "sw1"
+      },
+      "source_instance": "vlan-mismatch-v05",
+      "source_repetition": 1,
+      "source_root": "artifacts/paper/phase2-parameterized"
+    }
+  },
+  "phase": "RQ2 recommendation and evidence evaluation",
+  "schema_version": 1,
+  "selection_basis": "Conditional downstream evaluation using frozen Phase-2 rep-01 instances for which the PROPOSED diagnosis was strict-correct and the diagnosed fault category is actionable in KANSOKU v0.10.0.",
+  "source_data_frozen_before_rq2": true,
+  "source_phase2": {
+    "preregistration_commit": "588f536570a4efac43a3d96c93a5088c29736826",
+    "raw_snapshot": "full-300-pre-evaluation",
+    "raw_snapshot_manifest_sha256": "881fbe3aa9580de37dd8681eb626b127daf1d9fb55002b738edc4376060c7cad",
+    "runner_commit": "e1c0e757229c7eea490ec5e3850b149273890788",
+    "source_repetition": 1
+  },
+  "source_repetition": 1
+}

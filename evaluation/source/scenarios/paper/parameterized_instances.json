@@ -1,0 +1,986 @@
+{
+  "design": {
+    "accuracy_unit": "parameterized instance",
+    "deterministic_repetitions_are_not_independent_accuracy_samples": true,
+    "ground_truth_must_not_be_available_to_diagnosers": true,
+    "instance_count": 60,
+    "planned_execution_count": 300,
+    "planned_repetitions_per_instance": 5,
+    "prototypes": 12,
+    "trial_isolation": "Each trial starts from reset_network plus explicit Phase-2 overlay cleanup and ends with the same cleanup before the next instance.",
+    "variants_per_prototype": 5
+  },
+  "instances": {
+    "firewall-deny-v01": {
+      "family": "FIREWALL",
+      "parameters": {
+        "deny_dst_ip": "10.20.20.10"
+      },
+      "prototype_id": "firewall-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-deny-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-deny-v02": {
+      "family": "FIREWALL",
+      "parameters": {
+        "deny_dst_ip": "10.20.20.11"
+      },
+      "prototype_id": "firewall-deny",
+      "target": {
+        "dst_ip": "10.20.20.11",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-deny-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-deny-v03": {
+      "family": "FIREWALL",
+      "parameters": {
+        "deny_dst_ip": "10.20.20.12"
+      },
+      "prototype_id": "firewall-deny",
+      "target": {
+        "dst_ip": "10.20.20.12",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-deny-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-deny-v04": {
+      "family": "FIREWALL",
+      "parameters": {
+        "deny_dst_ip": "10.20.20.13"
+      },
+      "prototype_id": "firewall-deny",
+      "target": {
+        "dst_ip": "10.20.20.13",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-deny-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-deny-v05": {
+      "family": "FIREWALL",
+      "parameters": {
+        "deny_dst_ip": "10.20.20.14"
+      },
+      "prototype_id": "firewall-deny",
+      "target": {
+        "dst_ip": "10.20.20.14",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-deny-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-port-range-deny-v01": {
+      "family": "FIREWALL",
+      "parameters": {
+        "destination_port_range": "440-445"
+      },
+      "prototype_id": "firewall-port-range-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-port-range-deny-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-port-range-deny-v02": {
+      "family": "FIREWALL",
+      "parameters": {
+        "destination_port_range": "442-444"
+      },
+      "prototype_id": "firewall-port-range-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-port-range-deny-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-port-range-deny-v03": {
+      "family": "FIREWALL",
+      "parameters": {
+        "destination_port_range": "400-500"
+      },
+      "prototype_id": "firewall-port-range-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-port-range-deny-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-port-range-deny-v04": {
+      "family": "FIREWALL",
+      "parameters": {
+        "destination_port_range": "443-450"
+      },
+      "prototype_id": "firewall-port-range-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-port-range-deny-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-port-range-deny-v05": {
+      "family": "FIREWALL",
+      "parameters": {
+        "destination_port_range": "430-443"
+      },
+      "prototype_id": "firewall-port-range-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-port-range-deny-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-rule-order-v01": {
+      "family": "FIREWALL",
+      "parameters": {
+        "shadowing_destination_prefix": "10.20.20.0/24"
+      },
+      "prototype_id": "firewall-rule-order",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-rule-order-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-rule-order-v02": {
+      "family": "FIREWALL",
+      "parameters": {
+        "shadowing_destination_prefix": "10.20.20.0/25"
+      },
+      "prototype_id": "firewall-rule-order",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-rule-order-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-rule-order-v03": {
+      "family": "FIREWALL",
+      "parameters": {
+        "shadowing_destination_prefix": "10.20.20.0/26"
+      },
+      "prototype_id": "firewall-rule-order",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-rule-order-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-rule-order-v04": {
+      "family": "FIREWALL",
+      "parameters": {
+        "shadowing_destination_prefix": "10.20.20.0/27"
+      },
+      "prototype_id": "firewall-rule-order",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-rule-order-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-rule-order-v05": {
+      "family": "FIREWALL",
+      "parameters": {
+        "shadowing_destination_prefix": "10.20.20.0/28"
+      },
+      "prototype_id": "firewall-rule-order",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-rule-order-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-subnet-deny-v01": {
+      "family": "FIREWALL",
+      "parameters": {
+        "source_subnet": "10.10.10.0/24"
+      },
+      "prototype_id": "firewall-subnet-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-subnet-deny-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-subnet-deny-v02": {
+      "family": "FIREWALL",
+      "parameters": {
+        "source_subnet": "10.10.10.0/25"
+      },
+      "prototype_id": "firewall-subnet-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-subnet-deny-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-subnet-deny-v03": {
+      "family": "FIREWALL",
+      "parameters": {
+        "source_subnet": "10.10.10.0/26"
+      },
+      "prototype_id": "firewall-subnet-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-subnet-deny-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-subnet-deny-v04": {
+      "family": "FIREWALL",
+      "parameters": {
+        "source_subnet": "10.10.10.0/27"
+      },
+      "prototype_id": "firewall-subnet-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-subnet-deny-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "firewall-subnet-deny-v05": {
+      "family": "FIREWALL",
+      "parameters": {
+        "source_subnet": "10.10.10.8/29"
+      },
+      "prototype_id": "firewall-subnet-deny",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-firewall-subnet-deny-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "normal-v01": {
+      "family": "CONTROL",
+      "parameters": {
+        "target_alias": "10.20.20.10"
+      },
+      "prototype_id": "normal",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-normal-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "normal-v02": {
+      "family": "CONTROL",
+      "parameters": {
+        "target_alias": "10.20.20.11"
+      },
+      "prototype_id": "normal",
+      "target": {
+        "dst_ip": "10.20.20.11",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-normal-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "normal-v03": {
+      "family": "CONTROL",
+      "parameters": {
+        "target_alias": "10.20.20.12"
+      },
+      "prototype_id": "normal",
+      "target": {
+        "dst_ip": "10.20.20.12",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-normal-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "normal-v04": {
+      "family": "CONTROL",
+      "parameters": {
+        "target_alias": "10.20.20.13"
+      },
+      "prototype_id": "normal",
+      "target": {
+        "dst_ip": "10.20.20.13",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-normal-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "normal-v05": {
+      "family": "CONTROL",
+      "parameters": {
+        "target_alias": "10.20.20.14"
+      },
+      "prototype_id": "normal",
+      "target": {
+        "dst_ip": "10.20.20.14",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-normal-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-blackhole-host-v01": {
+      "family": "ROUTE",
+      "parameters": {
+        "blackhole_prefix": "10.20.20.0/25"
+      },
+      "prototype_id": "route-blackhole-host",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-blackhole-host-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-blackhole-host-v02": {
+      "family": "ROUTE",
+      "parameters": {
+        "blackhole_prefix": "10.20.20.0/26"
+      },
+      "prototype_id": "route-blackhole-host",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-blackhole-host-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-blackhole-host-v03": {
+      "family": "ROUTE",
+      "parameters": {
+        "blackhole_prefix": "10.20.20.0/27"
+      },
+      "prototype_id": "route-blackhole-host",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-blackhole-host-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-blackhole-host-v04": {
+      "family": "ROUTE",
+      "parameters": {
+        "blackhole_prefix": "10.20.20.0/28"
+      },
+      "prototype_id": "route-blackhole-host",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-blackhole-host-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-blackhole-host-v05": {
+      "family": "ROUTE",
+      "parameters": {
+        "blackhole_prefix": "10.20.20.10/32"
+      },
+      "prototype_id": "route-blackhole-host",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-blackhole-host-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-missing-v01": {
+      "family": "ROUTE",
+      "parameters": {
+        "removed_prefix": "10.20.20.0/24",
+        "target_alias": "10.20.20.10"
+      },
+      "prototype_id": "route-missing",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-missing-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-missing-v02": {
+      "family": "ROUTE",
+      "parameters": {
+        "removed_prefix": "10.20.20.0/24",
+        "target_alias": "10.20.20.11"
+      },
+      "prototype_id": "route-missing",
+      "target": {
+        "dst_ip": "10.20.20.11",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-missing-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-missing-v03": {
+      "family": "ROUTE",
+      "parameters": {
+        "removed_prefix": "10.20.20.0/24",
+        "target_alias": "10.20.20.12"
+      },
+      "prototype_id": "route-missing",
+      "target": {
+        "dst_ip": "10.20.20.12",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-missing-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-missing-v04": {
+      "family": "ROUTE",
+      "parameters": {
+        "removed_prefix": "10.20.20.0/24",
+        "target_alias": "10.20.20.13"
+      },
+      "prototype_id": "route-missing",
+      "target": {
+        "dst_ip": "10.20.20.13",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-missing-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-missing-v05": {
+      "family": "ROUTE",
+      "parameters": {
+        "removed_prefix": "10.20.20.0/24",
+        "target_alias": "10.20.20.14"
+      },
+      "prototype_id": "route-missing",
+      "target": {
+        "dst_ip": "10.20.20.14",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-missing-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-unreachable-next-hop-v01": {
+      "family": "ROUTE",
+      "parameters": {
+        "unreachable_next_hop": "172.16.1.250"
+      },
+      "prototype_id": "route-unreachable-next-hop",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-unreachable-next-hop-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-unreachable-next-hop-v02": {
+      "family": "ROUTE",
+      "parameters": {
+        "unreachable_next_hop": "172.16.1.251"
+      },
+      "prototype_id": "route-unreachable-next-hop",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-unreachable-next-hop-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-unreachable-next-hop-v03": {
+      "family": "ROUTE",
+      "parameters": {
+        "unreachable_next_hop": "172.16.1.252"
+      },
+      "prototype_id": "route-unreachable-next-hop",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-unreachable-next-hop-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-unreachable-next-hop-v04": {
+      "family": "ROUTE",
+      "parameters": {
+        "unreachable_next_hop": "172.16.1.253"
+      },
+      "prototype_id": "route-unreachable-next-hop",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-unreachable-next-hop-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-unreachable-next-hop-v05": {
+      "family": "ROUTE",
+      "parameters": {
+        "unreachable_next_hop": "172.16.1.254"
+      },
+      "prototype_id": "route-unreachable-next-hop",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-unreachable-next-hop-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-wrong-interface-v01": {
+      "family": "ROUTE",
+      "parameters": {
+        "route_prefix": "10.20.20.0/25",
+        "wrong_interface": "eth1"
+      },
+      "prototype_id": "route-wrong-interface",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-wrong-interface-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-wrong-interface-v02": {
+      "family": "ROUTE",
+      "parameters": {
+        "route_prefix": "10.20.20.0/26",
+        "wrong_interface": "eth1"
+      },
+      "prototype_id": "route-wrong-interface",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-wrong-interface-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-wrong-interface-v03": {
+      "family": "ROUTE",
+      "parameters": {
+        "route_prefix": "10.20.20.0/27",
+        "wrong_interface": "eth1"
+      },
+      "prototype_id": "route-wrong-interface",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-wrong-interface-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-wrong-interface-v04": {
+      "family": "ROUTE",
+      "parameters": {
+        "route_prefix": "10.20.20.0/28",
+        "wrong_interface": "eth1"
+      },
+      "prototype_id": "route-wrong-interface",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-wrong-interface-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "route-wrong-interface-v05": {
+      "family": "ROUTE",
+      "parameters": {
+        "route_prefix": "10.20.20.10/32",
+        "wrong_interface": "eth1"
+      },
+      "prototype_id": "route-wrong-interface",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-route-wrong-interface-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-access-only-drift-v01": {
+      "family": "VLAN",
+      "parameters": {
+        "access_drift_vlan": 20
+      },
+      "prototype_id": "vlan-access-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-access-only-drift-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-access-only-drift-v02": {
+      "family": "VLAN",
+      "parameters": {
+        "access_drift_vlan": 30
+      },
+      "prototype_id": "vlan-access-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-access-only-drift-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-access-only-drift-v03": {
+      "family": "VLAN",
+      "parameters": {
+        "access_drift_vlan": 40
+      },
+      "prototype_id": "vlan-access-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-access-only-drift-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-access-only-drift-v04": {
+      "family": "VLAN",
+      "parameters": {
+        "access_drift_vlan": 50
+      },
+      "prototype_id": "vlan-access-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-access-only-drift-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-access-only-drift-v05": {
+      "family": "VLAN",
+      "parameters": {
+        "access_drift_vlan": 100
+      },
+      "prototype_id": "vlan-access-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-access-only-drift-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-mismatch-v01": {
+      "family": "VLAN",
+      "parameters": {
+        "drift_vlan": 20
+      },
+      "prototype_id": "vlan-mismatch",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-mismatch-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-mismatch-v02": {
+      "family": "VLAN",
+      "parameters": {
+        "drift_vlan": 30
+      },
+      "prototype_id": "vlan-mismatch",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-mismatch-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-mismatch-v03": {
+      "family": "VLAN",
+      "parameters": {
+        "drift_vlan": 40
+      },
+      "prototype_id": "vlan-mismatch",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-mismatch-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-mismatch-v04": {
+      "family": "VLAN",
+      "parameters": {
+        "drift_vlan": 50
+      },
+      "prototype_id": "vlan-mismatch",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-mismatch-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-mismatch-v05": {
+      "family": "VLAN",
+      "parameters": {
+        "drift_vlan": 100
+      },
+      "prototype_id": "vlan-mismatch",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-mismatch-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-trunk-only-drift-v01": {
+      "family": "VLAN",
+      "parameters": {
+        "trunk_drift_vlan": 20
+      },
+      "prototype_id": "vlan-trunk-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-trunk-only-drift-v01",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-trunk-only-drift-v02": {
+      "family": "VLAN",
+      "parameters": {
+        "trunk_drift_vlan": 30
+      },
+      "prototype_id": "vlan-trunk-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-trunk-only-drift-v02",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-trunk-only-drift-v03": {
+      "family": "VLAN",
+      "parameters": {
+        "trunk_drift_vlan": 40
+      },
+      "prototype_id": "vlan-trunk-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-trunk-only-drift-v03",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-trunk-only-drift-v04": {
+      "family": "VLAN",
+      "parameters": {
+        "trunk_drift_vlan": 50
+      },
+      "prototype_id": "vlan-trunk-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-trunk-only-drift-v04",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    },
+    "vlan-trunk-only-drift-v05": {
+      "family": "VLAN",
+      "parameters": {
+        "trunk_drift_vlan": 100
+      },
+      "prototype_id": "vlan-trunk-only-drift",
+      "target": {
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "ip_version": 4,
+        "protocol": "TCP",
+        "query_id": "phase2-vlan-trunk-only-drift-v05",
+        "src_ip": "10.10.10.10",
+        "src_port": null
+      }
+    }
+  },
+  "schema_version": 1
+}

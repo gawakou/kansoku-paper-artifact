@@ -1,0 +1,63 @@
+{
+  "candidate_count": 3,
+  "evidence_graph_summary": {
+    "evidence_coverage": 1.0,
+    "node_ids": [
+      "assessment:assessment-ac2054f1ef25",
+      "device:fw1",
+      "device:r1",
+      "device:sw1",
+      "flow:flowev-ccf9619f1a224cd1",
+      "gap:route",
+      "policy:rule-ae79d7b7516f",
+      "vlan:sw1:10"
+    ],
+    "node_types": [
+      "ASSESSMENT",
+      "DEVICE",
+      "EVIDENCE_GAP",
+      "FLOW",
+      "POLICY_RULE",
+      "VLAN"
+    ],
+    "relations": [
+      "ASSESSES",
+      "LOCATED_ON",
+      "MATCHED_BY",
+      "MISSING",
+      "TAGGED_WITH"
+    ]
+  },
+  "frozen_proposed_diagnosis": {
+    "fault_domain": "ROUTE",
+    "verdict": "UNROUTABLE"
+  },
+  "matched_flow_count": 1,
+  "reconstructed_diagnosis": {
+    "fault_domain": "ROUTE",
+    "policy_status": "ALLOW",
+    "route_status": "NO_ROUTE",
+    "verdict": "UNROUTABLE",
+    "vlan_status": "KNOWN"
+  },
+  "schema_version": 1,
+  "source_query_id": "q-b60ad46eeb4bfea7d8bc",
+  "top1": {
+    "category": "ROUTE",
+    "device_id": "r1",
+    "rank": 1,
+    "ranking_components": {
+      "blast_radius_safety": 0.98,
+      "change_simplicity": 1.0,
+      "evidence_coverage": 1.0,
+      "repair_probability": 0.88,
+      "reversibility": 1.0,
+      "security_safety": 0.68
+    },
+    "risk_level": "medium",
+    "score": 0.929,
+    "simulated_verdict": "ALLOW",
+    "simulation_status": "PASSED",
+    "variant": "host-route"
+  }
+}

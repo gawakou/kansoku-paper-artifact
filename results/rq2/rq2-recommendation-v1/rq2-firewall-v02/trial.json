@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-16T05:01:23.890375+00:00",
+  "family": "FIREWALL",
+  "ground_truth_consumed_by_runner": false,
+  "phase": "RQ2 recommendation evaluation",
+  "rq2_instance_id": "rq2-firewall-v02",
+  "rq2_preregistration_commit": "1cba03a3dfb8d655319053e5e99e33fd4fdda712",
+  "runner_commit": "0cc6033ef981a41f8f8d2e99210872e365d57f14",
+  "schema_version": 1,
+  "source_file_sha256": {
+    "checksums": "07b4da97be8b8a26945b17e6a001635c26d8395d575ab531e820dc8e4fff1647",
+    "config": "55df112bcb1763fba692af022d46543cada5296bd2541d0440c093f6289cf1ff",
+    "diagnostics": "22562c2c5045a30211c134a8b3e4a0a87b221ba83a75f84331974e1594b25dc2",
+    "flow": "337ed7042930c74e7daa1b8a5e39680bcb01ead2fb14bc2914eb5c065744a8b1",
+    "target": "2251f966fd1004931e41716ac3b20c14a8a40deddd799608b10b61aaee08c68f",
+    "trial": "391f8bf59ed51c9c62af4222fc0aa7fb84618ecbf366836b105ce440df594c97"
+  },
+  "source_instance": "firewall-deny-v02",
+  "source_phase2_execution_commit": "e1c0e757229c7eea490ec5e3850b149273890788",
+  "source_phase2_preregistration_commit": "588f536570a4efac43a3d96c93a5088c29736826",
+  "source_query_id": "q-0eccb39420b22422bdf0",
+  "source_repetition": 1,
+  "source_view_checksums": {
+    "config_view_sha256": "4c8edbac70f7f0f72939846bfe605d83e6b04a4e783001cb418b74ecee973b54",
+    "flow_view_sha256": "8b7709420f0d54072aefb4f44cf668f08e2de71eb24f0990cd7d07483ec8c1aa",
+    "target_sha256": "31c42514a6e5bab5d92ce1b09b41fabab8a6131d88f9578dceda23fea73038cb"
+  }
+}

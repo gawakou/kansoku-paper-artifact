@@ -1,0 +1,41 @@
+{
+  "assessments": [
+    {
+      "assessment_id": "assessment-ea447d28583c",
+      "capture_id": "capture-32ac9dafb2ee",
+      "evidence": {
+        "destination": "10.20.20.10",
+        "in_interface": "",
+        "out_interface": "eth2",
+        "policy_device": "fw1",
+        "policy_snapshot": "snapshot-14ad0ae37028",
+        "protocol": "TCP",
+        "route_device": "r1",
+        "route_snapshot": "snapshot-5d94e99a27aa",
+        "vlan_device": "sw1",
+        "vlan_snapshot": "snapshot-bec23d9415b9",
+        "vrf": "default"
+      },
+      "flow_id": "flow-77eed294f447",
+      "ingress_device_id": "fw1",
+      "matched_rule_id": "rule-203b0c609f21",
+      "policy_status": "DENY",
+      "reason": "flow matches denying rule rule-203b0c609f21",
+      "route_id": "route-0f48aee6a007",
+      "route_status": "FOUND",
+      "target": "rq3-target",
+      "timestamp": "2026-09-16T22:35:21.367332+00:00",
+      "verdict": "DENY",
+      "vlan_status": "KNOWN"
+    }
+  ],
+  "summary": {
+    "flows": 1,
+    "policy_device": "fw1",
+    "route_device": "r1",
+    "verdicts": {
+      "DENY": 1
+    },
+    "vlan_device": "sw1"
+  }
+}

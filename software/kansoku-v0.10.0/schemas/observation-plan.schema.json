@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU ObservationPlan",
+  "type": "object",
+  "required": ["target", "interval_sec", "mode", "reason", "plan_id", "updated_at"],
+  "properties": {
+    "target": {"type": "string", "minLength": 1},
+    "interval_sec": {"type": "integer", "minimum": 1},
+    "mode": {"type": "string", "enum": ["normal", "intensive"]},
+    "reason": {"type": "string"},
+    "source_proposal_id": {"type": ["string", "null"]},
+    "plan_id": {"type": "string"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

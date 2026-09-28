@@ -1,0 +1,28 @@
+{
+  "instance_count": 60,
+  "methods": {
+    "CONFIG_ONLY": {
+      "raw_output_stability_rate": 0.6666666666666666,
+      "raw_output_stable_instances": 40,
+      "semantic_output_stability_rate": 1.0,
+      "semantic_output_stable_instances": 60,
+      "semantic_unstable_instances": []
+    },
+    "FLOW_ONLY": {
+      "raw_output_stability_rate": 1.0,
+      "raw_output_stable_instances": 60,
+      "semantic_output_stability_rate": 1.0,
+      "semantic_output_stable_instances": 60,
+      "semantic_unstable_instances": []
+    },
+    "PROPOSED": {
+      "raw_output_stability_rate": 0.6666666666666666,
+      "raw_output_stable_instances": 40,
+      "semantic_output_stability_rate": 1.0,
+      "semantic_output_stable_instances": 60,
+      "semantic_unstable_instances": []
+    }
+  },
+  "repetitions_per_instance": 5,
+  "schema_version": 1
+}

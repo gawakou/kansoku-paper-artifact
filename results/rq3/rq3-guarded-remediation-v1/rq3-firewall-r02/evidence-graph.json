@@ -1,0 +1,311 @@
+{
+  "assessment_id": "assessment-8b99cbdbb639",
+  "edges": [
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-33d3737da805",
+      "relation": "ASSESSES",
+      "source_node_id": "assessment:assessment-8b99cbdbb639",
+      "target_node_id": "flow:flow-78cb242fd0d7"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-82ff20b00a6c",
+      "relation": "ROUTED_BY",
+      "source_node_id": "flow:flow-78cb242fd0d7",
+      "target_node_id": "route:route-2b0545ba2a7a"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-370767d46b36",
+      "relation": "LOCATED_ON",
+      "source_node_id": "route:route-2b0545ba2a7a",
+      "target_node_id": "device:r1"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-05c5021fd108",
+      "relation": "MATCHED_BY",
+      "source_node_id": "flow:flow-78cb242fd0d7",
+      "target_node_id": "policy:rule-d2bb3ede9f2a"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-fcf351ece4e8",
+      "relation": "LOCATED_ON",
+      "source_node_id": "policy:rule-d2bb3ede9f2a",
+      "target_node_id": "device:fw1"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-11da943e64a3",
+      "relation": "TAGGED_WITH",
+      "source_node_id": "flow:flow-78cb242fd0d7",
+      "target_node_id": "vlan:sw1:10"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-06f12d67a12f",
+      "relation": "LOCATED_ON",
+      "source_node_id": "vlan:sw1:10",
+      "target_node_id": "device:sw1"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-429fe41bcc0f",
+      "relation": "EXITS_VIA",
+      "source_node_id": "flow:flow-78cb242fd0d7",
+      "target_node_id": "interface:sw1:eth2"
+    },
+    {
+      "attributes": {},
+      "confidence": 1.0,
+      "edge_id": "evidence-edge-a3d62bedd40f",
+      "relation": "LOCATED_ON",
+      "source_node_id": "interface:sw1:eth2",
+      "target_node_id": "device:sw1"
+    }
+  ],
+  "flow_id": "flow-78cb242fd0d7",
+  "generated_at": "2026-09-16T22:36:03.118295+00:00",
+  "graph_id": "evidence-graph-83ed8d709044",
+  "metadata": {
+    "evidence_coverage": 1.0,
+    "expected_evidence_slots": 5,
+    "observed_evidence_slots": 5,
+    "source_devices": {
+      "policy_device": "fw1",
+      "route_device": "r1",
+      "vlan_device": "sw1"
+    },
+    "verdict": "DENY"
+  },
+  "nodes": [
+    {
+      "attributes": {
+        "capture_id": "capture-4346617ccb76",
+        "captured_bytes": 156,
+        "dst_ip": "10.20.20.10",
+        "dst_port": 443,
+        "first_seen": "2026-09-16T22:35:56.039833+00:00",
+        "flow_id": "flow-78cb242fd0d7",
+        "ip_version": 4,
+        "last_seen": "2026-09-16T22:35:57.059552+00:00",
+        "metadata": {},
+        "packets": 2,
+        "protocol": "TCP",
+        "source": "containerlab",
+        "src_ip": "10.10.10.10",
+        "src_port": 39850,
+        "target": "rq3-target",
+        "tcp_flags": {
+          "ack": 0,
+          "cwr": 0,
+          "ece": 0,
+          "fin": 0,
+          "psh": 0,
+          "rst": 0,
+          "syn": 2,
+          "urg": 0
+        },
+        "vlan_id": 10,
+        "wire_bytes": 156
+      },
+      "confidence": 1.0,
+      "label": "TCP 10.10.10.10:39850 → 10.20.20.10:443",
+      "node_id": "flow:flow-78cb242fd0d7",
+      "node_type": "FLOW",
+      "source_id": "flow-78cb242fd0d7"
+    },
+    {
+      "attributes": {
+        "assessment_id": "assessment-8b99cbdbb639",
+        "capture_id": "capture-4346617ccb76",
+        "evidence": {
+          "destination": "10.20.20.10",
+          "in_interface": "",
+          "out_interface": "eth2",
+          "policy_device": "fw1",
+          "policy_snapshot": "snapshot-cf9ef4fb26c1",
+          "protocol": "TCP",
+          "route_device": "r1",
+          "route_snapshot": "snapshot-0d5f8dea298f",
+          "vlan_device": "sw1",
+          "vlan_snapshot": "snapshot-0c4073b73fdf",
+          "vrf": "default"
+        },
+        "flow_id": "flow-78cb242fd0d7",
+        "ingress_device_id": "fw1",
+        "matched_rule_id": "rule-d2bb3ede9f2a",
+        "policy_status": "DENY",
+        "reason": "flow matches denying rule rule-d2bb3ede9f2a",
+        "route_id": "route-2b0545ba2a7a",
+        "route_status": "FOUND",
+        "target": "rq3-target",
+        "timestamp": "2026-09-16T22:36:03.079076+00:00",
+        "verdict": "DENY",
+        "vlan_status": "KNOWN"
+      },
+      "confidence": 1.0,
+      "label": "DENY: flow matches denying rule rule-d2bb3ede9f2a",
+      "node_id": "assessment:assessment-8b99cbdbb639",
+      "node_type": "ASSESSMENT",
+      "source_id": "assessment-8b99cbdbb639"
+    },
+    {
+      "attributes": {
+        "roles": [
+          "route"
+        ]
+      },
+      "confidence": 1.0,
+      "label": "r1",
+      "node_id": "device:r1",
+      "node_type": "DEVICE",
+      "source_id": "r1"
+    },
+    {
+      "attributes": {
+        "roles": [
+          "policy"
+        ]
+      },
+      "confidence": 1.0,
+      "label": "fw1",
+      "node_id": "device:fw1",
+      "node_type": "DEVICE",
+      "source_id": "fw1"
+    },
+    {
+      "attributes": {
+        "roles": [
+          "vlan"
+        ]
+      },
+      "confidence": 1.0,
+      "label": "sw1",
+      "node_id": "device:sw1",
+      "node_type": "DEVICE",
+      "source_id": "sw1"
+    },
+    {
+      "attributes": {
+        "address_family": "ipv4",
+        "device_id": "r1",
+        "distance": 1,
+        "installed": true,
+        "interface": "eth2",
+        "metadata": {
+          "active": true,
+          "tag": null
+        },
+        "metric": 0,
+        "next_hop": "172.16.1.2",
+        "observed_at": "2026-09-16T22:36:02.166311+00:00",
+        "prefix": "10.20.20.0/24",
+        "protocol": "static",
+        "route_id": "route-2b0545ba2a7a",
+        "selected": true,
+        "vrf": "default"
+      },
+      "confidence": 1.0,
+      "label": "10.20.20.0/24 via 172.16.1.2",
+      "node_id": "route:route-2b0545ba2a7a",
+      "node_type": "ROUTE",
+      "source_id": "route-2b0545ba2a7a"
+    },
+    {
+      "attributes": {
+        "action": "DENY",
+        "chain": "forward",
+        "comment": "kansoku rq3 injected deny",
+        "counters": {
+          "bytes": 240,
+          "packets": 4
+        },
+        "device_id": "fw1",
+        "dst_network": "10.20.20.10",
+        "dst_port": "443",
+        "family": "inet",
+        "in_interface": "",
+        "metadata": {
+          "chain_hook": "forward",
+          "chain_policy": "drop",
+          "chain_sequence": 1,
+          "raw_handle": 7
+        },
+        "observed_at": "2026-09-16T22:36:02.667065+00:00",
+        "out_interface": "",
+        "policy_type": "firewall",
+        "priority": 1,
+        "protocol": "TCP",
+        "rule_id": "rule-d2bb3ede9f2a",
+        "src_network": "10.10.10.0/24",
+        "src_port": null,
+        "state": [],
+        "table": "filter"
+      },
+      "confidence": 1.0,
+      "label": "DENY TCP 10.10.10.0/24 → 10.20.20.10",
+      "node_id": "policy:rule-d2bb3ede9f2a",
+      "node_type": "POLICY_RULE",
+      "source_id": "rule-d2bb3ede9f2a"
+    },
+    {
+      "attributes": {
+        "device_id": "sw1",
+        "interfaces": [
+          "eth1",
+          "eth2"
+        ],
+        "metadata": {},
+        "name": "VLAN 10",
+        "observed_at": "2026-09-16T22:36:02.415157+00:00",
+        "record_id": "vlan-6108875978b9",
+        "vlan_id": 10
+      },
+      "confidence": 1.0,
+      "label": "VLAN 10",
+      "node_id": "vlan:sw1:10",
+      "node_type": "VLAN",
+      "source_id": "vlan-6108875978b9"
+    },
+    {
+      "attributes": {
+        "access_vlan": null,
+        "addresses": [],
+        "admin_up": true,
+        "bridge": "",
+        "device_id": "sw1",
+        "interface_id": "if-a93110c2f957",
+        "kind": "virtual",
+        "mac_address": "",
+        "metadata": {
+          "ovs_table": "Port"
+        },
+        "mtu": 1500,
+        "name": "eth2",
+        "observed_at": "2026-09-16T22:36:02.415157+00:00",
+        "oper_up": true,
+        "trunk_vlans": [
+          10
+        ],
+        "vlan_mode": "trunk",
+        "vrf": "default"
+      },
+      "confidence": 1.0,
+      "label": "sw1:eth2",
+      "node_id": "interface:sw1:eth2",
+      "node_type": "INTERFACE",
+      "source_id": "if-a93110c2f957"
+    }
+  ]
+}

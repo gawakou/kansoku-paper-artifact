@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-16T05:01:24.664339+00:00",
+  "family": "ROUTE",
+  "ground_truth_consumed_by_runner": false,
+  "phase": "RQ2 recommendation evaluation",
+  "rq2_instance_id": "rq2-route-v02",
+  "rq2_preregistration_commit": "1cba03a3dfb8d655319053e5e99e33fd4fdda712",
+  "runner_commit": "0cc6033ef981a41f8f8d2e99210872e365d57f14",
+  "schema_version": 1,
+  "source_file_sha256": {
+    "checksums": "00a4e96a65704a2c5f4086548509b830716bb88806aec9f87a7e909a1fbf69f0",
+    "config": "3965c64df6954c8fdf4aa4eed2a82e96e16b13dbf57ba88fc3095a597bd4c1af",
+    "diagnostics": "867bb5b09e464f8e58812e4d09b15011e04dcfdbf73e5f6f09222b62f0d4396b",
+    "flow": "7278612b59d3e6ba2a1cdad4411fc5d7e98c641ebf1fe88088a0ee0836b13c13",
+    "target": "acdd4b5b41903601079255b98f24b9b6f011e3dcbb1d197b0cf78fda13630917",
+    "trial": "efe3e6502ca7d22eb66c3332ee70d61309dfd91a7a00c319d8c29bcde1eae283"
+  },
+  "source_instance": "route-missing-v02",
+  "source_phase2_execution_commit": "e1c0e757229c7eea490ec5e3850b149273890788",
+  "source_phase2_preregistration_commit": "588f536570a4efac43a3d96c93a5088c29736826",
+  "source_query_id": "q-b60ad46eeb4bfea7d8bc",
+  "source_repetition": 1,
+  "source_view_checksums": {
+    "config_view_sha256": "3ffd487f7aa8b4c10ff183cd09cfa0c9b786d2f3a12ba509dcae7cd25aa88a0c",
+    "flow_view_sha256": "88776842a601cc88456ab83c430daeb0caeea6104e398b11b04843eef72837d4",
+    "target_sha256": "9c07413debcd389d704370488eafd2b214345eff17a50a766a3f374f59e6a975"
+  }
+}

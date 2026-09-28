@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-16T05:01:25.398605+00:00",
+  "family": "VLAN",
+  "ground_truth_consumed_by_runner": false,
+  "phase": "RQ2 recommendation evaluation",
+  "rq2_instance_id": "rq2-vlan-v04",
+  "rq2_preregistration_commit": "1cba03a3dfb8d655319053e5e99e33fd4fdda712",
+  "runner_commit": "0cc6033ef981a41f8f8d2e99210872e365d57f14",
+  "schema_version": 1,
+  "source_file_sha256": {
+    "checksums": "dc171499e8da8536a48c1047434b13742f164219b261d0a2268f45200be5904a",
+    "config": "4bf2dbfcdc01911ba798a15575072034f9db1b2b30311a8a7f8db57b0561ae32",
+    "diagnostics": "8039108ba87acb73652fe65370bc9de6d786c69f7c558910f5dadcb3041f9b78",
+    "flow": "edf9612498008365d4bbdfd58dde7f3957b3e91c1819079c0d34ba9609648119",
+    "target": "2cf45419f9de8692a567976abda360878b643f03d6037de0ad128501c430c83a",
+    "trial": "c9b07a72114b40e4ef2833c60cb7f1cbe5314b9de63ebd8d7aa94006559fc527"
+  },
+  "source_instance": "vlan-mismatch-v04",
+  "source_phase2_execution_commit": "e1c0e757229c7eea490ec5e3850b149273890788",
+  "source_phase2_preregistration_commit": "588f536570a4efac43a3d96c93a5088c29736826",
+  "source_query_id": "q-e1fdd79550b63a391ec1",
+  "source_repetition": 1,
+  "source_view_checksums": {
+    "config_view_sha256": "cf8367a6acde71baae992ab1fbae4e4ac33cedfdd0cd30efcc863ce2d614ef5c",
+    "flow_view_sha256": "1df659b4279b9ab7aabbb61a190f08dfead64354954e75aae9c036156cd353d6",
+    "target_sha256": "8ef3d4cff654d5c4cb2d23cbc141f851818d9e51b7fb113b93465caa98865d11"
+  }
+}

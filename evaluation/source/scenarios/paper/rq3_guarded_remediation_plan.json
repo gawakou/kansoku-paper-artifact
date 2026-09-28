@@ -1,0 +1,228 @@
+{
+  "approval_semantics": {
+    "approval_requires_what_if_passed_allow": true,
+    "automatic_execution_without_approval": false,
+    "environment_restricted_to_virtual_lab": true,
+    "purpose": "Evaluate enforcement of an explicit approval boundary, not human decision quality."
+  },
+  "execution_count": 15,
+  "execution_protocol": [
+    "restore canonical baseline",
+    "start and verify TCP/8443 security-invariant service",
+    "verify healthy baseline probes",
+    "inject exactly one preregistered fault",
+    "verify target-flow failure and preregistered controls",
+    "collect live FRRouting, Open vSwitch, and nftables state",
+    "capture and correlate target-flow evidence",
+    "construct Evidence Graph",
+    "generate and rank remediation candidates",
+    "select rank-1 candidate without consulting ground truth",
+    "require model-based what-if PASSED with simulated verdict ALLOW",
+    "record explicit approval event",
+    "execute bounded remediation in containerlab",
+    "verify target recovery",
+    "verify independent control-flow preservation",
+    "verify security invariant remains denied",
+    "verify family-specific control where applicable",
+    "rollback the applied change",
+    "verify target fault restoration",
+    "verify controls and security invariant after rollback",
+    "restore canonical healthy baseline"
+  ],
+  "executions": {
+    "rq3-firewall-r01": {
+      "family": "FIREWALL",
+      "repetition": 1
+    },
+    "rq3-firewall-r02": {
+      "family": "FIREWALL",
+      "repetition": 2
+    },
+    "rq3-firewall-r03": {
+      "family": "FIREWALL",
+      "repetition": 3
+    },
+    "rq3-firewall-r04": {
+      "family": "FIREWALL",
+      "repetition": 4
+    },
+    "rq3-firewall-r05": {
+      "family": "FIREWALL",
+      "repetition": 5
+    },
+    "rq3-route-r01": {
+      "family": "ROUTE",
+      "repetition": 1
+    },
+    "rq3-route-r02": {
+      "family": "ROUTE",
+      "repetition": 2
+    },
+    "rq3-route-r03": {
+      "family": "ROUTE",
+      "repetition": 3
+    },
+    "rq3-route-r04": {
+      "family": "ROUTE",
+      "repetition": 4
+    },
+    "rq3-route-r05": {
+      "family": "ROUTE",
+      "repetition": 5
+    },
+    "rq3-vlan-r01": {
+      "family": "VLAN",
+      "repetition": 1
+    },
+    "rq3-vlan-r02": {
+      "family": "VLAN",
+      "repetition": 2
+    },
+    "rq3-vlan-r03": {
+      "family": "VLAN",
+      "repetition": 3
+    },
+    "rq3-vlan-r04": {
+      "family": "VLAN",
+      "repetition": 4
+    },
+    "rq3-vlan-r05": {
+      "family": "VLAN",
+      "repetition": 5
+    }
+  },
+  "families": {
+    "FIREWALL": {
+      "capture_timing": "after_fault_injection",
+      "fault_injection": {
+        "chain": "forward",
+        "device": "fw1",
+        "dst_network": "10.20.20.10/32",
+        "dst_port": 443,
+        "protocol": "TCP",
+        "src_network": "10.10.10.0/24",
+        "table": "filter",
+        "table_family": "inet",
+        "type": "NFT_INSERT_DENY"
+      },
+      "fault_scenario": "firewall-deny",
+      "fault_script": "lab/scripts/scenarios/firewall-deny.sh",
+      "recommendation_inputs": {
+        "policy_device_id": "fw1"
+      },
+      "same_path_control_required": true
+    },
+    "ROUTE": {
+      "capture_timing": "after_fault_injection",
+      "fault_injection": {
+        "device": "r1",
+        "next_hop": "172.16.1.2",
+        "prefix": "10.20.20.0/24",
+        "type": "REMOVE_STATIC_ROUTE"
+      },
+      "fault_scenario": "route-missing",
+      "fault_script": "lab/scripts/scenarios/route-missing.sh",
+      "recommendation_inputs": {
+        "destination_prefix": "10.20.20.0/24",
+        "next_hop": "172.16.1.2",
+        "out_interface": "eth2",
+        "route_device_id": "r1"
+      },
+      "same_path_control_required": false
+    },
+    "VLAN": {
+      "capture_timing": "before_fault_injection",
+      "fault_injection": {
+        "access_interface": "eth1",
+        "access_vlan": 30,
+        "device": "sw1",
+        "trunk_interface": "eth2",
+        "trunk_vlan": 30,
+        "type": "VLAN_ACCESS_TRUNK_DRIFT"
+      },
+      "fault_scenario": "vlan-mismatch",
+      "fault_script": "lab/scripts/scenarios/vlan-mismatch.sh",
+      "recommendation_inputs": {
+        "access_interface": "eth1",
+        "trunk_interface": "eth2",
+        "vlan_device_id": "sw1"
+      },
+      "same_path_control_required": false
+    }
+  },
+  "fault_family_count": 3,
+  "independence_statement": "The five repeated executions per fault family are reliability and timing repetitions, not independent fault samples.",
+  "lab": {
+    "environment": "virtual-lab",
+    "firewall_same_path_control": {
+      "application": "iperf3",
+      "applies_to_family": "FIREWALL",
+      "client": "client-a",
+      "destination_ip": "10.20.20.10",
+      "destination_port": 5201,
+      "expected_reachability": true,
+      "protocol": "TCP",
+      "server": "server-a"
+    },
+    "independent_control": {
+      "destination_ip": "10.20.20.1",
+      "probe": "ICMP echo",
+      "purpose": "Detect collateral disruption outside the repaired client-to-server path.",
+      "source": "server-a"
+    },
+    "name": "kansoku-v100",
+    "security_invariant": {
+      "client": "client-a",
+      "destination_ip": "10.20.20.10",
+      "destination_port": 8443,
+      "expected_client_reachability": false,
+      "protocol": "TCP",
+      "purpose": "Verify that remediation of TCP/443 does not broaden authorization to an otherwise prohibited service.",
+      "server": "server-a",
+      "service_must_be_listening": true
+    },
+    "target": {
+      "client": "client-a",
+      "destination_ip": "10.20.20.10",
+      "destination_port": 443,
+      "protocol": "TCP",
+      "server": "server-a",
+      "url": "http://10.20.20.10:443/"
+    },
+    "topology": "lab/containerlab/kansoku.clab.yml"
+  },
+  "phase": "RQ3 guarded remediation evaluation",
+  "primary_metrics": [
+    "eligible_top1_rate",
+    "apply_success_rate",
+    "target_recovery_rate",
+    "independent_control_preservation_rate",
+    "security_invariant_preservation_rate",
+    "rollback_success_rate",
+    "fault_restoration_rate",
+    "what_if_actual_agreement_rate",
+    "final_baseline_restoration_rate"
+  ],
+  "repair_context_semantics": {
+    "interpretation": "Route next-hop/interface and VLAN access/trunk interface parameters are fixed operational repair constraints. They are not inferred from RQ3 ground truth and RQ3 does not evaluate autonomous discovery of these parameters.",
+    "relationship_to_rq2": "RQ3 evaluates guarded execution and observed outcomes of the recommendation process already evaluated in RQ2.",
+    "source": "preregistered operator-supplied remediation context"
+  },
+  "repetitions_per_family": 5,
+  "runner_constraints": {
+    "approval_actor": "rq3-operator",
+    "environment": "virtual-lab",
+    "expected_outcomes_must_not_be_read": true,
+    "ground_truth_file_must_not_be_read": true,
+    "rollback_after_verify": true
+  },
+  "schema_version": 1,
+  "secondary_metrics": [
+    "firewall_same_path_control_preservation_rate",
+    "apply_duration_ms",
+    "post_change_verification_duration_ms",
+    "rollback_duration_ms",
+    "post_rollback_verification_duration_ms",
+    "total_guarded_remediation_duration_ms"
+  ]
+}

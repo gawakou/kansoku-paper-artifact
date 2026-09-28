@@ -1,0 +1,513 @@
+{
+  "ranked": [
+    {
+      "assessment_id": "assessment-a6b19d9e9f61",
+      "category": "FIREWALL_POLICY",
+      "components": {
+        "blast_radius_safety": 0.98,
+        "change_simplicity": 1.0,
+        "evidence_coverage": 1.0,
+        "repair_probability": 0.9,
+        "reversibility": 0.55,
+        "security_safety": 0.5800000000000001
+      },
+      "explanation": [
+        "model repair probability=0.900",
+        "evidence coverage=1.000",
+        "rollback reversibility=0.550",
+        "blast-radius safety=0.980",
+        "security safety=0.580",
+        "change simplicity=1.000",
+        "unresolved command placeholders reduce actionability"
+      ],
+      "rank": 1,
+      "recommendation": {
+        "assessment_id": "assessment-a6b19d9e9f61",
+        "capture_id": "capture-772b294b023d",
+        "category": "FIREWALL_POLICY",
+        "commands": [
+          "nft insert rule inet filter forward ip saddr 10.10.10.10 ip daddr 10.20.20.10 tcp dport 443 counter accept comment \"kansoku assessment-a6b19d9e9f61\""
+        ],
+        "confidence": 0.9,
+        "current_state": {
+          "assessment": {
+            "assessment_id": "assessment-a6b19d9e9f61",
+            "capture_id": "capture-772b294b023d",
+            "evidence": {
+              "destination": "10.20.20.10",
+              "in_interface": "",
+              "out_interface": "eth2",
+              "policy_device": "fw1",
+              "policy_snapshot": "snapshot-8e4b0ac9845e",
+              "protocol": "TCP",
+              "route_device": "r1",
+              "route_snapshot": "snapshot-82a00fd18376",
+              "vlan_device": "sw1",
+              "vlan_snapshot": "snapshot-5f9f435ccec4",
+              "vrf": "default"
+            },
+            "flow_id": "flow-160fb56d8f03",
+            "ingress_device_id": "fw1",
+            "matched_rule_id": "rule-8e2805b9b43c",
+            "policy_status": "DENY",
+            "reason": "flow matches denying rule rule-8e2805b9b43c",
+            "route_id": "route-ea746e496db2",
+            "route_status": "FOUND",
+            "target": "rq3-target",
+            "timestamp": "2026-09-16T22:38:08.075061+00:00",
+            "verdict": "DENY",
+            "vlan_status": "KNOWN"
+          },
+          "flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 38186,
+            "vlan_id": 10
+          },
+          "matched_rule": {
+            "action": "DENY",
+            "chain": "forward",
+            "comment": "kansoku rq3 injected deny",
+            "counters": {
+              "bytes": 240,
+              "packets": 4
+            },
+            "device_id": "fw1",
+            "dst_network": "10.20.20.10",
+            "dst_port": "443",
+            "family": "inet",
+            "in_interface": "",
+            "metadata": {
+              "chain_hook": "forward",
+              "chain_policy": "drop",
+              "chain_sequence": 1,
+              "raw_handle": 7
+            },
+            "observed_at": "2026-09-16T22:38:07.669981+00:00",
+            "out_interface": "",
+            "policy_type": "firewall",
+            "priority": 1,
+            "protocol": "TCP",
+            "rule_id": "rule-8e2805b9b43c",
+            "src_network": "10.10.10.0/24",
+            "src_port": null,
+            "state": [],
+            "table": "filter"
+          }
+        },
+        "desired_state": {
+          "expected_verdict": "ALLOW",
+          "rule": {
+            "action": "ALLOW",
+            "chain": "forward",
+            "comment": "KANSOKU narrow exception candidate",
+            "counters": {},
+            "device_id": "fw1",
+            "dst_network": "10.20.20.10/32",
+            "dst_port": "443",
+            "family": "inet",
+            "in_interface": "",
+            "metadata": {},
+            "observed_at": "2026-09-16T22:38:08.126050+00:00",
+            "out_interface": "",
+            "policy_type": "firewall",
+            "priority": 0,
+            "protocol": "TCP",
+            "rule_id": "rule-185708ef7950",
+            "src_network": "10.10.10.10/32",
+            "src_port": null,
+            "state": [],
+            "table": "filter"
+          }
+        },
+        "device_id": "fw1",
+        "flow_id": "flow-160fb56d8f03",
+        "generated_at": "2026-09-16T22:38:08.126476+00:00",
+        "impact": {
+          "matched_flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 38186,
+            "vlan_id": 10
+          },
+          "requires_human_policy_confirmation": true,
+          "scope": "single observed source/destination/service tuple"
+        },
+        "intent": "ALLOW_OBSERVED_FLOW",
+        "metadata": {
+          "ranking": {
+            "components": {
+              "blast_radius_safety": 0.98,
+              "change_simplicity": 1.0,
+              "evidence_coverage": 1.0,
+              "repair_probability": 0.9,
+              "reversibility": 0.55,
+              "security_safety": 0.5800000000000001
+            },
+            "rank": 1,
+            "score": 0.8575,
+            "weights": {
+              "blast_radius_safety": 0.15,
+              "change_simplicity": 0.05,
+              "evidence_coverage": 0.25,
+              "repair_probability": 0.3,
+              "reversibility": 0.15,
+              "security_safety": 0.1
+            }
+          },
+          "requires_runtime_handle_capture": true,
+          "what_if": {
+            "after_reason": "route 10.20.20.0/24 and allowing rule rule-185708ef7950 match",
+            "after_verdict": "ALLOW",
+            "before_verdict": "DENY",
+            "category": "FIREWALL_POLICY"
+          }
+        },
+        "platform": "nftables",
+        "postconditions": [
+          "The target flow is observed across the firewall and completes successfully.",
+          "Unrelated denied traffic remains denied.",
+          "Firewall counters and system load remain within expected bounds."
+        ],
+        "preconditions": [
+          "Confirm that the source, destination, protocol, and service are authorized by policy.",
+          "Record the new nftables rule handle immediately after insertion.",
+          "Ensure an out-of-band management path is available."
+        ],
+        "rationale": "The observed flow was denied by rule-8e2805b9b43c. A host- and service-specific exception minimizes the change scope; an operator must confirm the communication intent.",
+        "recommendation_id": "recommendation-3c192802202b",
+        "risk_level": "medium",
+        "rollback_commands": [
+          "nft delete rule inet filter forward handle <new-rule-handle>"
+        ],
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED",
+        "status": "DRAFT",
+        "summary": "Insert a narrow allow rule before the denying rule for TCP 10.20.20.10:443.",
+        "target": "rq3-target"
+      },
+      "recommendation_id": "recommendation-3c192802202b",
+      "score": 0.8575
+    },
+    {
+      "assessment_id": "assessment-a6b19d9e9f61",
+      "category": "FIREWALL_POLICY",
+      "components": {
+        "blast_radius_safety": 0.98,
+        "change_simplicity": 1.0,
+        "evidence_coverage": 1.0,
+        "repair_probability": 0.72,
+        "reversibility": 0.55,
+        "security_safety": 0.15
+      },
+      "explanation": [
+        "model repair probability=0.720",
+        "evidence coverage=1.000",
+        "rollback reversibility=0.550",
+        "blast-radius safety=0.980",
+        "security safety=0.150",
+        "change simplicity=1.000",
+        "unresolved command placeholders reduce actionability"
+      ],
+      "rank": 2,
+      "recommendation": {
+        "assessment_id": "assessment-a6b19d9e9f61",
+        "capture_id": "capture-772b294b023d",
+        "category": "FIREWALL_POLICY",
+        "commands": [
+          "nft insert rule inet filter forward ip saddr 10.10.10.10 ip daddr 10.20.20.10 meta l4proto tcp counter accept comment \"kansoku assessment-a6b19d9e9f61\""
+        ],
+        "confidence": 0.72,
+        "current_state": {
+          "assessment": {
+            "assessment_id": "assessment-a6b19d9e9f61",
+            "capture_id": "capture-772b294b023d",
+            "evidence": {
+              "destination": "10.20.20.10",
+              "in_interface": "",
+              "out_interface": "eth2",
+              "policy_device": "fw1",
+              "policy_snapshot": "snapshot-8e4b0ac9845e",
+              "protocol": "TCP",
+              "route_device": "r1",
+              "route_snapshot": "snapshot-82a00fd18376",
+              "vlan_device": "sw1",
+              "vlan_snapshot": "snapshot-5f9f435ccec4",
+              "vrf": "default"
+            },
+            "flow_id": "flow-160fb56d8f03",
+            "ingress_device_id": "fw1",
+            "matched_rule_id": "rule-8e2805b9b43c",
+            "policy_status": "DENY",
+            "reason": "flow matches denying rule rule-8e2805b9b43c",
+            "route_id": "route-ea746e496db2",
+            "route_status": "FOUND",
+            "target": "rq3-target",
+            "timestamp": "2026-09-16T22:38:08.075061+00:00",
+            "verdict": "DENY",
+            "vlan_status": "KNOWN"
+          },
+          "flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 38186,
+            "vlan_id": 10
+          },
+          "matched_rule": {
+            "action": "DENY",
+            "chain": "forward",
+            "comment": "kansoku rq3 injected deny",
+            "counters": {
+              "bytes": 240,
+              "packets": 4
+            },
+            "device_id": "fw1",
+            "dst_network": "10.20.20.10",
+            "dst_port": "443",
+            "family": "inet",
+            "in_interface": "",
+            "metadata": {
+              "chain_hook": "forward",
+              "chain_policy": "drop",
+              "chain_sequence": 1,
+              "raw_handle": 7
+            },
+            "observed_at": "2026-09-16T22:38:07.669981+00:00",
+            "out_interface": "",
+            "policy_type": "firewall",
+            "priority": 1,
+            "protocol": "TCP",
+            "rule_id": "rule-8e2805b9b43c",
+            "src_network": "10.10.10.0/24",
+            "src_port": null,
+            "state": [],
+            "table": "filter"
+          }
+        },
+        "desired_state": {
+          "expected_verdict": "ALLOW",
+          "rule": {
+            "action": "ALLOW",
+            "chain": "forward",
+            "comment": "KANSOKU narrow exception candidate",
+            "counters": {},
+            "device_id": "fw1",
+            "dst_network": "10.20.20.10/32",
+            "dst_port": null,
+            "family": "inet",
+            "in_interface": "",
+            "metadata": {},
+            "observed_at": "2026-09-16T22:38:08.126050+00:00",
+            "out_interface": "",
+            "policy_type": "firewall",
+            "priority": 0,
+            "protocol": "TCP",
+            "rule_id": "rule-185708ef7950",
+            "src_network": "10.10.10.10/32",
+            "src_port": null,
+            "state": [],
+            "table": "filter"
+          }
+        },
+        "device_id": "fw1",
+        "flow_id": "flow-160fb56d8f03",
+        "generated_at": "2026-09-16T22:38:08.126476+00:00",
+        "impact": {
+          "broader_than_primary": true,
+          "matched_flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 38186,
+            "vlan_id": 10
+          },
+          "requires_human_policy_confirmation": true,
+          "scope": "single observed source/destination pair for all ports of the protocol"
+        },
+        "intent": "ALLOW_OBSERVED_FLOW",
+        "metadata": {
+          "candidate_variant": "host-pair-protocol",
+          "ranking": {
+            "components": {
+              "blast_radius_safety": 0.98,
+              "change_simplicity": 1.0,
+              "evidence_coverage": 1.0,
+              "repair_probability": 0.72,
+              "reversibility": 0.55,
+              "security_safety": 0.15
+            },
+            "rank": 2,
+            "score": 0.7605,
+            "weights": {
+              "blast_radius_safety": 0.15,
+              "change_simplicity": 0.05,
+              "evidence_coverage": 0.25,
+              "repair_probability": 0.3,
+              "reversibility": 0.15,
+              "security_safety": 0.1
+            }
+          },
+          "requires_runtime_handle_capture": true,
+          "simulation_model_limitation": "The what-if model confirms the observed flow only; the broader rule may allow additional services and therefore requires explicit security review.",
+          "what_if": {
+            "after_reason": "route 10.20.20.0/24 and allowing rule rule-185708ef7950 match",
+            "after_verdict": "ALLOW",
+            "before_verdict": "DENY",
+            "category": "FIREWALL_POLICY"
+          }
+        },
+        "platform": "nftables",
+        "postconditions": [
+          "The target flow is observed across the firewall and completes successfully.",
+          "Unrelated denied traffic remains denied.",
+          "Firewall counters and system load remain within expected bounds."
+        ],
+        "preconditions": [
+          "Confirm that the source, destination, protocol, and service are authorized by policy.",
+          "Record the new nftables rule handle immediately after insertion.",
+          "Ensure an out-of-band management path is available."
+        ],
+        "rationale": "This alternative may restore the flow when the service port is dynamic, but it has a larger security impact than the host-and-service-specific candidate.",
+        "recommendation_id": "recommendation-e1f5c8eb6cd9",
+        "risk_level": "high",
+        "rollback_commands": [
+          "nft delete rule inet filter forward handle <new-rule-handle>"
+        ],
+        "simulated_verdict": "ALLOW",
+        "simulation_status": "PASSED",
+        "status": "DRAFT",
+        "summary": "Allow the observed TCP host pair without restricting the destination service.",
+        "target": "rq3-target"
+      },
+      "recommendation_id": "recommendation-e1f5c8eb6cd9",
+      "score": 0.7605
+    },
+    {
+      "assessment_id": "assessment-a6b19d9e9f61",
+      "category": "MANUAL_REVIEW",
+      "components": {
+        "blast_radius_safety": 1.0,
+        "change_simplicity": 0.65,
+        "evidence_coverage": 1.0,
+        "repair_probability": 0.08000000000000002,
+        "reversibility": 1.0,
+        "security_safety": 0.95
+      },
+      "explanation": [
+        "model repair probability=0.080",
+        "evidence coverage=1.000",
+        "rollback reversibility=1.000",
+        "blast-radius safety=1.000",
+        "security safety=0.950",
+        "change simplicity=0.650"
+      ],
+      "rank": 3,
+      "recommendation": {
+        "assessment_id": "assessment-a6b19d9e9f61",
+        "capture_id": "capture-772b294b023d",
+        "category": "MANUAL_REVIEW",
+        "commands": [],
+        "confidence": 0.4,
+        "current_state": {
+          "assessment": {
+            "assessment_id": "assessment-a6b19d9e9f61",
+            "capture_id": "capture-772b294b023d",
+            "evidence": {
+              "destination": "10.20.20.10",
+              "in_interface": "",
+              "out_interface": "eth2",
+              "policy_device": "fw1",
+              "policy_snapshot": "snapshot-8e4b0ac9845e",
+              "protocol": "TCP",
+              "route_device": "r1",
+              "route_snapshot": "snapshot-82a00fd18376",
+              "vlan_device": "sw1",
+              "vlan_snapshot": "snapshot-5f9f435ccec4",
+              "vrf": "default"
+            },
+            "flow_id": "flow-160fb56d8f03",
+            "ingress_device_id": "fw1",
+            "matched_rule_id": "rule-8e2805b9b43c",
+            "policy_status": "DENY",
+            "reason": "flow matches denying rule rule-8e2805b9b43c",
+            "route_id": "route-ea746e496db2",
+            "route_status": "FOUND",
+            "target": "rq3-target",
+            "timestamp": "2026-09-16T22:38:08.075061+00:00",
+            "verdict": "DENY",
+            "vlan_status": "KNOWN"
+          },
+          "flow": {
+            "dst_ip": "10.20.20.10",
+            "dst_port": 443,
+            "protocol": "TCP",
+            "src_ip": "10.10.10.10",
+            "src_port": 38186,
+            "vlan_id": 10
+          }
+        },
+        "desired_state": {
+          "expected_verdict": "DETERMINATE"
+        },
+        "device_id": "fw1",
+        "flow_id": "flow-160fb56d8f03",
+        "generated_at": "2026-09-16T22:38:08.126820+00:00",
+        "impact": {
+          "scope": "observation only"
+        },
+        "intent": "COLLECT_ADDITIONAL_EVIDENCE",
+        "metadata": {
+          "alternative_to": [
+            "recommendation-3c192802202b",
+            "recommendation-e1f5c8eb6cd9"
+          ],
+          "candidate_variant": "observation-only",
+          "ranking": {
+            "components": {
+              "blast_radius_safety": 1.0,
+              "change_simplicity": 0.65,
+              "evidence_coverage": 1.0,
+              "repair_probability": 0.08000000000000002,
+              "reversibility": 1.0,
+              "security_safety": 0.95
+            },
+            "rank": 3,
+            "score": 0.7015,
+            "weights": {
+              "blast_radius_safety": 0.15,
+              "change_simplicity": 0.05,
+              "evidence_coverage": 0.25,
+              "repair_probability": 0.3,
+              "reversibility": 0.15,
+              "security_safety": 0.1
+            }
+          }
+        },
+        "platform": "vendor-neutral",
+        "postconditions": [
+          "A conclusive route, policy, or VLAN cause is identified."
+        ],
+        "preconditions": [],
+        "rationale": "The current assessment (DENY) does not map to a safely actionable configuration delta.",
+        "recommendation_id": "recommendation-01eccc186b7b",
+        "risk_level": "low",
+        "rollback_commands": [],
+        "simulated_verdict": "DENY",
+        "simulation_status": "NOT_RUN",
+        "status": "DRAFT",
+        "summary": "Collect additional route, policy, VLAN, and bidirectional flow evidence before proposing a configuration change.",
+        "target": "rq3-target"
+      },
+      "recommendation_id": "recommendation-01eccc186b7b",
+      "score": 0.7015
+    }
+  ],
+  "schema_version": 1
+}

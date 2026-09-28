@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU NetworkInterface",
+  "type": "object",
+  "required": ["interface_id", "device_id", "name", "admin_up", "oper_up", "mtu", "addresses"],
+  "properties": {
+    "interface_id": {"type": "string"}, "device_id": {"type": "string"}, "name": {"type": "string"},
+    "admin_up": {"type": "boolean"}, "oper_up": {"type": "boolean"}, "mtu": {"type": "integer", "minimum": 1},
+    "addresses": {"type": "array", "items": {"type": "string"}},
+    "access_vlan": {"type": ["integer", "null"]}, "trunk_vlans": {"type": "array", "items": {"type": "integer"}}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KANSOKU VerificationResult",
+  "type": "object",
+  "required": ["verification_id", "timestamp", "proposal_id", "action_result_id", "status", "reason", "checks"],
+  "properties": {
+    "verification_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "proposal_id": {"type": "string"},
+    "action_result_id": {"type": "string"},
+    "status": {"enum": ["PASSED", "FAILED", "INCONCLUSIVE", "SKIPPED"]},
+    "reason": {"type": "string"},
+    "checks": {"type": "array", "items": {"type": "object"}}
+  }
+}
