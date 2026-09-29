@@ -1,0 +1,82 @@
+{
+  "changed_domains": [
+    "vlans",
+    "interface_vlan"
+  ],
+  "interface_non_vlan": {
+    "added": [],
+    "removed": []
+  },
+  "interface_vlan": {
+    "added": [
+      [
+        "sw1",
+        "eth1",
+        "access",
+        30,
+        [],
+        ""
+      ],
+      [
+        "sw1",
+        "eth2",
+        "trunk",
+        null,
+        [
+          30
+        ],
+        ""
+      ]
+    ],
+    "removed": [
+      [
+        "sw1",
+        "eth1",
+        "access",
+        10,
+        [],
+        ""
+      ],
+      [
+        "sw1",
+        "eth2",
+        "trunk",
+        null,
+        [
+          10
+        ],
+        ""
+      ]
+    ]
+  },
+  "policies": {
+    "added": [],
+    "removed": []
+  },
+  "routes": {
+    "added": [],
+    "removed": []
+  },
+  "vlans": {
+    "added": [
+      [
+        "sw1",
+        30,
+        [
+          "eth1",
+          "eth2"
+        ]
+      ]
+    ],
+    "removed": [
+      [
+        "sw1",
+        10,
+        [
+          "eth1",
+          "eth2"
+        ]
+      ]
+    ]
+  }
+}

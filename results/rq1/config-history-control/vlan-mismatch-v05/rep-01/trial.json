@@ -1,0 +1,13 @@
+{
+  "completed_at": "2026-09-29T02:36:40.682417+00:00",
+  "control_id": "config-history-v1.1",
+  "execution_commit": "db600665e2012c99a5665cc35ca48c111cef2006",
+  "freeze_commit": "db600665e2012c99a5665cc35ca48c111cef2006",
+  "freeze_tag": "paper-config-history-control-v1.1-freeze",
+  "ground_truth_consumed_by_runner_or_diagnoser": false,
+  "instance_id": "vlan-mismatch-v05",
+  "method": "CONFIG_HISTORY_ONLY",
+  "packet_or_flow_input_used": false,
+  "repetition": 1,
+  "schema_version": 1
+}

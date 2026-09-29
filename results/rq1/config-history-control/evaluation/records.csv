@@ -1,0 +1,6 @@
+instance_id,repetition,verdict,fault_domain,affected_device,affected_element_type,abstained,verdict_correct,fault_domain_correct,strict_correct,affected_device_correct,affected_element_type_correct,diagnostics_sha256
+vlan-mismatch-v01,1,UNKNOWN,VLAN,sw1,VLAN,False,True,True,True,True,True,22cfa5ef481ce9fff4803f38a0616245f57600564ca7ab939e097607f7d7ebc2
+vlan-mismatch-v02,1,UNKNOWN,VLAN,sw1,VLAN,False,True,True,True,True,True,1523f5e8f3f63afea648cfa4da860f07eac04afa55dc23b587def075725cc9dd
+vlan-mismatch-v03,1,UNKNOWN,VLAN,sw1,VLAN,False,True,True,True,True,True,b1a2b4e0a34da1c8f02cde1f1a7942f4655a615ee9d8d7abff05a1ab1c155b2f
+vlan-mismatch-v04,1,UNKNOWN,VLAN,sw1,VLAN,False,True,True,True,True,True,48ca82b98f2214833157e2213484dcc1627593fd3ee3e61102f73bde53ab799a
+vlan-mismatch-v05,1,UNKNOWN,VLAN,sw1,VLAN,False,True,True,True,True,True,80ba21fc08bc021e52d025a9b13b3c5da8305f3a06b012c6e2f69c8da32494ca

@@ -1,0 +1,9 @@
+{
+  "dst_ip": "10.20.20.10",
+  "dst_port": 443,
+  "ip_version": 4,
+  "protocol": "TCP",
+  "query_id": "config-history-05",
+  "src_ip": "10.10.10.10",
+  "src_port": null
+}

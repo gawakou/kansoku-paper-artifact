@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "control_id": "config-history-v1",
+  "title": "Post-hoc configuration-history control for VLAN-mismatch RQ1 instances",
+  "status": "freeze-before-execution",
+  "purpose": "Test whether an equivalent pre-fault normalized configuration reference can recover the temporal signal that produced the five Proposed-only correct diagnoses in the VLAN-mismatch family.",
+  "source_plan": "scenarios/paper/parameterized_instances.json",
+  "instances": [
+    "vlan-mismatch-v01",
+    "vlan-mismatch-v02",
+    "vlan-mismatch-v03",
+    "vlan-mismatch-v04",
+    "vlan-mismatch-v05"
+  ],
+  "primary_repetition": 1,
+  "optional_stability_repetitions": [2, 3, 4, 5],
+  "diagnostic_input_contract": {
+    "target_communication_specification": true,
+    "pre_fault_normalized_configuration": true,
+    "post_fault_normalized_configuration": true,
+    "observed_packet_or_flow_evidence": false,
+    "ground_truth_manifest": false,
+    "fault_parameter_visible_to_diagnoser": false
+  },
+  "execution_contract": {
+    "runner_may_read_fault_parameter_only_to_inject_the_selected_vlan_drift": true,
+    "healthy_target_connectivity_must_be_verified_before_pre_fault_collection": true,
+    "fault_effect_must_be_verified_before_post_fault_collection": true,
+    "canonical_healthy_state_must_be_restored_and_verified_after_each_trial": true,
+    "raw_sqlite_databases_are_local_execution_artifacts": true,
+    "public_result_should_use_sanitized_json_views_and_minimized_deltas": true
+  },
+  "diagnostic_rule": {
+    "name": "CONFIG_HISTORY_ONLY",
+    "current_state_first": "Run the existing Configuration-only diagnosis on the post-fault normalized state. If it already returns a represented non-ALLOW cause, retain that result.",
+    "history_fallback": "When current-state diagnosis returns ALLOW/NONE, compare sanitized pre-fault and post-fault normalized configuration. If routes and firewall policies are unchanged, non-VLAN interface attributes are unchanged, and VLAN/interface-VLAN semantics changed on the configured VLAN device, return UNKNOWN/VLAN for that device. Otherwise abstain with UNKNOWN/UNKNOWN.",
+    "no_expected_vlan_label": true,
+    "no_ground_truth_access": true,
+    "scope_note": "This is a targeted temporal-reference control in the single-fault VLAN-mismatch laboratory, not a general historical-configuration diagnosis algorithm."
+  },
+  "primary_metrics": [
+    "strict correctness: verdict and fault domain",
+    "affected-device correctness",
+    "affected-element-type correctness"
+  ],
+  "interpretation_rule": {
+    "if_5_of_5_strict_correct": "Equivalent normalized configuration history can recover the temporal VLAN-drift signal in all five evaluated instances; the original RQ1 gain should be attributed to availability of a pre-fault temporal reference rather than unique information in flow evidence.",
+    "if_less_than_5_of_5_strict_correct": "The implemented configuration-history control does not fully recover the temporal signal; any residual advantage of Proposed must be described only for these evaluated instances and not generalized beyond the control design."
+  }
+}

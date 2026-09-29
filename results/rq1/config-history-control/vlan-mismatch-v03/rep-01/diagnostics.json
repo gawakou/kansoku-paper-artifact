@@ -1,0 +1,34 @@
+{
+  "query_id": "config-history-03",
+  "result": {
+    "abstained": false,
+    "affected_device": "sw1",
+    "affected_element_ref": "config-history:vlan-delta",
+    "affected_element_type": "VLAN",
+    "elapsed_ms": 0.261526,
+    "fault_domain": "VLAN",
+    "method": "CONFIG_HISTORY_ONLY",
+    "post_fault_config_only": {
+      "abstained": false,
+      "affected_device": "",
+      "affected_element_ref": "none",
+      "affected_element_type": "NONE",
+      "elapsed_ms": 0.100086,
+      "evidence_refs": [],
+      "fault_domain": "NONE",
+      "method": "CONFIG_ONLY",
+      "query_id": "config-history-03",
+      "reason": "route 10.20.20.0/24 and allowing rule rule-59bff2ef733d match",
+      "verdict": "ALLOW"
+    },
+    "query_id": "config-history-03",
+    "reason": "post-fault current-state model found no represented blocker, but sanitized pre/post configuration history contains an isolated VLAN/interface-VLAN delta",
+    "verdict": "UNKNOWN"
+  },
+  "view_checksums": {
+    "delta_sha256": "f90edca4d2d52d48deade69d651dc3175f39a88aa55f92d916b99c2995c27782",
+    "post_config_sha256": "4ba1ae89c2dd092fe0b4af4d432d549e24e98a9597d9cc79334d55ce1767ca56",
+    "pre_config_sha256": "fbe85b43f88bfbcf74247ec0ce0f1e7bff1b580d76c6cac8fb2e58a96afe237c",
+    "target_sha256": "df769e09416f78f82dd4865be91310ad983ef8762ff36d2a5456c35d094cbf2a"
+  }
+}

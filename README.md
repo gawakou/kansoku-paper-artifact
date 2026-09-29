@@ -26,11 +26,19 @@ Paper-specific evaluation material was assembled from:
 - `software/`: frozen KANSOKU v0.10.0 software baseline
 - `evaluation/source/`: paper-specific scenarios, runners, evaluators, and lab definitions
 - `results/rq1/`: formal RQ1 results and boundary audit
+  - `results/rq1/config-history-control/`: version-frozen post-hoc configuration-history control for the five VLAN-mismatch instances
 - `results/rq2/`: formal recommendation/ranking results
 - `results/rq3/`: formal guarded-remediation results
 - `results/audits/`: post-hoc integrity and reproducibility audits
 - `provenance/`: source and environment provenance
 - `checksums/`: SHA-256 checksums
+
+## Artifact versions
+
+- `paper-artifact-v1.0.0`: primary frozen paper artifact.
+- `paper-artifact-v1.1.0`: extends v1.0.0 with the targeted post-hoc
+  `CONFIG_HISTORY_ONLY` control and its minimized results. The original
+  formal RQ1/RQ2/RQ3 results are unchanged.
 
 ## Excluded data
 
